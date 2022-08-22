@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CMMS_22_111_0020", "http://localhost:55010", "{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55010"
+		Debug.AspNetCompiler.PhysicalPath = "CMMS_22_111_0020\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55010\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55010"
+		Release.AspNetCompiler.PhysicalPath = "CMMS_22_111_0020\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55010\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "CMMS_22_111_0020\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMMS", "CMMS\CMMS.csproj", "{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8132D644-5D4A-44A3-AED7-1574A5E517BB}
+	EndGlobalSection
+EndGlobal
