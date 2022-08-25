@@ -1,0 +1,19 @@
+﻿<Sql TableName="WOSetup" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOSetup">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="WONumberingID" type="NVarChar(10)"  />
+  <col name="EquipNumberingID" type="NVarChar(10)"  nullable="true" />
+  <col name="WORequestApproval" type="Bit" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="WOSetup_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

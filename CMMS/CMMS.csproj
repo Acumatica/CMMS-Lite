@@ -35,13 +35,26 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Common.dll</HintPath>
     </Reference>
+    <Reference Include="PX.Common.Std, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e" />
     <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PX.Data.BQL.Fluent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CMMS_22_111_0020\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+    </Reference>
     <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.AM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CMMS_22_111_0020\Bin\PX.Objects.AM.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CMMS_22_111_0020\Bin\PX.Objects.FS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,23 +66,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC\DBBacked\WOClass.cs" />
+    <Compile Include="DAC\DBBacked\WOEquipment.cs" />
+    <Compile Include="DAC\DBBacked\WOEquipmentBOM.cs" />
+    <Compile Include="DAC\DBBacked\WOEquipmentFM.cs" />
+    <Compile Include="DAC\DBBacked\WOFailureMode.cs" />
+    <Compile Include="DAC\DBBacked\WOLine.cs" />
+    <Compile Include="DAC\DBBacked\WOLineFailure.cs" />
+    <Compile Include="DAC\DBBacked\WOLineItem.cs" />
+    <Compile Include="DAC\DBBacked\WOLineLabor.cs" />
+    <Compile Include="DAC\DBBacked\WOLineMeasure.cs" />
+    <Compile Include="DAC\DBBacked\WOLineTool.cs" />
+    <Compile Include="DAC\DBBacked\WOMeasurement.cs" />
+    <Compile Include="DAC\DBBacked\WOOrder.cs" />
+    <Compile Include="DAC\DBBacked\WOSchedule.cs" />
+    <Compile Include="DAC\DBBacked\WOSetup.cs" />
+    <Compile Include="DAC\DBBacked\WOSetupApproval.cs" />
+    <Compile Include="Graph\Entry\WOOrderEntry.cs" />
+    <Compile Include="Graph\Entry\Workflow\WOOrderEntry_ApprovalWorkflow.cs" />
+    <Compile Include="Graph\Entry\Workflow\WOOrderEntry_Workflow.cs" />
+    <Compile Include="Graph\Maintenance\WOClassMaint.cs" />
+    <Compile Include="Graph\Maintenance\WOEquipmentMaint.cs" />
+    <Compile Include="Graph\Maintenance\WOFailureModeMaint.cs" />
+    <Compile Include="Graph\Maintenance\WOMeasurementMaint.cs" />
+    <Compile Include="Graph\Setup\WOSetupMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\StringReference\Messages.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomizationPlugin\" />
-    <Folder Include="DAC\DBBacked\" />
     <Folder Include="DAC\DerivedClasses\" />
     <Folder Include="DAC\Filters\" />
     <Folder Include="DAC\NonDBBacked\" />
     <Folder Include="DAC\PXProjections\" />
     <Folder Include="Extension\DAC\" />
     <Folder Include="Extension\Graph\" />
-    <Folder Include="Graph\Entry\" />
     <Folder Include="Graph\Inquiry\" />
-    <Folder Include="Graph\Maintenance\" />
     <Folder Include="Graph\Processing\" />
-    <Folder Include="Graph\Setup\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

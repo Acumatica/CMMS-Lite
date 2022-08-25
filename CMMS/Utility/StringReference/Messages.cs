@@ -1,0 +1,182 @@
+﻿using PX.Common;
+using PX.Data;
+using static CMMSlite.WO.LaborTypes;
+
+namespace CMMSlite.WO
+{
+    [PXLocalizable(Messages.Prefix)]
+    public static class Messages
+    {
+        public const string Prefix = "WO Error";
+
+        #region View Names
+        public const string ViewDocument = "Work Orders";
+        public const string ViewCurrentDocument = "Current Work Order";
+        public const string ViewTransactions = "Work Order Lines";
+        public const string ViewWOLineLabor = "WO Line Labor";
+        public const string ViewWOLineItems = "WO Line Items";
+        public const string ViewWOLineTools = "WO Line Tools";
+        public const string ViewWOLineMeasurements = "WO Line Measurements";
+        public const string ViewWOLineFailureModes = "WO Line Failure Modes";
+        public const string ViewApproval = "Approval";
+        public const string ViewMapping = "Mapping";
+        public const string ViewPreferences = "Preferences";
+        public const string ViewSetupApproval = "Setup Approval";
+        public const string ViewClasses = "Work Order Classes";
+        public const string ViewMeasurements = "Measurements";
+        public const string ViewFailureModes = "Failure Modes";
+        public const string ViewEquipment = "Equipment";
+        public const string ViewCurrentEquipment = "CurrentEquipment";
+        public const string ViewSchedules = "Schedules";
+        public const string ViewSWorkOrders = "Work Orders";
+        public const string ViewBOM = "EQuipment Components";
+        #endregion
+
+        #region DAC Names
+        public const string DACWOClass = "Work Order Class";
+        public const string DACWOEquipment = "Work Order Equipment";
+        public const string DACWOEquipmentBOM = "Equipment Bill of Materials";
+        public const string DACWOEquipmentFM = "Equipment Failure Mode";
+        public const string DACWOFailureMode = "Failure Mode";
+        public const string DACWOLine = "Work Order Line";
+        public const string DACWOLineFailureMode = "Work Order Line Failure Mode";
+        public const string DACWOLineItem = "Work Order Line Item";
+        public const string DACWOLineLabor = "Work Order Line Labor";
+        public const string DACWOLineMeasurement = "Work Order Line Measurement";
+        public const string DACWOLineTool = "Work Order Line Tool";
+        public const string DACWOMeasurement = "Measurement";
+        public const string DACWOOrder = "Work Order";
+        public const string DACWOSchedule = "Equipment Schedule";
+        public const string DACWOSetup = "Work Order Setup";
+        public const string DACWOSetupApproval = "Work Order Setup Approval";
+        #endregion
+
+        #region Field Names
+        public const string FieldNumberingID = "WO Numbering ID";
+        public const string FieldEquipNumberingID = "Equipment Numbering ID";
+        public const string FieldHold = "Hold";
+        public const string FieldStatus = "Status";
+        public const string FieldDescr = "Description";
+        public const string FieldWOLineDescr = "Instruction";
+        public const string FieldInventoryID = "Inventory ID";
+
+        public const string FieldWorkOrderID = "Work Order ID";
+        public const string FieldWorkOrderType = "Work Order Type";
+        public const string FieldWOClassID = "Work Order Class";
+        public const string FieldBranchID = "Branch";
+        public const string FieldPriority = "Priority";
+        public const string FieldOrigWorkOrderID = "Orig Work Order ID";
+        public const string FieldEquipmentID = "Equipment ID";
+        public const string FieldMachineID = "Machine ID";
+        public const string FieldRequestDate = "Requested";
+        public const string FieldScheduleDate = "Scheduled";
+        public const string FieldOwnerID = "Owner";
+        public const string FieldWorkGroupID = "Work Group";
+
+        public const string FieldRequestApproval = "Approval Required";
+        public const string FieldCreatedDateTime = "Created";
+        public const string FieldLastModifiedDateTime = "Modified";
+
+        public const string FieldApprovalID = "Approval ID";
+        public const string FieldAssignmentMapID = "Approval Map";
+        public const string FieldAssignmentNotificationID = "Notification ID";
+        public const string FieldIsActive = "Active";
+
+        public const string FieldEquipmentType = "Equipment Type";
+        public const string FieldSerialNbr = "Serial Nbr.";
+        public const string FieldDepartment = "Department";
+        public const string FieldAssetID = "Asset ID";
+        public const string FieldPhysicalLocation = "Physical Location";
+        public const string FieldDateInstalled = "Date Installed";
+        public const string FieldCriticality = "Criticality";
+        public const string FieldSMEquipmentID = "FS Equipment ID";
+        public const string FieldAMMachID = "AM Machine ID";
+
+        public const string FieldFrequencyDays = "Frequency (Days)";
+        public const string FieldLeadTimeDays = "Lead Time (Days)";
+        public const string FieldLastWODate = "Last Completed Date";
+        public const string FieldNextWODate = "Next Scheduled Date";
+
+        public const string FieldFailureModeID = "Failure Mode";
+        public const string FieldQuantity = "Qty.";
+
+        public const string FieldLaborType = "Labor Type";
+        public const string FieldLaborHours = "Hours";
+        
+        public const string FieldBaseUnit = "Base Unit";
+        public const string FieldComment = "Comment";
+        public const string FieldMeasurementID = "Measurement";
+        public const string FieldValue = "Value";
+        #endregion
+
+        #region Work Order Statuses
+        public const string WOStatusInitialState = "Intial";
+        public const string WOStatusHold = "Hold";
+        public const string WOStatusPendingApproval = "Pending Approval";
+        public const string WOStatusApproved = "Approved";
+        public const string WOStatusRejected = "Rejected";
+        public const string WOStatusPendingSchedule = "Pending Schedule";
+        public const string WOStatusScheduled = "Scheduled";
+        public const string WOStatusOpen = "Open";
+        public const string WOStatusComplete = "Complete";
+        #endregion
+
+        #region Work Order Priorities
+        public const string WOPriorityCritical = "Critical";
+        public const string WOPrioritySevere = "Severe";
+        public const string WOPriorityUrgent = "Urgent";
+        public const string WOPriorityNormal = "Normal";
+        public const string WOPriorityLow = "Low";
+        #endregion
+
+        #region Work Order Types
+        public const string WOTypeStandard = "Standard";
+        public const string WOTypeTemplate = "Template";
+        #endregion
+
+        #region Equipment Statuses
+        public const string EquipStatusPlanned = "Planned";
+        public const string EquipStatusActive = "Active";
+        public const string EquipStatusDecomissioned = "Decomissioned";
+        #endregion
+
+        #region Equipment Types
+        public const string EquipTypeMachine = "Machine";
+        public const string EquipTypeComponent = "Component";
+        public const string EquipTypeTool = "Tool";
+        public const string EquipTypeOther = "Other";
+        #endregion
+
+        #region Labor Types
+        public const string LaborTypeGeneral = "General Technician";
+        public const string LaborTypeElectrical = "Electrical";
+        public const string LaborTypeMechanical = "Mechanical";
+        public const string LaborTypePlumbing = "Plumbing";
+        public const string LaborTypeJanitorial = "Janitorial";
+        public const string LaborTypeOther = "Other";
+        #endregion
+
+        #region Equipment Criticality
+        public const string EquipCritA = "A";
+        public const string EquipCritB = "B";
+        public const string EquipCritC = "C";
+        public const string EquipCritD = "D";
+        public const string EquipCritE = "E";
+        #endregion
+
+        #region Component Criticality
+        public const string CompCritA = "A";
+        public const string CompCritB = "B";
+        public const string CompCritC = "C";
+        public const string CompCritD = "D";
+        public const string CompCritE = "E";
+        #endregion
+
+        #region GetLocal
+        public static string GetLocal(string message)
+        {
+            return PXLocalizer.Localize(message, typeof(Messages).FullName);
+        }
+        #endregion
+    }
+}

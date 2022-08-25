@@ -1,0 +1,23 @@
+﻿<Sql TableName="WOEquipmentBOM" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOEquipmentBOM">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="EquipmentID" type="Int" />
+  <col name="InventoryID" type="Int" />
+  <col name="Quantity" type="Decimal(25,6)" nullable="true" />
+  <col name="Criticality" type="Char(1)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <col name="DeletedDatabaseRecord" type="Bit" default="Zero" />
+  <index name="WOEquipmentBOM_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="EquipmentID" />
+    <col name="InventoryID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
