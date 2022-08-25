@@ -1,0 +1,33 @@
+﻿<Sql TableName="WOEquipment" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOEquipment">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="EquipmentID" type="Int" identity="true" />
+  <col name="EquipmentCD" type="NVarChar(30)" />
+  <col name="EquipmentType" type="Char(1)" nullable="true" />
+  <col name="Descr" type="NVarChar(255)" nullable="true" />
+  <col name="SerialNbr" type="NVarChar(30)" nullable="true" />
+  <col name="Status" type="Char(1)" nullable="true" />
+  <col name="BranchID" type="Int" nullable="true" />
+  <col name="DepartmentID" type="NVarChar(10)" nullable="true" />
+  <col name="AssetID" type="NVarChar(30)" nullable="true"/>
+  <col name="PhysicalLocation" type="NVarChar(30)" nullable="true"/>
+  <col name="DateInstalled" type="DateTime" nullable="true" />
+  <col name="Criticality" type="Char(1)" nullable="true" />
+  <col name="InventoryID" type="int" nullable="true" />
+  <col name="SMEquipmentID" type="int" nullable="true" />
+  <col name="AMMachID" type="NVarChar(30)" nullable="true"/>
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <col name="DeletedDatabaseRecord" type="Bit" default="Zero" />
+  <index name="WOEquipment_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="EquipmentID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

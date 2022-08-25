@@ -1,0 +1,21 @@
+﻿<Sql TableName="WOMeasurement" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOMeasurement">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="MeasurementID" type="Int" identity="true" />
+  <col name="MeasurementCD" type="NVarChar(30)" />
+  <col name="Descr" type="NVarChar(255)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <col name="DeletedDatabaseRecord" type="Bit" default="Zero" />
+  <index name="WOMeasurement_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="MeasurementID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

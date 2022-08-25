@@ -1,0 +1,28 @@
+﻿<Sql TableName="WOLine" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOLine">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="WorkOrderID" type="Int" />
+  <col name="LineNbr" type="Int" />
+  <col name="LastLaborLineNbr" type="Int" />
+  <col name="LastItemLineNbr" type="Int" />
+  <col name="LastToolLineNbr" type="Int" />
+  <col name="LastMeasureLineNbr" type="Int" />
+  <col name="LastFailureLineNbr" type="Int" />
+  <col name="EquipmentID" type="Int" nullable="true" />
+  <col name="Descr" type="NVarChar(256)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <col name="DeletedDatabaseRecord" type="Bit" default="Zero" />
+  <index name="WOLine_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="WorkOrderID" />
+    <col name="LineNbr" />
+  </index>
+</table>]]></CDATA>
+</Sql>

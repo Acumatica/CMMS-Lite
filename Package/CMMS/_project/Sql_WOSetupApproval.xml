@@ -1,0 +1,20 @@
+﻿<Sql TableName="WOSetupApproval" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOSetupApproval">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ApprovalID" type="Int" identity="true" />
+  <col name="AssignmentMapID" type="Int" />
+  <col name="AssignmentNotificationID" type="Int" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="IsActive" type="Bit" />
+  <index name="WOSetupApproval_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ApprovalID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
