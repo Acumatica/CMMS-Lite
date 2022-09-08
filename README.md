@@ -21,3 +21,14 @@ msiexec /a "C:\Users\user_profile\Downloads\AcumaticaERPInstall.msi" TARGETDIR="
 10. Publish current customization project
 
 ## Development process
+1. Within VS nagivate to Git --> "Manage Branches"
+2. Right click on remote "development" branch and click "new local branch from"
+3. branch name should follow one of the following patterns, where the number is the next free in the series under the catagory
+	1. feature/0000-description
+	2. update/0000-description
+	3. bugfix/0000-description
+4. do your work on your new branch
+5. Commit changes
+6. Create pull request between your current branch and the development branch for code review
+7. As reviewers make comments resolve issues on your current branch and push the changes, the open PR will reflect the changes automatically
+	
