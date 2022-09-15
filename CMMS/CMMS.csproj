@@ -48,6 +48,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
+    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e" />
     <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Objects.dll</HintPath>
@@ -94,6 +95,7 @@
     <Compile Include="DAC\DBBacked\WOSchedule.cs" />
     <Compile Include="DAC\DBBacked\WOSetup.cs" />
     <Compile Include="DAC\DBBacked\WOSetupApproval.cs" />
+    <Compile Include="Extension\Graph\EPApprovalMapMaint.cs" />
     <Compile Include="Graph\Entry\WOOrderEntry.cs" />
     <Compile Include="Graph\Entry\Workflow\WOOrderEntry_ApprovalWorkflow.cs" />
     <Compile Include="Graph\Entry\Workflow\WOOrderEntry_Workflow.cs" />
@@ -108,19 +110,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomizationPlugin\" />
-    <Folder Include="DAC\DBBacked\" />
     <Folder Include="DAC\DerivedClasses\" />
     <Folder Include="DAC\Filters\" />
     <Folder Include="DAC\NonDBBacked\" />
     <Folder Include="DAC\PXProjections\" />
     <Folder Include="Extension\DAC\" />
-    <Folder Include="Extension\Graph\" />
-    <Folder Include="Graph\Entry\" />
     <Folder Include="Graph\Inquiry\" />
-    <Folder Include="Graph\Maintenance\" />
     <Folder Include="Graph\Processing\" />
-    <Folder Include="Graph\Setup\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

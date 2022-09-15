@@ -1,6 +1,5 @@
 ﻿using PX.Data;
 using PX.Data.ReferentialIntegrity.Attributes;
-using PX.Objects.GL;
 using System;
 
 namespace CMMSlite.WO
@@ -23,6 +22,7 @@ namespace CMMSlite.WO
         #region WOClassID
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = ">aaaaaaaaaaaaaaa")]
         [PXDefault]
+        [PXReferentialIntegrityCheck]
         [PXSelector(
             typeof(WOClass.wOClassID),
             typeof(WOClass.wOClassID),

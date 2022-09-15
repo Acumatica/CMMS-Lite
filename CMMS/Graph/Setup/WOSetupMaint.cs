@@ -11,14 +11,26 @@ namespace CMMSlite.WO
 {
     public class WOSetupMaint : PXGraph<WOSetupMaint>
     {
+        public PXSave<WOSetup> Save;
+        public PXCancel<WOSetup> Cancel;
+
         [PXViewName(Messages.ViewPreferences)]
         public SelectFrom<WOSetup>.View Preferences;
 
         [PXViewName(Messages.ViewSetupApproval)]
-        public SelectFrom<WOSetupApproval>.View Approvals;
+        public SelectFrom<WOSetupApproval>.View SetupApproval;
 
-        public PXSave<WOSetup> Save;
-        public PXCancel<WOSetup> Cancel;
+        #region Event Handlers
+        protected virtual void _(Events.FieldUpdated<WOSetup.wORequestApproval> e)
+        {
+            PXCache cache = this.Caches[typeof(WOSetupApproval)];
+            foreach (WOSetupApproval setup in PXSelect<WOSetupApproval>.Select(this))
+            {
+                setup.IsActive = (bool?)e.NewValue;
+                cache.Update(setup);
+            }
+        }
+        #endregion
 
     }
 }
