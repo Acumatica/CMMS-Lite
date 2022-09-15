@@ -2,6 +2,7 @@
 using PX.Data.EP;
 using PX.Data.ReferentialIntegrity.Attributes;
 using PX.Objects.AM;
+using PX.Objects.CR;
 using PX.Objects.CS;
 using PX.TM;
 using System;
@@ -58,7 +59,7 @@ namespace CMMSlite.WO
         #region WOClassID
         [PXDBString(15, IsUnicode = true, InputMask = ">aaaaaaaaaaaaaaa")]
         [PXDefault]
-        [PXReferentialIntegrityCheck]
+        [PXForeignReference(typeof(Field<wOClassID>.IsRelatedTo<WOClass.wOClassID>))]
         [PXSelector(
             typeof(WOClass.wOClassID),
             typeof(WOClass.wOClassID),
@@ -246,6 +247,36 @@ namespace CMMSlite.WO
         [PXNote]
         public virtual Guid? NoteID { get; set; }
         public abstract class noteID : PX.Data.BQL.BqlGuid.Field<noteID> { }
+        #endregion
+
+        #region IAssign Members
+        int? PX.Data.EP.IAssign.WorkgroupID
+        {
+            get
+            {
+                return WorkgroupID;
+            }
+            set
+            {
+                WorkgroupID = value;
+            }
+        }
+
+        int? PX.Data.EP.IAssign.OwnerID
+        {
+            get { return OwnerID; }
+            set { OwnerID = value; }
+        }
+        #endregion
+
+        #region Attributes
+        public abstract class attributes : BqlAttributes.Field<attributes> { }
+        [CRAttributesField(typeof(wOClassID))]
+        public virtual string[] Attributes { get; set; }
+        public virtual string ClassID
+        {
+            get { return WOClassID; }
+        }
         #endregion
 
         #region Statuses
