@@ -26,6 +26,18 @@ namespace CMMSlite.WO
     [PXCacheName(Messages.DACWOOrder)]
     public class WOOrder : IBqlTable, IAssign
     {
+
+        #region Keys
+        public class PK : PrimaryKeyOf<WOOrder>.By<workOrderID>
+        {
+            public static WOOrder Find(PXGraph graph, string workOrderID) => FindBy(graph, workOrderID);
+        }
+        public static class FK
+        {
+            public class WorkOrderClass : WOClass.PK.ForeignKeyOf<WOClass>.By<wOClassID> { }
+        }
+        #endregion
+
         #region WorkOrderType
         [PXDBString(1, IsKey = true, IsFixed = true, InputMask = "")]
         [WorkOrderTypes.List]

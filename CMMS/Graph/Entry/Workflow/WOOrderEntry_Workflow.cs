@@ -1,6 +1,7 @@
 ﻿using PX.Data;
 using PX.Data.WorkflowAPI;
 using PX.Objects.Common;
+using PX.Objects.CS;
 using System;
 using System.Runtime.Serialization;
 
@@ -47,10 +48,10 @@ namespace CMMSlite.WO
                     = Bql<hold.IsEqual<True>>(),
                 IsPendingSchedule
                     = Bql<status.IsEqual<State.pendingSchedule>>(),
-                //IsScheduled
-                //    = Bql<scheduleDate.IsNotNull>(),
                 IsOpen
                     = Bql<status.IsEqual<State.open>>(),
+                HasRequiredFields
+                    = Bql<wOClassID.IsNotNull>(),
             }.AutoNameConditions();
             #endregion
 
@@ -68,14 +69,6 @@ namespace CMMSlite.WO
                     fas.Add<rejected>(false);
                 })
                 );
-            //var removeHold = context.ActionDefinitions
-            //    .CreateExisting(g => g.removeHold, a => a
-            //    .WithCategory(PredefinedCategory.Actions)
-            //    .PlaceAfter(putOnHold)
-            //    .IsDisabledWhen(!conditions.IsOnHold)
-            //    .IsHiddenWhen(!conditions.IsOnHold)
-            //    .WithFieldAssignments(fas => fas.Add<hold>(false))
-            //    );
             var schedule = context.ActionDefinitions
                 .CreateExisting(g => g.schedule, a => a
                 .WithCategory(PredefinedCategory.Actions)
@@ -124,19 +117,6 @@ namespace CMMSlite.WO
                                         fields.AddAllFields<WOOrder>();
                                     })); 
                             
-                            //states.Add<State.hold>(flowState => flowState
-                            //    .WithActions(actions =>
-                            //    {
-                            //        actions.Add(removeHold, a => a
-                            //        .IsDuplicatedInToolbar()
-                            //        .WithConnotation(ActionConnotation.Success)
-                            //        );
-                            //    })
-                            //    .WithFieldStates(fields =>
-                            //    {
-                            //        fields.AddAllFields<WOOrder>();
-                            //    }));
-
                             // Pending Schedule State
                             states.Add<State.pendingSchedule>(flowState => flowState
                                 .WithActions(actions =>
@@ -158,6 +138,7 @@ namespace CMMSlite.WO
                                     fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                    fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                 }));
 
                             // Scheduled State
@@ -181,6 +162,7 @@ namespace CMMSlite.WO
                                     fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                    fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                 }));
 
 
@@ -205,6 +187,7 @@ namespace CMMSlite.WO
                                     fields.AddAllFields<WOLineTool>();
                                     fields.AddAllFields<WOLineMeasure>();
                                     fields.AddAllFields<WOLineFailure>();
+                                    fields.AddAllFields<CSAnswers>();
                                 }));
 
                             // Complete State
@@ -223,6 +206,7 @@ namespace CMMSlite.WO
                                     fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                    fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                 }));
                         })
 
@@ -244,7 +228,6 @@ namespace CMMSlite.WO
                                 ts.Add(t => t
                                     .To<State.pendingSchedule>()
                                     .IsTriggeredOn(g => g.removeHold)
-                                    //.WithFieldAssignments(fas => fas.Add<hold>(false))
                                     );
                             });
 
@@ -311,12 +294,11 @@ namespace CMMSlite.WO
                                 fas.Add<hold>(false);
                             })
                             .PlaceAfter(g => g.Last)
-                            .IsDisabledWhen(!conditions.IsOnHold)
+                            .IsDisabledWhen(!conditions.IsOnHold || !conditions.HasRequiredFields)
                             .IsHiddenWhen(!conditions.IsOnHold)
                         );
 
                         action.Add(putOnHold);
-                        //action.Add(removeHold);
                         action.Add(schedule);
                         action.Add(open);
                         action.Add(complete);

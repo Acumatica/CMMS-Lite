@@ -1,5 +1,6 @@
 ﻿using PX.Data;
 using PX.Data.WorkflowAPI;
+using PX.Objects.CS;
 
 namespace CMMSlite.WO
 {
@@ -25,7 +26,7 @@ namespace CMMSlite.WO
                 using (PXDataRecord setup = PXDatabase.SelectSingle<WOSetup>(new PXDataField<WOSetup.wORequestApproval>()))
                 {
                     if (setup != null)
-                        requestApproval = (bool)setup.GetBoolean(0);
+                        requestApproval = ((bool?)setup.GetBoolean(0) == true);
                 }
             }
 
@@ -154,6 +155,7 @@ namespace CMMSlite.WO
                                         fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                        fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                     }));
                             states
                                 .Add<State.rejected>(flowState => flowState
@@ -172,6 +174,7 @@ namespace CMMSlite.WO
                                         fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                        fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                     }));
                             states
                                 .Add<State.approved>(flowState => flowState
@@ -191,6 +194,7 @@ namespace CMMSlite.WO
                                         fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                                        fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                     }));
                         })
                         #region AutoAction - Add the action to the state and then Updated it like this example

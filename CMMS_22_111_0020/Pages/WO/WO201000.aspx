@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/TabView.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="WO201000.aspx.cs" Inherits="Page_WO201000" Title="Untitled Page" %>
-<%@ MasterType VirtualPath="~/MasterPages/TabView.master" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormTab.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="WO201000.aspx.cs" Inherits="Page_WO201000" Title="Untitled Page" %>
+<%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource EnableAttributes="True" ID="ds" runat="server" Visible="True" Width="100%"
@@ -11,22 +11,21 @@
 		</CallbackCommands>
 	</px:PXDataSource>
 </asp:Content>
-<asp:Content ID="cont3" ContentPlaceHolderID="phF" Runat="Server">
+<asp:Content ID="cont2" ContentPlaceHolderID="phF" runat="Server">
+    <px:PXFormView ID="form" runat="server" Width="100%" Caption="Work Order Class Summary" DataSourceID="ds" NoteIndicator="True"
+        FilesIndicator="True" ActivityIndicator="True" ActivityField="NoteActivity" DataMember="Classes" DefaultControlID="edVendorClassID"
+        TemplateContainer="">
+        <Activity HighlightColor="" SelectedColor="" Width="" Height=""></Activity>
+        <Template>
+            <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="M" />
+            <px:PXSelector ID="edWOClassID" runat="server" DataField="WOClassID" DataSourceID="ds" />
+            <px:PXTextEdit ID="edDescr" runat="server" DataField="Descr" />
+        </Template>
+    </px:PXFormView>
+</asp:Content>
+<asp:Content ID="cont3" ContentPlaceHolderID="phG" Runat="Server">
     <px:PXTab ID="tab" runat="server" DataSourceID="ds" Height="559px" Style="z-index: 100" Width="100%" Caption="NCM Class">
         <Items>
-            <px:PXTabItem Text="General Settings">
-                <Template>
-
-					<px:PXFormView Height="130px" ID="form" runat="server" DataSourceID="ds" DataMember="Classes" Width="100%" AllowAutoHide="false">
-						<Template>
-							<px:PXLayoutRule ControlSize="SM" LabelsWidth="S" ID="PXLayoutRule1" runat="server" StartRow="True"></px:PXLayoutRule>
-							<px:PXSelector runat="server" ID="CstPXSelector2" DataField="WOClassID" ></px:PXSelector>
-							<px:PXTextEdit runat="server" ID="CstPXTextEdit1" DataField="Descr" ></px:PXTextEdit></Template>
-						<AutoSize Container="Window" Enabled="True" MinHeight="200" ></AutoSize>
-					</px:PXFormView>
-
-				</Template>
-			</px:PXTabItem>
 			<px:PXTabItem Text="Attributes">
 			  <Template>
 				<px:PXGrid runat="server" BorderWidth="0px" Height="150px" SkinID="Details" Width="100%" ID="AttributesGrid" 

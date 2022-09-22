@@ -1,4 +1,5 @@
 ﻿using PX.Data;
+using PX.Data.EP;
 using PX.Data.ReferentialIntegrity.Attributes;
 using System;
 
@@ -16,20 +17,21 @@ namespace CMMSlite.WO
         }
         public static class FK
         {
+            public class WorkOrder : WOOrder.PK.ForeignKeyOf<WOClass>.By<wOClassID> { }
         }
         #endregion
 
         #region WOClassID
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = ">aaaaaaaaaaaaaaa")]
-        [PXDefault]
-        [PXReferentialIntegrityCheck]
+        [PXDefault(PersistingCheck = PXPersistingCheck.NullOrBlank)]
+        [PXUIField(DisplayName = Messages.FieldWOClassID, Visibility = PXUIVisibility.SelectorVisible)]
         [PXSelector(
             typeof(WOClass.wOClassID),
             typeof(WOClass.wOClassID),
             typeof(WOClass.descr),
             Filterable = true
             )]
-        [PXUIField(DisplayName = Messages.FieldWOClassID)]
+        [PXFieldDescription]
         public virtual string WOClassID { get; set; }
         public abstract class wOClassID : PX.Data.BQL.BqlString.Field<wOClassID> { }
         #endregion
