@@ -44,6 +44,7 @@ namespace CMMSlite.WO
                 typeof(WOOrderEntry).FullName,
             }.Contains(Base.AssigmentMap.Current?.GraphType, new PX.Data.CompareIgnoreCase());
 
+            // Make UI fields visible for supported custom screens
             if (isSupportedCustomType)
             {
                 PXUIFieldAttribute.SetVisible<EP.EPRule.reasonForApprove>(Base.Nodes.Cache, Base.Nodes.Current, isSupportedCustomType && row.StepID != null);

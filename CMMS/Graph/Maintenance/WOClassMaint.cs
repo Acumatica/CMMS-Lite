@@ -1,6 +1,8 @@
 ﻿using PX.Data;
 using PX.Data.BQL.Fluent;
+using PX.Data.Descriptor;
 using PX.Objects.CR;
+using CS = PX.Objects.CS;
 
 namespace CMMSlite.WO
 {

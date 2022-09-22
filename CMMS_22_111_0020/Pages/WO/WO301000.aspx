@@ -25,7 +25,7 @@
 			<px:PXTextEdit runat="server" ID="CstPXTextEdit1" DataField="Descr" ></px:PXTextEdit>
 			<px:PXLayoutRule runat="server" ID="CstPXLayoutRule10" StartColumn="True" ></px:PXLayoutRule>
 			<px:PXDropDown runat="server" ID="CstPXDropDown4" DataField="Priority" ></px:PXDropDown>
-			<px:PXSelector runat="server" ID="CstPXSelector8" DataField="WOClassID" ></px:PXSelector>
+			<px:PXSelector runat="server" CommitChanges="True" ID="CstPXSelector8" DataField="WOClassID"></px:PXSelector>
 			<px:PXSelector runat="server" ID="CstPXSelector21" DataField="EquipmentID" ></px:PXSelector>
 			<px:PXSelector runat="server" ID="CstPXSelector3" DataField="OwnerID" ></px:PXSelector>
 			<px:PXSelector runat="server" ID="CstPXSelector6" DataField="WorkgroupID" ></px:PXSelector></Template>
@@ -35,90 +35,131 @@
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" Runat="Server">
 	<px:PXTab DataMember="CurrentDocument" ID="tab" runat="server" Width="100%" DataSourceID="ds" AllowAutoHide="false">
 		<Items>
-							<px:PXTabItem Text="Details">
-								<Template>
-									<px:PXLayoutRule ControlSize="SM" LabelsWidth="S" runat="server" ID="CstPXLayoutRule24" StartRow="True" ></px:PXLayoutRule>
-									<px:PXLayoutRule runat="server" ID="CstPXLayoutRule25" StartColumn="True" ></px:PXLayoutRule>
-									<px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID" ></px:PXSelector></Template></px:PXTabItem>
-			<px:PXTabItem Text="General">
-				<Template>
-					<px:PXGrid Height="100px" SkinID="Details" SyncPosition="True" DataSourceID="ds" Width="100%" runat="server" ID="CstPXGrid13">
-						<Levels>
-							<px:PXGridLevel DataMember="Transactions" >
-								<Columns>
-									<px:PXGridColumn DataField="Descr" Width="400" ></px:PXGridColumn>
-									<px:PXGridColumn CommitChanges="True" DataField="EquipmentID" Width="70" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="WOEquipment__Descr" Width="280" ></px:PXGridColumn></Columns>
-								<RowTemplate>
-									<px:PXSelector runat="server" ID="CstPXSelector23" DataField="EquipmentID" AllowEdit="True" ></px:PXSelector></RowTemplate></px:PXGridLevel></Levels>
-						<Mode InitNewRow="True" ></Mode>
-						<AutoCallBack ActiveBehavior="True" Target="CstPXGrid17" Command="Refresh" >
-							<Behavior RepaintControlsIDs="CstPXGrid17,CstPXGrid18,CstPXGrid19,CstPXGrid20" ></Behavior></AutoCallBack>
-						<AutoCallBack ActiveBehavior="True" ></AutoCallBack>
-						<AutoCallBack Target="CstPXGrid17" ></AutoCallBack></px:PXGrid>
-					<px:PXTab Width="100%" runat="server" ID="CstPXTab15">
-						<Items>
-							<px:PXTabItem Text="Labor">
-								<Template>
-									<px:PXGrid SkinID="Details" Width="100%" runat="server" ID="CstPXGrid30">
-										<Levels>
-											<px:PXGridLevel DataMember="LineLabor" >
-												<Columns>
-													<px:PXGridColumn DataField="LaborType" Width="70" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="LaborHours" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-										<AutoSize Enabled="True" />
-										<AutoSize MinHeight="100" /></px:PXGrid></Template></px:PXTabItem>
-							<px:PXTabItem Text="Materials">
-								<Template>
-									<px:PXGrid SkinID="Details" SyncPosition="True" DataSourceID="ds" Width="100%" runat="server" ID="CstPXGrid17">
-										<Levels>
-											<px:PXGridLevel DataMember="LineItems" >
-												<Columns>
-													<px:PXGridColumn CommitChanges="True" DataField="InventoryID" Width="70" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="BaseUnit" Width="96" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-										<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
-										<AutoSize MinHeight="200" ></AutoSize>
-										<Mode InitNewRow="True" ></Mode></px:PXGrid></Template></px:PXTabItem>
-							<px:PXTabItem Text="Tools">
-								<Template>
-									<px:PXGrid SkinID="Details" SyncPosition="True" DataSourceID="ds" Width="100%" runat="server" ID="CstPXGrid18">
-										<Levels>
-											<px:PXGridLevel DataMember="LineTools" >
-												<Columns>
-													<px:PXGridColumn DataField="InventoryID" Width="70" CommitChanges="True" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="BaseUnit" Width="96" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-										<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
-										<AutoSize MinHeight="200" ></AutoSize>
-										<Mode InitNewRow="True" ></Mode></px:PXGrid></Template></px:PXTabItem>
-							<px:PXTabItem Text="Measurements">
-								<Template>
-									<px:PXGrid Width="100%" DataSourceID="ds" SkinID="Details" SyncPosition="True" runat="server" ID="CstPXGrid19">
-										<Levels>
-											<px:PXGridLevel DataMember="LineMeasurements" >
-												<Columns>
-													<px:PXGridColumn DataField="MeasurementID" Width="140" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="Value" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-										<Mode InitNewRow="True" ></Mode>
-										<AutoSize Enabled="True" ></AutoSize>
-										<AutoSize MinHeight="100" ></AutoSize></px:PXGrid></Template></px:PXTabItem>
-							<px:PXTabItem Text="Failure Modes" >
-								<Template>
-									<px:PXGrid Width="100%" SkinID="Details" SyncPosition="True" DataSourceID="ds" runat="server" ID="CstPXGrid20">
-										<Levels>
-											<px:PXGridLevel DataMember="LineFailureModes" >
-												<Columns>
-													<px:PXGridColumn CommitChanges="True" DataField="FailureModeID" Width="140" ></px:PXGridColumn>
-													<px:PXGridColumn DataField="Comment" Width="280" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-										<Mode InitNewRow="True" ></Mode>
-										<AutoSize Enabled="True" ></AutoSize>
-										<AutoSize MinHeight="100" ></AutoSize></px:PXGrid></Template></px:PXTabItem></Items>
-						<AutoSize MinHeight="100" ></AutoSize>
-						<AutoSize Enabled="True" ></AutoSize></px:PXTab></Template>
+			<px:PXTabItem Text="Details">
+						<Template>
+							<px:PXLayoutRule ControlSize="SM" LabelsWidth="S" ID="PXLayoutRule1" runat="server" StartRow="True"></px:PXLayoutRule>
+							<px:PXLayoutRule ControlSize="SM" LabelsWidth="S" runat="server" ID="CstPXLayoutRule24" StartRow="True" ></px:PXLayoutRule>
+							<px:PXLayoutRule runat="server" ID="CstPXLayoutRule25" StartColumn="True" ></px:PXLayoutRule>
+							<px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID" ></px:PXSelector></Template>
 			</px:PXTabItem>
+
+			<px:PXTabItem Text="Operations">
+				<Template>
+					<px:PXSplitContainer runat="server" ID="sp1" SplitterPosition="200" SkinID="Horizontal" Height="600px" Panel1MinSize="100" Panel2MinSize="100">
+					<AutoSize Container="Window" Enabled="True" MinHeight="300" />
+					<Template1>
+						<px:PXGrid ID="grid" runat="server" DataSourceID="ds" Width="100%" Height="100%" SkinID="Details" Caption="Operations" AutoAdjustColumns="True" SyncPosition="true">
+							<Levels>
+								<px:PXGridLevel DataMember="Transactions" >
+									<Columns>
+										<px:PXGridColumn DataField="Descr" Width="400" ></px:PXGridColumn>
+										<px:PXGridColumn CommitChanges="True" DataField="EquipmentID" Width="70" ></px:PXGridColumn>
+										<px:PXGridColumn DataField="WOEquipment__Descr" Width="280" ></px:PXGridColumn></Columns>
+									<RowTemplate>
+										<px:PXSelector runat="server" ID="CstPXSelector23" DataField="EquipmentID" AllowEdit="True" ></px:PXSelector>
+									</RowTemplate>
+								</px:PXGridLevel>
+							</Levels>
+							<Mode InitNewRow="True" ></Mode>
+							<AutoCallBack Command="Refresh" Target="gridLabor" ActiveBehavior="true" >
+								<Behavior RepaintControlsIDs="gridLabor,gridMatl,gridTool,gridMeasure,gridFailure"  />
+							</AutoCallBack>
+							<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
+						</px:PXGrid>
+
+					</Template1>
+					<Template2>
+
+						<px:PXTab DataMember="Transactions" ID="tab2" runat="server" Width="100%" DataSourceID="ds" AllowAutoHide="false">
+							<Items>
+								<px:PXTabItem Text="Labor" LoadOnDemand="True" RepaintOnDemand="True">
+									<Template>
+										<px:PXGrid SkinID="DetailsInTab" Width="100%" runat="server" ID="gridLabor">
+											<Levels>
+												<px:PXGridLevel DataMember="LineLabor" >
+													<Columns>
+														<px:PXGridColumn DataField="LaborType" Width="70" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="LaborHours" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
+											<Mode InitNewRow="True" ></Mode>
+											<AutoSize Enabled="True" ></AutoSize>
+											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<Parameters>
+												<px:PXSyncGridParam ControlID="grid" />
+											</Parameters>
+										</px:PXGrid></Template></px:PXTabItem>
+								<px:PXTabItem Text="Materials" LoadOnDemand="True" RepaintOnDemand="True">
+									<Template>
+										<px:PXGrid SkinID="DetailsInTab" SyncPosition="True" DataSourceID="ds" Width="100%" runat="server" ID="gridMatl">
+											<Levels>
+												<px:PXGridLevel DataMember="LineItems" >
+													<Columns>
+														<px:PXGridColumn CommitChanges="True" DataField="InventoryID" Width="70" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="InventoryItem__BaseUnit" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
+											<Mode InitNewRow="True" ></Mode>
+											<AutoSize Enabled="True" ></AutoSize>
+											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<Parameters>
+												<px:PXSyncGridParam ControlID="grid" />
+											</Parameters>
+											</px:PXGrid></Template></px:PXTabItem>
+								<px:PXTabItem Text="Tools" LoadOnDemand="True" RepaintOnDemand="True">
+									<Template>
+										<px:PXGrid SkinID="DetailsInTab" SyncPosition="True" DataSourceID="ds" Width="100%" runat="server" ID="gridTool">
+											<Levels>
+												<px:PXGridLevel DataMember="LineTools" >
+													<Columns>
+														<px:PXGridColumn DataField="InventoryID" Width="70" CommitChanges="True" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="BaseUnit" Width="96" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
+											<Mode InitNewRow="True" ></Mode>
+											<AutoSize Enabled="True" ></AutoSize>
+											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<Parameters>
+												<px:PXSyncGridParam ControlID="grid" />
+											</Parameters>
+											</px:PXGrid></Template></px:PXTabItem>
+								<px:PXTabItem Text="Measurements" LoadOnDemand="True" RepaintOnDemand="True">
+									<Template>
+										<px:PXGrid Width="100%" SkinID="DetailsInTab" SyncPosition="True" DataSourceID="ds" runat="server" ID="gridMeasure">
+											<Levels>
+												<px:PXGridLevel DataMember="LineMeasurements" >
+													<Columns>
+														<px:PXGridColumn DataField="MeasurementID" Width="140" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="Value" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
+											<Mode InitNewRow="True" ></Mode>
+											<AutoSize Enabled="True" ></AutoSize>
+											<AutoSize MinHeight="100" ></AutoSize>
+											<Parameters>
+												<px:PXSyncGridParam ControlID="grid" />
+											</Parameters>
+											</px:PXGrid></Template></px:PXTabItem>
+								<px:PXTabItem Text="Failure Modes" LoadOnDemand="True" RepaintOnDemand="True">
+									<Template>
+										<px:PXGrid Width="100%" SkinID="DetailsInTab" SyncPosition="True" DataSourceID="ds" runat="server" ID="gridFailure">
+											<Levels>
+												<px:PXGridLevel DataMember="LineFailureModes" >
+													<Columns>
+														<px:PXGridColumn CommitChanges="True" DataField="FailureModeID" Width="140" ></px:PXGridColumn>
+														<px:PXGridColumn DataField="Comment" Width="280" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
+											<Mode InitNewRow="True" ></Mode>
+											<AutoSize Enabled="True" ></AutoSize>
+											<AutoSize MinHeight="100" ></AutoSize>
+											<Parameters>
+												<px:PXSyncGridParam ControlID="grid" />
+											</Parameters>
+											</px:PXGrid></Template></px:PXTabItem>
+							</Items>
+							<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
+						</px:PXTab>
+
+					</Template2>
+					</px:PXSplitContainer>
+				</Template>
+			</px:PXTabItem>
+
 			<px:PXTabItem Text="Attributes">
 			  <Template>
 				<px:PXGrid runat="server" ID="PXGridAnswers" Height="200px" SkinID="Inquire" 
@@ -140,6 +181,7 @@
 							</Columns>
 						</px:PXGridLevel>
 					</Levels>
+					<AutoSize Container="Window" MinHeight="150" Enabled="True" ></AutoSize>
 				</px:PXGrid>
 			  </Template>
 			</px:PXTabItem>
@@ -172,8 +214,9 @@
 						<Mode AllowUpdate="False" ></Mode></px:PXGrid></Template>
 			</px:PXTabItem>
 		</Items>
-		<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
+		<AutoSize Container="Window" Enabled="True" MinHeight="150" />
 	</px:PXTab>
+
 	<px:PXSmartPanel ID="panelReason" runat="server" Caption="Enter Reason" CaptionVisible="true" LoadOnDemand="true" Key="ReasonApproveRejectParams"
 	  AutoCallBack-Enabled="true" AutoCallBack-Command="Refresh" CallBackMode-CommitChanges="True" Width="600px"
 	  CallBackMode-PostData="Page" AcceptButtonID="btnReasonOk" CancelButtonID="btnReasonCancel" AllowResize="False">
