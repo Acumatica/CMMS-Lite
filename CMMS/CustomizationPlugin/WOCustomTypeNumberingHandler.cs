@@ -11,16 +11,16 @@ namespace CMMS
     public static class WOCustomTypeNumberingHandler
     {
 		// This method is executed after the customization was published and the website was restarted
-		// It checks if the Numbering Sequence 'WORKTYPE' exists, if not then it inserts them.
+		// It checks if the Numbering Sequence 'WORKORDID' exists, if not then it inserts them.
 		public static void UpdateDatabase(CustomizationPlugin plugin)
 		{
-			plugin.WriteLog($"CMMS Numbering Handler running on Company \"{PXDatabase.Provider.GetCompanyDisplayName()}\"");
+			plugin.WriteLog($"Work Order Numbering Handler running on Company \"{PXDatabase.Provider.GetCompanyDisplayName()}\"");
 
-			Numbering numbering = PXDatabase.SelectRecords<Numbering>(new PXDataFieldValue<Numbering.numberingID>(CMMSlite.WO.Messages.CustomWorkType, PXComp.EQ)).FirstOrDefault();
+			Numbering numbering = PXDatabase.SelectRecords<Numbering>(new PXDataFieldValue<Numbering.numberingID>(CMMSlite.WO.Messages.CustomWorkSequence, PXComp.EQ)).FirstOrDefault();
 
 			if (numbering == null)
 			{
-				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.CustomWorkType, CMMSlite.WO.Messages.CustomTypeDescr);
+				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.CustomWorkSequence, CMMSlite.WO.Messages.CustomTypeDescr);
 			}
 		}
 

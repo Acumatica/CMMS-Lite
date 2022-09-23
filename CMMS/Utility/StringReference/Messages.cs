@@ -11,9 +11,9 @@ namespace CMMSlite.WO
 
         #region Setup
 
-        public const string CustomWorkType = "WORKTYPE";
+        public const string CustomWorkSequence = "WORKORDID";
 
-        public const string CustomTypeDescr = "Sequence for Custom Investment Types. **DO NOT ALTER**";
+        public const string CustomTypeDescr = "Sequence for Work Orders. **DO NOT ALTER**";
 
         #endregion
 
