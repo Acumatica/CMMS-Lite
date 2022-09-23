@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CMMS
 {
-    public static class WOCustomTypeNumberingHandler
+    public static class WONumberingHandler
     {
 		// This method is executed after the customization was published and the website was restarted
 		// It checks if the Numbering Sequence 'WORKORDID' exists, if not then it inserts them.
