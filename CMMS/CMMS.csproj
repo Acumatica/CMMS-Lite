@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomizationPlugin\WOCustomizationPlugin.cs" />
-    <Compile Include="CustomizationPlugin\WOCustomTypeNumberingHandler.cs" />
+    <Compile Include="CustomizationPlugin\WONumberingHandler.cs" />
     <Compile Include="DAC\DBBacked\WOClass.cs" />
     <Compile Include="DAC\DBBacked\WOEquipment.cs" />
     <Compile Include="DAC\DBBacked\WOEquipmentBOM.cs" />
