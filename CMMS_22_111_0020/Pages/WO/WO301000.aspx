@@ -60,17 +60,19 @@
 									</RowTemplate>
 								</px:PXGridLevel>
 							</Levels>
-							<Mode InitNewRow="True" ></Mode>
+							<Mode InitNewRow="True" AllowUpload="True" />
+							<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
+							<ActionBar ActionsText="False">
+							</ActionBar>
 							<AutoCallBack Command="Refresh" Target="gridLabor" ActiveBehavior="true" >
 								<Behavior RepaintControlsIDs="gridLabor,gridMatl,gridTool,gridMeasure,gridFailure"  />
 							</AutoCallBack>
-							<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
 						</px:PXGrid>
 
 					</Template1>
 					<Template2>
 
-						<px:PXTab DataMember="Transactions" ID="tab2" runat="server" Width="100%" DataSourceID="ds" AllowAutoHide="false">
+						<px:PXTab ID="tab" runat="server" Width="100%" Height="100%">
 							<Items>
 								<px:PXTabItem Text="Labor" LoadOnDemand="True" RepaintOnDemand="True">
 									<Template>
@@ -80,9 +82,12 @@
 													<Columns>
 														<px:PXGridColumn DataField="LaborType" Width="70" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="LaborHours" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-											<Mode InitNewRow="True" ></Mode>
-											<AutoSize Enabled="True" ></AutoSize>
-											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<AutoSize Enabled="True" />
+											<Mode InitNewRow="True" AllowUpload="True" />
+											<ActionBar ActionsText="False">
+											</ActionBar>
+											<AutoCallBack>
+											</AutoCallBack>
 											<Parameters>
 												<px:PXSyncGridParam ControlID="grid" />
 											</Parameters>
@@ -97,9 +102,12 @@
 														<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="InventoryItem__BaseUnit" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-											<Mode InitNewRow="True" ></Mode>
-											<AutoSize Enabled="True" ></AutoSize>
-											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<AutoSize Enabled="True" />
+											<Mode InitNewRow="True" AllowUpload="True" />
+											<ActionBar ActionsText="False">
+											</ActionBar>
+											<AutoCallBack>
+											</AutoCallBack>
 											<Parameters>
 												<px:PXSyncGridParam ControlID="grid" />
 											</Parameters>
@@ -114,9 +122,12 @@
 														<px:PXGridColumn DataField="InventoryID_description" Width="280" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="BaseUnit" Width="96" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-											<Mode InitNewRow="True" ></Mode>
-											<AutoSize Enabled="True" ></AutoSize>
-											<AutoSize MinHeight="100" Enabled="True" ></AutoSize>
+											<AutoSize Enabled="True" />
+											<Mode InitNewRow="True" AllowUpload="True" />
+											<ActionBar ActionsText="False">
+											</ActionBar>
+											<AutoCallBack>
+											</AutoCallBack>
 											<Parameters>
 												<px:PXSyncGridParam ControlID="grid" />
 											</Parameters>
@@ -129,9 +140,11 @@
 													<Columns>
 														<px:PXGridColumn DataField="MeasurementID" Width="140" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="Value" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-											<Mode InitNewRow="True" ></Mode>
-											<AutoSize Enabled="True" ></AutoSize>
-											<AutoSize MinHeight="100" ></AutoSize>
+											<AutoSize Enabled="True" />
+											<ActionBar ActionsText="False">
+											</ActionBar>
+											<AutoCallBack>
+											</AutoCallBack>
 											<Parameters>
 												<px:PXSyncGridParam ControlID="grid" />
 											</Parameters>
@@ -144,15 +157,17 @@
 													<Columns>
 														<px:PXGridColumn CommitChanges="True" DataField="FailureModeID" Width="140" ></px:PXGridColumn>
 														<px:PXGridColumn DataField="Comment" Width="280" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels>
-											<Mode InitNewRow="True" ></Mode>
-											<AutoSize Enabled="True" ></AutoSize>
-											<AutoSize MinHeight="100" ></AutoSize>
+											<AutoSize Enabled="True" />
+											<ActionBar ActionsText="False">
+											</ActionBar>
+											<AutoCallBack>
+											</AutoCallBack>
 											<Parameters>
 												<px:PXSyncGridParam ControlID="grid" />
 											</Parameters>
 											</px:PXGrid></Template></px:PXTabItem>
 							</Items>
-							<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
+							<AutoSize Enabled="True" />
 						</px:PXTab>
 
 					</Template2>
