@@ -176,6 +176,15 @@ namespace CMMSlite.WO
             e.NewValue = Setup.Current.WORequestApproval;
         }
         #endregion
+
+        #region WOOrder_RowPersisting
+        protected void _(Events.RowPersisting<WOOrder> e)
+        {
+            WOOrder row = e.Row;
+            if(row != null) row.RequestApproval = Setup.Current.WORequestApproval;
+        }
+        #endregion
+
         #endregion
 
     }

@@ -1,5 +1,6 @@
 ﻿using PX.Data;
 using PX.Data.WorkflowAPI;
+using PX.Objects.Common;
 using PX.Objects.CS;
 
 namespace CMMSlite.WO
@@ -106,11 +107,18 @@ namespace CMMSlite.WO
             }.AutoNameConditions();
             #endregion
 
+            #region Categories
+            var approvalCategory = context.Categories.CreateNew(CommonActionCategories.ApprovalCategoryID,
+                    category => category.DisplayName(CommonActionCategories.DisplayNames.Approval)
+                    .PlaceAfter(CommonActionCategories.IntercompanyCategoryID));
+            #endregion
+
             #region Actions
             var approve = context.ActionDefinitions
                 .CreateNew(ApproveActionName, a => a
-                .WithCategory(PredefinedCategory.Actions)
+                .WithCategory(approvalCategory)
                 .PlaceAfter(g => g.putOnHold)
+                .MapEnableToSelect()
                 .IsHiddenWhen(!conditions.IsPendingApproval)
                 .WithFieldAssignments(fas =>
                 {
@@ -118,8 +126,9 @@ namespace CMMSlite.WO
                 }));
             var reject = context.ActionDefinitions
                 .CreateNew(RejectActionName, a => a
-                .WithCategory(PredefinedCategory.Actions)
+                .WithCategory(approvalCategory)
                 .PlaceAfter(approve)
+                .MapEnableToSelect()
                 .IsHiddenWhen(!conditions.IsPendingApproval)
                 .WithFieldAssignments(fas =>
                 {
@@ -142,13 +151,15 @@ namespace CMMSlite.WO
                                             .IsDuplicatedInToolbar()
                                             .WithConnotation(ActionConnotation.Success)
                                             );
-                                        actions.Add(reject);
+                                        actions.Add(reject, c => c
+                                            .IsDuplicatedInToolbar()
+                                            .WithConnotation(ActionConnotation.Danger)
+                                            );
                                     })
                                     .WithFieldStates(fields =>
                                     {
                                         fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                         fields.AddField<workOrderCD>();
-                                        fields.AddField<status>();
                                         fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
@@ -167,7 +178,6 @@ namespace CMMSlite.WO
                                     {
                                         fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                         fields.AddField<workOrderCD>();
-                                        fields.AddField<status>();
                                         fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
@@ -187,7 +197,6 @@ namespace CMMSlite.WO
                                     {
                                         fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                         fields.AddField<workOrderCD>();
-                                        fields.AddField<status>();
                                         fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
                                         fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
@@ -235,9 +244,8 @@ namespace CMMSlite.WO
                                 ts.Add(t => t
                                     .To<State.pendingApproval>()
                                     .IsTriggeredOn(g => g.removeHold)
-                                    .When(conditions.ApprovalRequired)
+                                    .When(!conditions.IsOnHold && !conditions.IsApproved)
                                     .PlaceBefore(tr => tr.To<State.pendingSchedule>())
-                                    .WithFieldAssignments(fas => fas.Add<hold>(false))
                                 );
                             });
 
@@ -247,17 +255,20 @@ namespace CMMSlite.WO
                                     ts.Add(t => t
                                         .To<State.pendingSchedule>()
                                         .IsTriggeredOn(approve)
-                                        .When(conditions.IsApproved));
+                                        .When(conditions.IsApproved)
+                                        );
 
                                     ts.Add(t => t
                                         .To<State.rejected>()
                                         .IsTriggeredOn(reject)
-                                        .When(conditions.IsRejected));
+                                        .When(conditions.IsRejected)
+                                        );
 
                                     ts.Add(t => t
                                         .To<State.hold>()
                                         .IsTriggeredOn(g => g.putOnHold)
-                                        .When(conditions.IsOnHold));
+                                        .When(conditions.IsOnHold)
+                                        );
                                 });
 
                             transitions
@@ -266,7 +277,8 @@ namespace CMMSlite.WO
                                     ts.Add(t => t
                                         .To<State.hold>()
                                         .IsTriggeredOn(g => g.putOnHold)
-                                        .When(conditions.IsOnHold));
+                                        .When(conditions.IsOnHold)
+                                        );
                                 });
 
                             transitions
@@ -275,7 +287,8 @@ namespace CMMSlite.WO
                                     ts.Add(t => t
                                         .To<State.hold>()
                                         .IsTriggeredOn(g => g.putOnHold)
-                                        .When(conditions.IsOnHold));
+                                        .When(conditions.IsOnHold)
+                                        );
                                     ts.Add(t => t
                                         .To<State.complete>()
                                         .IsTriggeredOn(g => g.complete));
