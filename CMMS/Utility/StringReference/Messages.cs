@@ -9,6 +9,14 @@ namespace CMMSlite.WO
     {
         public const string Prefix = "WO Error";
 
+        #region Setup
+
+        public const string CustomWorkType = "WORKTYPE";
+
+        public const string CustomTypeDescr = "Sequence for Custom Investment Types. **DO NOT ALTER**";
+
+        #endregion
+
         #region View Names
         public const string ViewDocument = "Work Orders";
         public const string ViewCurrentDocument = "Current Work Order";

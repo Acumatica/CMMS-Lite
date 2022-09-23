@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\5f0ae0fe\_shadow\fbe9fd1b\11816\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Common.dll</HintPath>
@@ -56,8 +60,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CMMS_22_111_0020\Bin\PX.Objects.FS.dll</HintPath>
     </Reference>
+    <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CMMS_22_111_0020\Bin\PX.Web.Customization.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomizationPlugin\WOCustomizationPlugin.cs" />
+    <Compile Include="CustomizationPlugin\WOCustomTypeNumberingHandler.cs" />
     <Compile Include="DAC\DBBacked\WOClass.cs" />
     <Compile Include="DAC\DBBacked\WOEquipment.cs" />
     <Compile Include="DAC\DBBacked\WOEquipmentBOM.cs" />
@@ -91,6 +103,7 @@
     <Compile Include="Graph\Maintenance\WOMeasurementMaint.cs" />
     <Compile Include="Graph\Setup\WOSetupMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\HelperClasses\WODatabase.cs" />
     <Compile Include="Utility\StringReference\Messages.cs" />
   </ItemGroup>
   <ItemGroup>
