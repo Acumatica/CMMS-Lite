@@ -7,7 +7,7 @@ namespace CMMS
     {
         public override void UpdateDatabase()
         {
-            WOCustomTypeNumberingHandler.UpdateDatabase(this);
+            WONumberingHandler.UpdateDatabase(this);
         }
     }
 }
