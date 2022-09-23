@@ -48,8 +48,12 @@ namespace CMMSlite.WO
                     = Bql<hold.IsEqual<True>>(),
                 IsPendingSchedule
                     = Bql<status.IsEqual<State.pendingSchedule>>(),
+                IsScheduled
+                    = Bql<status.IsEqual<State.scheduled>>(),
                 IsOpen
                     = Bql<status.IsEqual<State.open>>(),
+                IsComplete
+                    = Bql<status.IsEqual<State.complete>>(),
                 HasRequiredFields
                     = Bql<wOClassID.IsNotNull>(),
             }.AutoNameConditions();
@@ -131,7 +135,6 @@ namespace CMMSlite.WO
                                 {
                                     fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                     fields.AddField<workOrderCD>();
-                                    fields.AddField<status>();
                                     fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
@@ -155,7 +158,6 @@ namespace CMMSlite.WO
                                 {
                                     fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                     fields.AddField<workOrderCD>();
-                                    fields.AddField<status>();
                                     fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
@@ -180,7 +182,6 @@ namespace CMMSlite.WO
                                 {
                                     fields.AddAllFields<WOOrder>(c => c.IsDisabled());
                                     fields.AddField<workOrderCD>();
-                                    fields.AddField<status>();
                                     fields.AddAllFields<WOLine>(c => c.IsDisabled());
                                     fields.AddAllFields<WOLineItem>();
                                     fields.AddAllFields<WOLineLabor>();
@@ -220,6 +221,22 @@ namespace CMMSlite.WO
                                     .To<State.hold>()
                                     .IsTriggeredOn(g => g.initializeState)
                                     .When(conditions.IsOnHold));
+                                ts.Add(t => t
+                                    .To<State.pendingSchedule>()
+                                    .IsTriggeredOn(g => g.initializeState)
+                                    .When(conditions.IsPendingSchedule));
+                                ts.Add(t => t
+                                    .To<State.scheduled>()
+                                    .IsTriggeredOn(g => g.initializeState)
+                                    .When(conditions.IsScheduled));
+                                ts.Add(t => t
+                                    .To<State.open>()
+                                    .IsTriggeredOn(g => g.initializeState)
+                                    .When(conditions.IsOpen));
+                                ts.Add(t => t
+                                    .To<State.complete>()
+                                    .IsTriggeredOn(g => g.initializeState)
+                                    .When(conditions.IsComplete));
                             });
 
                             // Hold
@@ -228,6 +245,7 @@ namespace CMMSlite.WO
                                 ts.Add(t => t
                                     .To<State.pendingSchedule>()
                                     .IsTriggeredOn(g => g.removeHold)
+                                    .When(!conditions.IsOnHold)
                                     );
                             });
 
