@@ -48,8 +48,10 @@
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="InventoryID" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="InventoryItem__Descr" Width="280" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Criticality" Width="70" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn CommitChanges="True" DataField="Quantity" Width="100"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="Criticality" Width="70"></px:PXGridColumn></Columns>
+									<%--<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="Criticality" Width="70" ></px:PXGridColumn></Columns>--%>
 								<RowTemplate>
 									<px:PXSelector runat="server" ID="CstPXSelector25" DataField="InventoryID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>						<AutoSize Enabled="True" ></AutoSize>
 						<AutoSize MinHeight="200" ></AutoSize></px:PXGrid></Template>
@@ -62,10 +64,15 @@
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="WorkOrderID" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="WOOrder__Descr" Width="280" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="LeadTimeDays" Width="70" ></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="LeadTimeDays" Width="70" ></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="FrequencyDays" Width="70"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="LastWODate" Width="90"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="NextWODate" Width="90"></px:PXGridColumn></Columns>
+
+									<%--<px:PXGridColumn DataField="LeadTimeDays" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="FrequencyDays" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="LastWODate" Width="90" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="NextWODate" Width="90" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn  DataField="NextWODate" Width="90" ></px:PXGridColumn></Columns>--%>
 								<RowTemplate>
 									<px:PXSelector runat="server" ID="CstPXSelector26" DataField="WorkOrderID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>
 						<AutoSize Enabled="True" ></AutoSize>

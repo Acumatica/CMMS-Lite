@@ -13,15 +13,15 @@ namespace CMMSlite.WO
         [PXDBInt(IsKey = true)]
         [PXParent(typeof(SelectFrom<WOEquipment>.Where<WOEquipment.equipmentID.IsEqual<equipmentID.FromCurrent>>))]
         [PXDBDefault(typeof(WOEquipment.equipmentID))]
-        [PXSelector(
-            typeof(WOEquipment.equipmentID),
-            typeof(WOEquipment.equipmentCD),
-            typeof(WOEquipment.descr),
-            typeof(WOEquipment.inventoryID),
-            typeof(WOEquipment.sMEquipmentID),
-            typeof(WOEquipment.aMMachID),
-            SubstituteKey = typeof(WOEquipment.equipmentCD)
-            )]
+        //[PXSelector(
+        //    typeof(WOEquipment.equipmentID),
+        //    typeof(WOEquipment.equipmentCD),
+        //    typeof(WOEquipment.descr),
+        //    typeof(WOEquipment.inventoryID),
+        //    typeof(WOEquipment.sMEquipmentID),
+        //    typeof(WOEquipment.aMMachID),
+        //    SubstituteKey = typeof(WOEquipment.equipmentCD)
+        //    )]
         [PXUIField(DisplayName = Messages.FieldEquipmentID)]
         public virtual int? EquipmentID { get; set; }
         public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }
