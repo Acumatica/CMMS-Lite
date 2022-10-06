@@ -35,7 +35,8 @@ namespace CMMSlite.WO
         [PXSelector(
             typeof(WOFailureMode.failureModeID),
             typeof(WOFailureMode.failureModeCD),
-            typeof(WOFailureMode.descr)
+            typeof(WOFailureMode.descr),
+            SubstituteKey = typeof(WOFailureMode.failureModeCD)
             )]
         [PXUIField(DisplayName = Messages.FieldFailureModeID)]
         public virtual int? FailureModeID { get; set; }
