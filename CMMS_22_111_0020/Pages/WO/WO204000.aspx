@@ -31,14 +31,15 @@
 			<px:PXTabItem Text="General">
 				<Template>
 					<px:PXLayoutRule runat="server" ID="CstPXLayoutRule12" StartRow="True" ></px:PXLayoutRule>
+					<px:PXNumberEdit runat="server" ID="CstPXNumberEdit1" DataField="BranchID" />
+					<px:PXSegmentMask runat="server" ID="CstPXSegmentMask18" DataField="InventoryID" ></px:PXSegmentMask>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit19" DataField="SerialNbr" ></px:PXTextEdit>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit14" DataField="AssetID" ></px:PXTextEdit>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit17" DataField="DepartmentID" ></px:PXTextEdit>
 					<px:PXDropDown runat="server" ID="CstPXDropDown23" DataField="Criticality" ></px:PXDropDown>
 					<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit16" DataField="DateInstalled" ></px:PXDateTimeEdit>
 					<px:PXSelector runat="server" ID="CstPXSelector20" DataField="SMEquipmentID" ></px:PXSelector>
-					<px:PXSelector runat="server" ID="CstPXSelector13" DataField="AMMachID" ></px:PXSelector>
-					<px:PXSegmentMask runat="server" ID="CstPXSegmentMask18" DataField="InventoryID" ></px:PXSegmentMask></Template>
+					<px:PXSelector runat="server" ID="CstPXSelector13" DataField="AMMachID" ></px:PXSelector></Template>
 			</px:PXTabItem>
 			<px:PXTabItem Text="BOM">
 				<Template>
