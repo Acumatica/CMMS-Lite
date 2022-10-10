@@ -32,7 +32,7 @@ namespace CMMSlite.WO
         [PXViewName(Messages.ViewSWorkOrders)]
         public SelectFrom<WOOrder>
             .Where<WOOrder.equipmentID.IsEqual<WOEquipment.equipmentID.FromCurrent>
-                .And<WOOrder.workOrderType.IsNotEqual<WorkOrderTypes.template>>>
+                .And<WOOrder.workOrderType.IsNotEqual<WorkOrderTypes.template>>>.OrderBy<Desc<WOOrder.scheduleDate>>
             .View.ReadOnly WorkOrders;
 
         [PXViewName(Messages.ViewBOM)]

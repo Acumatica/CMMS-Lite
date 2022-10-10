@@ -43,6 +43,23 @@ namespace CMMSlite.WO
         public abstract class failureModeID : PX.Data.BQL.BqlInt.Field<failureModeID> { }
         #endregion
 
+        #region IsMitigated 
+        [PXDBBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = Messages.IsMitigated)]
+        public virtual bool? IsMitigated { get; set; }
+        public abstract class isMitigated : PX.Data.BQL.BqlBool.Field<isMitigated> { }
+
+        #endregion
+
+        #region MitigationDescription 
+        [PXDBString(255, IsUnicode = true, InputMask = "")]
+        [PXUIField(DisplayName = Messages.MitigationDescription)]
+        public virtual string MitigationDescription { get; set; }
+        public abstract class mitigationDescription : PX.Data.BQL.BqlString.Field<mitigationDescription> { }
+        #endregion
+
+
         #region CreatedByID
         [PXDBCreatedByID()]
         public virtual Guid? CreatedByID { get; set; }
