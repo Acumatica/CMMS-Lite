@@ -107,6 +107,9 @@ namespace CMMSlite.WO
         public const string FieldComment = "Comment";
         public const string FieldMeasurementID = "Measurement";
         public const string FieldValue = "Value";
+
+        public const string IsMitigated = "Is Mitigated";
+        public const string MitigationDescription = "Mitigation Description";
         #endregion
 
         #region Work Order Statuses
