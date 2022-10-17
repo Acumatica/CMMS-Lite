@@ -20,18 +20,6 @@ namespace CMMSlite.WO
         [PXDBString(30, IsKey = true,IsUnicode = true, InputMask = "")]
         [PXDefault]
         [AutoNumber(typeof(WOSetup.equipNumberingID), typeof(AccessInfo.businessDate))]
-
-        // Old code
-        //[PXSelector(
-        //    typeof(WOEquipment.equipmentCD),
-        //    typeof(WOEquipment.equipmentCD),
-        //    typeof(WOEquipment.descr),
-        //    typeof(WOEquipment.inventoryID),
-        //    typeof(WOEquipment.sMEquipmentID),
-        //    typeof(WOEquipment.aMMachID)
-        //    )]
-
-        // New code fixed one
         [PXSelector(typeof(Search<WOEquipment.equipmentCD>),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),

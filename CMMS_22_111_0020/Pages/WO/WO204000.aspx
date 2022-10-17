@@ -85,7 +85,8 @@
 						<Levels>
 							<px:PXGridLevel DataMember="WorkOrders" >
 								<Columns>
-									<px:PXGridColumn DataField="WorkOrderCD" Width="140" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ScheduleDate" Width="90" />
+									<px:PXGridColumn LinkCommand="WorkOrders" DataField="WorkOrderCD" Width="140" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="WOClassID" Width="140" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="Descr" Width="280" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="Status" Width="70" ></px:PXGridColumn>
@@ -99,9 +100,11 @@
 							<px:PXGridLevel DataMember="FailureModes" >
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="FailureModeID" Width="70" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="WOFailureMode__Descr" Width="280" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn DataField="WOFailureMode__Descr" Width="280" ></px:PXGridColumn>
+									<px:PXGridColumn Type="CheckBox" DataField="IsMitigated" Width="60" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="MitigationDescription" Width="280" /></Columns>
 								<RowTemplate>
-									<px:PXSelector runat="server" ID="CstPXSelector27" DataField="FailureModeID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>
+									<px:PXSelector runat="server" ID="CstPXSelector27" DataField="FailureModeID" AllowEdit="True" ></px:PXSelector></RowTemplate></px:PXGridLevel></Levels>
 						<AutoSize Enabled="True" ></AutoSize>
 						<AutoSize MinHeight="200" ></AutoSize></px:PXGrid></Template></px:PXTabItem></Items>
 		<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
