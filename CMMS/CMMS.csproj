@@ -110,13 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomizationPlugin\" />
+    <Folder Include="DAC\DBBacked\" />
     <Folder Include="DAC\DerivedClasses\" />
     <Folder Include="DAC\Filters\" />
     <Folder Include="DAC\NonDBBacked\" />
     <Folder Include="DAC\PXProjections\" />
     <Folder Include="Extension\DAC\" />
+    <Folder Include="Extension\Graph\" />
+    <Folder Include="Graph\Entry\" />
     <Folder Include="Graph\Inquiry\" />
+    <Folder Include="Graph\Maintenance\" />
     <Folder Include="Graph\Processing\" />
+    <Folder Include="Graph\Setup\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
