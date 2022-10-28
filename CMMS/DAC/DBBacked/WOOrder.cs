@@ -206,9 +206,9 @@ namespace CMMSlite.WO
         #endregion
 
         #region RequestApproval
-        [PXDBBool()]
+        [PXDBBool]
         [PXUIField(Visible = false)]
-        [PXDBDefault(typeof(WOSetup.wORequestApproval))]
+        [PXDefault(typeof(WOSetup.wORequestApproval))]
         public virtual bool? RequestApproval { get; set; }
         public abstract class requestApproval : PX.Data.BQL.BqlBool.Field<requestApproval> { }
         #endregion

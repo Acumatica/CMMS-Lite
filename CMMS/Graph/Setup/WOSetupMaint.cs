@@ -1,33 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PX.Objects;
-using PX.Data;
+﻿using PX.Data;
 using PX.Data.BQL.Fluent;
 
 namespace CMMSlite.WO
 {
     public class WOSetupMaint : PXGraph<WOSetupMaint>
     {
+
+        #region Buttons
+
         public PXSave<WOSetup> Save;
         public PXCancel<WOSetup> Cancel;
 
+        #endregion
+
+        #region Views
+
         [PXViewName(Messages.ViewPreferences)]
-        public SelectFrom<WOSetup>.View Preferences;
+        public SelectFrom<WOSetup>.View Setup;
 
         [PXViewName(Messages.ViewSetupApproval)]
         public SelectFrom<WOSetupApproval>.View SetupApproval;
 
+        #endregion
+
         #region Event Handlers
-        protected virtual void _(Events.FieldUpdated<WOSetup.wORequestApproval> e)
+        protected virtual void _(Events.FieldUpdated<WOSetup, WOSetup.wORequestApproval> e)
         {
-            PXCache cache = this.Caches[typeof(WOSetupApproval)];
-            foreach (WOSetupApproval setup in PXSelect<WOSetupApproval>.Select(this))
+            foreach (WOSetupApproval setup in SetupApproval.Select())
             {
-                setup.IsActive = (bool?)e.NewValue;
-                cache.Update(setup);
+                setup.IsActive = e.Row.WORequestApproval;
+                
+                SetupApproval.Cache.Update(setup);
             }
         }
         #endregion
