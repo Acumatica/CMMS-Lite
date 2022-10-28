@@ -87,7 +87,7 @@ namespace CMMSlite.WO
 
         public const string FieldApprovalID = "Approval ID";
         public const string FieldAssignmentMapID = "Approval Map";
-        public const string FieldAssignmentNotificationID = "Notification ID";
+        public const string FieldAssignmentNotificationID = "Pending Approval Notification";
         public const string FieldIsActive = "Active";
 
         public const string FieldEquipmentType = "Equipment Type";
