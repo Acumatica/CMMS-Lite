@@ -22,14 +22,14 @@ namespace CMMSlite.WO
             .View CurrentDocument;
 
         [PXViewName(Messages.ViewTransactions)]
-        [PXImport(typeof(WOLine))]
+        [PXImport]
         public SelectFrom<WOLine>
             .LeftJoin<WOEquipment>.On<WOEquipment.equipmentID.IsEqual<WOLine.equipmentID>>
             .Where<WOLine.workOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>
             .View Transactions;
 
         [PXViewName(Messages.ViewWOLineItems)]
-        [PXImport(typeof(WOLineItem))]
+        [PXImport]
         public SelectFrom<WOLineItem>
             .InnerJoin<InventoryItem>.On<InventoryItem.inventoryID.IsEqual<WOLineItem.inventoryID>>
             .Where<WOLineItem.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
@@ -37,14 +37,14 @@ namespace CMMSlite.WO
             .View LineItems;
 
         [PXViewName(Messages.ViewWOLineLabor)]
-        [PXImport(typeof(WOLineLabor))]
+        [PXImport]
         public SelectFrom<WOLineLabor>
             .Where<WOLineLabor.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineLabor.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineLabor;
 
         [PXViewName(Messages.ViewWOLineTools)]
-        [PXImport(typeof(WOLineTool))]
+        [PXImport]
         public SelectFrom<WOLineTool>
             .InnerJoin<InventoryItem>.On<InventoryItem.inventoryID.IsEqual<WOLineTool.inventoryID>>
             .Where<WOLineTool.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
@@ -52,12 +52,14 @@ namespace CMMSlite.WO
             .View LineTools;
 
         [PXViewName(Messages.ViewWOLineMeasurements)]
+        [PXImport]
         public SelectFrom<WOLineMeasure>
             .Where<WOLineMeasure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineMeasure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineMeasurements;
 
         [PXViewName(Messages.ViewWOLineFailureModes)]
+        [PXImport]
         public SelectFrom<WOLineFailure>
             .Where<WOLineFailure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineFailure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
