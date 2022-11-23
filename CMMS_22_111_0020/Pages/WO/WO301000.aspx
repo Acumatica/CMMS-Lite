@@ -32,14 +32,14 @@
                 <Template>
                     <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="CurrentDocument" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
                         <Template>
-                    <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
-                    <px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID"></px:PXSelector>
-                    <px:PXLayoutRule runat="server" ControlSize="M" GroupCaption="Assigned To" LabelsWidth="SM" StartGroup="True" />
-                    <px:PXSelector ID="edWorkgroupID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="WorkgroupID" DataSourceID="ds" />
-                    <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
-                      </Template>
-                        <AutoSize Container="Window" Enabled="True"/>
-                        </px:PXFormView>
+                            <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
+                            <px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID"></px:PXSelector>
+                            <px:PXLayoutRule runat="server" ControlSize="M" GroupCaption="Assigned To" LabelsWidth="SM" StartGroup="True" />
+                            <px:PXSelector ID="edWorkgroupID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="WorkgroupID" DataSourceID="ds" />
+                            <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
+                        </Template>
+                        <AutoSize Container="Window" Enabled="True" />
+                    </px:PXFormView>
                 </Template>
             </px:PXTabItem>
 
@@ -47,8 +47,9 @@
                 <Template>
                     <px:PXGrid ID="gridOperations" runat="server" DataSourceID="ds" Style="z-index: 100" Height="200px" Width="100%" NoteIndicator="True" FilesIndicator="True"
                         SkinID="DetailsInTab" SyncPosition="True" SyncPositionWithGraph="True" MatrixMode="True">
+                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
                         <AutoSize Container="Window" Enabled="True" MinHeight="150" />
-                        <AutoCallBack Target="tab2" Command="Refresh"/>
+                        <AutoCallBack Target="tab2" Command="Refresh" />
                         <Levels>
                             <px:PXGridLevel DataMember="Transactions">
                                 <Columns>
@@ -65,8 +66,9 @@
                             <px:PXTabItem Text="Labor" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
                                     <px:PXGrid ID="gridLabor" runat="server" DataSourceID="ds" Style="z-index: 100" Width="100%" NoteIndicator="True" FilesIndicator="True"
-                                        SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True" >
-                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150"/>
+                                        SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True">
+                                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
+                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150" />
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineLabor">
                                                 <Columns>
@@ -82,8 +84,9 @@
                             <px:PXTabItem Text="Materials" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
                                     <px:PXGrid ID="gridMaterials" runat="server" DataSourceID="ds" Style="z-index: 100"
-                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True"  NoteIndicator="True" FilesIndicator="True">
-                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150"/>
+                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True" NoteIndicator="True" FilesIndicator="True">
+                                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
+                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150" />
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineItems">
                                                 <Columns>
@@ -101,8 +104,9 @@
                             <px:PXTabItem Text="Tools" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
                                     <px:PXGrid ID="gridTools" runat="server" DataSourceID="ds" Style="z-index: 100"
-                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True"  NoteIndicator="True" FilesIndicator="True">
-                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150"/>
+                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True" NoteIndicator="True" FilesIndicator="True">
+                                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
+                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150" />
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineTools">
                                                 <Columns>
@@ -120,8 +124,9 @@
                             <px:PXTabItem Text="Measurements" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
                                     <px:PXGrid ID="gridMeasurements" runat="server" DataSourceID="ds" Style="z-index: 100"
-                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True"  NoteIndicator="True" FilesIndicator="True">
-                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150"/>
+                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True" NoteIndicator="True" FilesIndicator="True">
+                                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
+                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150" />
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineMeasurements">
                                                 <Columns>
@@ -137,8 +142,9 @@
                             <px:PXTabItem Text="Failure Mode" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
                                     <px:PXGrid ID="gridFailure" runat="server" DataSourceID="ds" Style="z-index: 100"
-                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True"  NoteIndicator="True" FilesIndicator="True">
-                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150"/>
+                                        Width="100%" SkinID="DetailsInTab" SyncPosition="True" MatrixMode="True" NoteIndicator="True" FilesIndicator="True">
+                                        <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
+                                        <AutoSize Container="Parent" Enabled="True" MinHeight="150" />
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineFailureModes">
                                                 <Columns>
