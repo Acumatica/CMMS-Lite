@@ -71,6 +71,7 @@ namespace CMMSlite.WO
         public const string FieldWorkOrderID = "Work Order ID";
         public const string FieldWorkOrderType = "Work Order Type";
         public const string FieldWOClassID = "Work Order Class";
+        public const string FieldWOClass = "Class";
         public const string FieldBranchID = "Branch";
         public const string FieldPriority = "Priority";
         public const string FieldOrigWorkOrderID = "Orig Work Order ID";

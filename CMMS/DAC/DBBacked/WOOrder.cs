@@ -78,7 +78,7 @@ namespace CMMSlite.WO
             typeof(WOClass.descr),
             Filterable = true
             )]
-        [PXUIField(DisplayName = Messages.FieldWOClassID)]
+        [PXUIField(DisplayName = Messages.FieldWOClass)]
         public virtual string WOClassID { get; set; }
         public abstract class wOClassID : PX.Data.BQL.BqlString.Field<wOClassID> { }
         #endregion
