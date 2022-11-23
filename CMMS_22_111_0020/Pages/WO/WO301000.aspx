@@ -26,11 +26,11 @@
     </px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" runat="Server">
-    <px:PXTab ID="tab1" runat="server" Style="z-index: 100;" Width="100%" DataMember="Document" SyncPosition="True">
+    <px:PXTab ID="tab1" runat="server" Style="z-index: 100;" Width="100%" DataMember="CurrentDocument" SyncPosition="True">
         <Items>
-            <px:PXTabItem Text="Details" LoadOnDemand="false" RepaintOnDemand="false">
+            <px:PXTabItem Text="Details">
                 <Template>
-<%--                    <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="Document" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
+                    <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="CurrentDocument" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
                         <Template>
                     <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
                     <px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID"></px:PXSelector>
@@ -39,11 +39,11 @@
                     <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
                       </Template>
                         <AutoSize Container="Window" Enabled="True"/>
-                        </px:PXFormView>--%>
+                        </px:PXFormView>
                 </Template>
             </px:PXTabItem>
 
-            <px:PXTabItem Text="Operations" LoadOnDemand="false" RepaintOnDemand="false">
+            <px:PXTabItem Text="Operations" LoadOnDemand="true" RepaintOnDemand="false">
                 <Template>
                     <px:PXGrid ID="gridOperations" runat="server" DataSourceID="ds" Style="z-index: 100" Height="200px" Width="100%" NoteIndicator="True" FilesIndicator="True"
                         SkinID="DetailsInTab" SyncPosition="True" SyncPositionWithGraph="True" MatrixMode="True">
@@ -60,7 +60,7 @@
                         </Levels>
                     </px:PXGrid>
 
-                    <px:PXTab ID="tab2" runat="server" Style="z-index: 100;" Width="100%" DataMember="Document" SyncPosition="True">
+                    <px:PXTab ID="tab2" runat="server" Style="z-index: 100;" Width="100%" DataMember="CurrentDocument" SyncPosition="True">
                         <Items>
                             <px:PXTabItem Text="Labor" LoadOnDemand="false" RepaintOnDemand="false">
                                 <Template>
