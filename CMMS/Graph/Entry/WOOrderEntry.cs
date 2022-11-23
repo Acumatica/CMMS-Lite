@@ -175,16 +175,6 @@ namespace CMMSlite.WO
         #endregion
 
         #region Events
-
-        #region WOOrder
-
-        protected void _(Events.FieldDefaulting<WOOrder.requestApproval> e)
-        {
-            e.NewValue = Setup.Current.WORequestApproval;
-        }
-
-        #endregion
-
         #endregion
 
     }
