@@ -30,7 +30,7 @@
         <Items>
             <px:PXTabItem Text="Details" LoadOnDemand="false" RepaintOnDemand="false">
                 <Template>
-                    <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="Document" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
+<%--                    <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="Document" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
                         <Template>
                     <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
                     <px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID"></px:PXSelector>
@@ -39,7 +39,7 @@
                     <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
                       </Template>
                         <AutoSize Container="Window" Enabled="True"/>
-                        </px:PXFormView>
+                        </px:PXFormView>--%>
                 </Template>
             </px:PXTabItem>
 
