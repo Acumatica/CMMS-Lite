@@ -160,6 +160,56 @@
                     </px:PXTab>
                 </Template>
             </px:PXTabItem>
-        </Items>
-    </px:PXTab>
+			<px:PXTabItem Text="Approvals">
+				<Template>
+					<px:PXGrid Caption="" SkinID="DetailsInTab" Width="100%" runat="server" ID="PXGrid1" DataSourceID="ds">
+						<Levels>
+							<px:PXGridLevel DataMember="Approval" >
+								<Columns>
+									<px:PXGridColumn DataField="ApproverEmployee__AcctName" Width="160" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ApproverEmployee__AcctCD" Width="160" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ApprovedByEmployee__AcctName" Width="100" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ApprovedByEmployee__AcctCD" Width="160" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ApproveDate" Width="90" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="Status" Width="90" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="Reason" Width="280" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="WorkgroupID" Width="150" ></px:PXGridColumn></Columns>
+								<RowTemplate>
+									<px:PXDateTimeEdit runat="server" ID="PXDateTimeEdit1" DataField="ApproveDate" ></px:PXDateTimeEdit>
+									<px:PXTextEdit runat="server" ID="PXTextEdit1" DataField="ApprovedByEmployee__AcctCD" ></px:PXTextEdit>
+									<px:PXTextEdit runat="server" ID="PXTextEdit2" DataField="ApprovedByEmployee__AcctName" ></px:PXTextEdit>
+									<px:PXTextEdit runat="server" ID="PXTextEdit3" DataField="ApproverEmployee__AcctCD" ></px:PXTextEdit>
+									<px:PXTextEdit runat="server" ID="PXTextEdit4" DataField="ApproverEmployee__AcctName" ></px:PXTextEdit>
+									<px:PXDropDown runat="server" ID="PXDropDown1" DataField="Status" ></px:PXDropDown>
+									<px:PXSelector runat="server" ID="PXSelector1" DataField="WorkgroupID" ></px:PXSelector>
+									<px:PXTextEdit runat="server" ID="PXTextEdit5" DataField="Reason" ></px:PXTextEdit></RowTemplate>
+							</px:PXGridLevel>
+						</Levels>
+						<AutoSize Container="Window" MinHeight="150" Enabled="True" ></AutoSize>
+					
+						<Mode AllowAddNew="False" ></Mode>
+						<Mode AllowDelete="False" ></Mode>
+						<Mode AllowUpdate="False" ></Mode></px:PXGrid>
+				</Template>
+			</px:PXTabItem></Items>
+		<AutoSize Container="Window" Enabled="True" MinHeight="200" ></AutoSize>
+	</px:PXTab>
+    <px:PXSmartPanel ID="panelReason" runat="server" Caption="Enter Reason" CaptionVisible="true" LoadOnDemand="true" Key="ReasonApproveRejectParams"
+	    AutoCallBack-Enabled="true" AutoCallBack-Command="Refresh" CallBackMode-CommitChanges="True" Width="600px"
+	    CallBackMode-PostData="Page" AcceptButtonID="btnReasonOk" CancelButtonID="btnReasonCancel" AllowResize="False">
+	    <px:PXFormView ID="PXFormViewPanelReason" runat="server" DataSourceID="ds" CaptionVisible="False" DataMember="ReasonApproveRejectParams">
+		    <ContentStyle BackColor="Transparent" BorderStyle="None" Width="100%" Height="100%"  CssClass="" /> 
+		    <Template>
+			    <px:PXLayoutRule ID="PXLayoutRulePanelReason" runat="server" StartColumn="True" />
+			    <px:PXPanel ID="PXPanelReason" runat="server" RenderStyle="Simple" >
+				    <px:PXLayoutRule ID="PXLayoutRuleReason" runat="server" StartColumn="True" SuppressLabel="True" />
+				    <px:PXTextEdit ID="edReason" runat="server" DataField="Reason" TextMode="MultiLine" LabelWidth="0" Height="200px" Width="600px" CommitChanges="True" />
+			    </px:PXPanel>
+			    <px:PXPanel ID="PXPanelReasonButtons" runat="server" SkinID="Buttons">
+				    <px:PXButton ID="btnReasonOk" runat="server" Text="OK" DialogResult="Yes" CommandSourceID="ds" />
+				    <px:PXButton ID="btnReasonCancel" runat="server" Text="Cancel" DialogResult="No" CommandSourceID="ds" />
+			    </px:PXPanel>
+		    </Template>
+	    </px:PXFormView>
+    </px:PXSmartPanel>
 </asp:Content>
