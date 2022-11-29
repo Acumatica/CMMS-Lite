@@ -2,13 +2,7 @@
 <%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
-	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%"
-        TypeName="CMMSlite.WO.WOEquipmentMaint"
-        PrimaryView="Equipment"
-        >
-		<CallbackCommands>
-
-		</CallbackCommands>
+	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="CMMSlite.WO.WOEquipmentMaint" PrimaryView="Equipment">
 	</px:PXDataSource>
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" Runat="Server">
@@ -31,14 +25,15 @@
 			<px:PXTabItem Text="General">
 				<Template>
 					<px:PXLayoutRule runat="server" ID="CstPXLayoutRule12" StartRow="True" ></px:PXLayoutRule>
+					<px:PXNumberEdit runat="server" ID="CstPXNumberEdit1" DataField="BranchID" />
+					<px:PXSegmentMask runat="server" ID="CstPXSegmentMask18" DataField="InventoryID" ></px:PXSegmentMask>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit19" DataField="SerialNbr" ></px:PXTextEdit>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit14" DataField="AssetID" ></px:PXTextEdit>
 					<px:PXTextEdit runat="server" ID="CstPXTextEdit17" DataField="DepartmentID" ></px:PXTextEdit>
 					<px:PXDropDown runat="server" ID="CstPXDropDown23" DataField="Criticality" ></px:PXDropDown>
 					<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit16" DataField="DateInstalled" ></px:PXDateTimeEdit>
 					<px:PXSelector runat="server" ID="CstPXSelector20" DataField="SMEquipmentID" ></px:PXSelector>
-					<px:PXSelector runat="server" ID="CstPXSelector13" DataField="AMMachID" ></px:PXSelector>
-					<px:PXSegmentMask runat="server" ID="CstPXSegmentMask18" DataField="InventoryID" ></px:PXSegmentMask></Template>
+					<px:PXSelector runat="server" ID="CstPXSelector13" DataField="AMMachID" ></px:PXSelector></Template>
 			</px:PXTabItem>
 			<px:PXTabItem Text="BOM">
 				<Template>
@@ -48,8 +43,8 @@
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="InventoryID" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="InventoryItem__Descr" Width="280" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Quantity" Width="100" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Criticality" Width="70" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn CommitChanges="True" DataField="Quantity" Width="100"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="Criticality" Width="70"></px:PXGridColumn></Columns>
 								<RowTemplate>
 									<px:PXSelector runat="server" ID="CstPXSelector25" DataField="InventoryID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>						<AutoSize Enabled="True" ></AutoSize>
 						<AutoSize MinHeight="200" ></AutoSize></px:PXGrid></Template>
@@ -62,10 +57,11 @@
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="WorkOrderID" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="WOOrder__Descr" Width="280" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="LeadTimeDays" Width="70" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="FrequencyDays" Width="70" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="LastWODate" Width="90" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="NextWODate" Width="90" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn CommitChanges="True" DataField="LeadTimeDays" Width="70" ></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="FrequencyDays" Width="70"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="LastWODate" Width="90"></px:PXGridColumn>
+									<px:PXGridColumn CommitChanges="True" DataField="NextWODate" Width="90"></px:PXGridColumn>
+								</Columns>
 								<RowTemplate>
 									<px:PXSelector runat="server" ID="CstPXSelector26" DataField="WorkOrderID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>
 						<AutoSize Enabled="True" ></AutoSize>
@@ -77,7 +73,8 @@
 						<Levels>
 							<px:PXGridLevel DataMember="WorkOrders" >
 								<Columns>
-									<px:PXGridColumn DataField="WorkOrderCD" Width="140" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="ScheduleDate" Width="90" />
+									<px:PXGridColumn LinkCommand="WorkOrders" DataField="WorkOrderCD" Width="140" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="WOClassID" Width="140" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="Descr" Width="280" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="Status" Width="70" ></px:PXGridColumn>
@@ -91,9 +88,11 @@
 							<px:PXGridLevel DataMember="FailureModes" >
 								<Columns>
 									<px:PXGridColumn CommitChanges="True" DataField="FailureModeID" Width="70" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="WOFailureMode__Descr" Width="280" ></px:PXGridColumn></Columns>
+									<px:PXGridColumn DataField="WOFailureMode__Descr" Width="280" ></px:PXGridColumn>
+									<px:PXGridColumn Type="CheckBox" DataField="IsMitigated" Width="60" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="MitigationDescription" Width="280" /></Columns>
 								<RowTemplate>
-									<px:PXSelector runat="server" ID="CstPXSelector27" DataField="FailureModeID" AllowEdit="True" /></RowTemplate></px:PXGridLevel></Levels>
+									<px:PXSelector runat="server" ID="CstPXSelector27" DataField="FailureModeID" AllowEdit="True" ></px:PXSelector></RowTemplate></px:PXGridLevel></Levels>
 						<AutoSize Enabled="True" ></AutoSize>
 						<AutoSize MinHeight="200" ></AutoSize></px:PXGrid></Template></px:PXTabItem></Items>
 		<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
