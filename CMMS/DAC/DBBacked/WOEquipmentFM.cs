@@ -15,15 +15,6 @@ namespace CMMSlite.WO
         [PXDBInt(IsKey = true)]
         [PXParent(typeof(SelectFrom<WOEquipment>.Where<WOEquipment.equipmentID.IsEqual<equipmentID.FromCurrent>>))]
         [PXDBDefault(typeof(WOEquipment.equipmentID))]
-        [PXSelector(
-            typeof(WOEquipment.equipmentID),
-            typeof(WOEquipment.equipmentCD),
-            typeof(WOEquipment.descr),
-            typeof(WOEquipment.inventoryID),
-            typeof(WOEquipment.sMEquipmentID),
-            typeof(WOEquipment.aMMachID),
-            SubstituteKey = typeof(WOEquipment.equipmentCD)
-            )]
         [PXUIField(DisplayName = Messages.FieldEquipmentID)]
         public virtual int? EquipmentID { get; set; }
         public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }
@@ -35,12 +26,30 @@ namespace CMMSlite.WO
         [PXSelector(
             typeof(WOFailureMode.failureModeID),
             typeof(WOFailureMode.failureModeCD),
-            typeof(WOFailureMode.descr)
+            typeof(WOFailureMode.descr),
+            SubstituteKey = typeof(WOFailureMode.failureModeCD)
             )]
         [PXUIField(DisplayName = Messages.FieldFailureModeID)]
         public virtual int? FailureModeID { get; set; }
         public abstract class failureModeID : PX.Data.BQL.BqlInt.Field<failureModeID> { }
         #endregion
+
+        #region IsMitigated 
+        [PXDBBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = Messages.IsMitigated)]
+        public virtual bool? IsMitigated { get; set; }
+        public abstract class isMitigated : PX.Data.BQL.BqlBool.Field<isMitigated> { }
+
+        #endregion
+
+        #region MitigationDescription 
+        [PXDBString(255, IsUnicode = true, InputMask = "")]
+        [PXUIField(DisplayName = Messages.MitigationDescription)]
+        public virtual string MitigationDescription { get; set; }
+        public abstract class mitigationDescription : PX.Data.BQL.BqlString.Field<mitigationDescription> { }
+        #endregion
+
 
         #region CreatedByID
         [PXDBCreatedByID()]

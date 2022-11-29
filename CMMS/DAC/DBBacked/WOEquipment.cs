@@ -11,16 +11,16 @@ namespace CMMSlite.WO
     public class WOEquipment : IBqlTable
     {
         #region EquipmentID
-        [PXDBIdentity(IsKey = true)]
+        [PXDBIdentity]
         public virtual int? EquipmentID { get; set; }
         public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }
         #endregion
 
         #region EquipmentCD
-        [PXDBString(30, IsUnicode = true, InputMask = "")]
+        [PXDBString(30, IsKey = true, IsUnicode = true, InputMask = "")]
+        [PXDefault]
         [AutoNumber(typeof(WOSetup.equipNumberingID), typeof(AccessInfo.businessDate))]
-        [PXSelector(
-            typeof(WOEquipment.equipmentCD),
+        [PXSelector(typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),
             typeof(WOEquipment.inventoryID),
