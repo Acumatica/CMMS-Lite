@@ -9,6 +9,14 @@ namespace CMMSlite.WO
     {
         public const string Prefix = "WO Error";
 
+        #region Setup
+
+        public const string CustomWorkSequence = "WORKORDID";
+
+        public const string CustomTypeDescr = "Sequence for Work Orders. **DO NOT ALTER**";
+
+        #endregion
+
         #region View Names
         public const string ViewDocument = "Work Orders";
         public const string ViewCurrentDocument = "Current Work Order";
@@ -63,6 +71,7 @@ namespace CMMSlite.WO
         public const string FieldWorkOrderID = "Work Order ID";
         public const string FieldWorkOrderType = "Work Order Type";
         public const string FieldWOClassID = "Work Order Class";
+        public const string FieldWOClass = "Class";
         public const string FieldBranchID = "Branch";
         public const string FieldPriority = "Priority";
         public const string FieldOrigWorkOrderID = "Orig Work Order ID";
@@ -79,7 +88,7 @@ namespace CMMSlite.WO
 
         public const string FieldApprovalID = "Approval ID";
         public const string FieldAssignmentMapID = "Approval Map";
-        public const string FieldAssignmentNotificationID = "Notification ID";
+        public const string FieldAssignmentNotificationID = "Pending Approval Notification";
         public const string FieldIsActive = "Active";
 
         public const string FieldEquipmentType = "Equipment Type";

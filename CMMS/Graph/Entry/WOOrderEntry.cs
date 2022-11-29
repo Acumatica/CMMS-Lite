@@ -1,14 +1,18 @@
 ﻿using PX.Data;
 using PX.Data.BQL.Fluent;
 using PX.Data.WorkflowAPI;
+using PX.Objects.AM;
+using PX.Objects.CR;
 using PX.Objects.EP;
 using PX.Objects.IN;
 using System.Collections;
+using static PX.Objects.AM.ProductionBomCopyBase;
 
 namespace CMMSlite.WO
 {
     public class WOOrderEntry : PXGraph<WOOrderEntry, WOOrder>
     {
+        #region Views
         [PXViewName(Messages.ViewDocument)]
         public SelectFrom<WOOrder>.View Document;
 
@@ -18,12 +22,14 @@ namespace CMMSlite.WO
             .View CurrentDocument;
 
         [PXViewName(Messages.ViewTransactions)]
+        [PXImport]
         public SelectFrom<WOLine>
             .LeftJoin<WOEquipment>.On<WOEquipment.equipmentID.IsEqual<WOLine.equipmentID>>
             .Where<WOLine.workOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>
             .View Transactions;
 
         [PXViewName(Messages.ViewWOLineItems)]
+        [PXImport]
         public SelectFrom<WOLineItem>
             .InnerJoin<InventoryItem>.On<InventoryItem.inventoryID.IsEqual<WOLineItem.inventoryID>>
             .Where<WOLineItem.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
@@ -31,12 +37,14 @@ namespace CMMSlite.WO
             .View LineItems;
 
         [PXViewName(Messages.ViewWOLineLabor)]
+        [PXImport]
         public SelectFrom<WOLineLabor>
             .Where<WOLineLabor.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineLabor.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineLabor;
 
         [PXViewName(Messages.ViewWOLineTools)]
+        [PXImport]
         public SelectFrom<WOLineTool>
             .InnerJoin<InventoryItem>.On<InventoryItem.inventoryID.IsEqual<WOLineTool.inventoryID>>
             .Where<WOLineTool.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
@@ -44,12 +52,14 @@ namespace CMMSlite.WO
             .View LineTools;
 
         [PXViewName(Messages.ViewWOLineMeasurements)]
+        [PXImport]
         public SelectFrom<WOLineMeasure>
             .Where<WOLineMeasure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineMeasure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineMeasurements;
 
         [PXViewName(Messages.ViewWOLineFailureModes)]
+        [PXImport]
         public SelectFrom<WOLineFailure>
             .Where<WOLineFailure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineFailure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
@@ -57,6 +67,10 @@ namespace CMMSlite.WO
 
         public PXSetup<WOSetup> Setup;
         public SelectFrom<WOSetupApproval>.View SetupApproval;
+
+        [PXViewName(PX.Objects.CR.Messages.Answers)]
+        public CRAttributeList<WOOrder> Answers;
+        #endregion
 
         #region Hook to Standard Approval System
         [PXViewName(Messages.ViewApproval)]
@@ -114,12 +128,24 @@ namespace CMMSlite.WO
         }
         #endregion
 
+        #region Actions
+        #region initializeState
         public PXAutoAction<WOOrder> initializeState;
+        #endregion
 
-        //public PXAction<WOOrder> putOnHold;
-        //[PXButton(CommitChanges = true), PXUIField(DisplayName = "Hold", MapEnableRights = PXCacheRights.Select)]
-        //protected virtual IEnumerable PutOnHold(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #region Hold Action
+        public PXAction<WOOrder> putOnHold;
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Hold", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable PutOnHold(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #endregion
 
+        #region RemoveHold Action
+        public PXAction<WOOrder> removeHold;
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Remove Hold", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable RemoveHold(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #endregion
+
+        #region Schedule Action
         public PXAction<WOOrder> schedule;
         [PXButton(CommitChanges = true), PXUIField(DisplayName = "Schedule")]
         protected virtual IEnumerable Schedule(PXAdapter adapter)
@@ -134,6 +160,24 @@ namespace CMMSlite.WO
 
             return adapter.Get<WOOrder>();
         }
+        #endregion
+
+        #region Open Action
+        public PXAction<WOOrder> open;
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Open", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable Open(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #endregion
+
+        #region Complete Action
+        public PXAction<WOOrder> complete;
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Complete", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable Complete(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #endregion
+
+        #endregion
+
+        #region Events
+        #endregion
 
     }
 }
