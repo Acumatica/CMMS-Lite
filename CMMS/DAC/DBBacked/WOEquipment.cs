@@ -17,7 +17,7 @@ namespace CMMSlite.WO
         #endregion
 
         #region EquipmentCD
-        [PXDBString(30, IsKey = true,IsUnicode = true, InputMask = "")]
+        [PXDBString(30, IsKey = true, IsUnicode = true, InputMask = "")]
         [PXDefault]
         [AutoNumber(typeof(WOSetup.equipNumberingID), typeof(AccessInfo.businessDate))]
         [PXSelector(typeof(Search<WOEquipment.equipmentCD>),
