@@ -21,6 +21,9 @@ namespace CMMS
 			if (numbering == null)
 			{
 				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.CustomWorkSequence, CMMSlite.WO.Messages.CustomTypeDescr);
+				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.TemplateCustomWorkSequence, CMMSlite.WO.Messages.TemplateCustomTypeDescr);
+				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.EquipmentNumberingID, CMMSlite.WO.Messages.EquipmentNumberingDescr);
+
 			}
 		}
 
