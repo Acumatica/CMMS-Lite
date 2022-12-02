@@ -12,15 +12,16 @@
                 <Template>
                     <px:PXLayoutRule runat="server" StartRow="True" LabelsWidth="M" />
                     <px:PXLayoutRule runat="server" GroupCaption="Work Order Process" />
-                    <px:PXLayoutRule runat="server" ID="CstPXLayoutRule11" StartRow="True" ControlSize="SM" LabelsWidth="S" />
-                    <px:PXSelector runat="server" ID="CstPXSelector8" DataField="WONumberingID" AllowEdit="True"></px:PXSelector>
-                    <px:PXSelector AllowEdit="True" runat="server" ID="CstPXSelector10" DataField="EquipNumberingID"></px:PXSelector>
+                    <px:PXLayoutRule runat="server" StartRow="True" ControlSize="SM" LabelsWidth="S" />
+                    <px:PXSelector runat="server" ID="slWONumberingID" DataField="WONumberingID" AllowEdit="True"/>
+                    <px:PXSelector runat="server" ID="slTemplateWorkOrderNumberingID" DataField="TemplateWorkOrderNumberingID" AllowEdit="True"/>
+                    <px:PXSelector AllowEdit="True" runat="server" ID="slEquipNumberingID" DataField="EquipNumberingID"/>
                     <px:PXLayoutRule runat="server" StartRow="True" LabelsWidth="M" />
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Approvals">
                 <Template>
-                    <px:PXPanel ID="PXPanel1" runat="server" DataMember="">
+                    <px:PXPanel ID="pnlRequestApproval" runat="server" DataMember="">
                         <px:PXLayoutRule runat="server" LabelsWidth="S" ControlSize="XM" />
                         <px:PXCheckBox ID="chkWORequestApproval" runat="server" AlignLeft="True" Checked="True" DataField="WORequestApproval" CommitChanges="True" />
                     </px:PXPanel>

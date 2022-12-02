@@ -1,4 +1,5 @@
-﻿using PX.Common;
+﻿using System;
+using PX.Common;
 using PX.Data;
 using static CMMSlite.WO.LaborTypes;
 
@@ -11,10 +12,13 @@ namespace CMMSlite.WO
 
         #region Setup
 
-        public const string CustomWorkSequence = "WORKORDID";
-
-        public const string CustomTypeDescr = "Sequence for Work Orders. **DO NOT ALTER**";
-
+        public const string CustomWorkSequence         = "WORKORDID";
+        public const string TemplateCustomWorkSequence = "TMWRKORDID";
+        public const string EquipmentNumberingID       = "WOEQUIPID";
+        
+        public const string CustomTypeDescr         = "Sequence for Work Orders. **DO NOT ALTER**";
+        public const string TemplateCustomTypeDescr = "Sequence for Template Work Orders. **DO NOT ALTER**";
+        public const string EquipmentNumberingDescr = "Sequence for Equipment. **DO NOT ALTER**";
         #endregion
 
         #region View Names
@@ -60,13 +64,14 @@ namespace CMMSlite.WO
         #endregion
 
         #region Field Names
-        public const string FieldNumberingID = "WO Numbering ID";
+        public const string FieldNumberingID      = "WO Numbering ID";
+        public const string TemplateFieldNumberingID      = "Template WO Numbering ID";
         public const string FieldEquipNumberingID = "Equipment Numbering ID";
-        public const string FieldHold = "Hold";
-        public const string FieldStatus = "Status";
-        public const string FieldDescr = "Description";
-        public const string FieldWOLineDescr = "Instruction";
-        public const string FieldInventoryID = "Inventory ID";
+        public const string FieldHold             = "Hold";
+        public const string FieldStatus           = "Status";
+        public const string FieldDescr            = "Description";
+        public const string FieldWOLineDescr      = "Instruction";
+        public const string FieldInventoryID      = "Inventory ID";
 
         public const string FieldWorkOrderID = "Work Order ID";
         public const string FieldWorkOrderType = "Work Order Type";
@@ -177,11 +182,13 @@ namespace CMMSlite.WO
         #endregion
 
         #region Component Criticality
-        public const string CompCritA = "A";
-        public const string CompCritB = "B";
-        public const string CompCritC = "C";
-        public const string CompCritD = "D";
-        public const string CompCritE = "E";
+        public const  string CompCritA               = "A";
+        public const  string CompCritB               = "B";
+        public const  string CompCritC               = "C";
+        public const  string CompCritD               = "D";
+        public const  string CompCritE               = "E";
+        
+
         #endregion
 
         #region GetLocal
