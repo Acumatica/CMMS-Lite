@@ -3,9 +3,11 @@ using PX.Data.BQL.Fluent;
 
 namespace CMMSlite.WO
 {
-    public class WOMeasurementMaint : PXGraph<WOMeasurementMaint, WOMeasurement>
+    public class WOMeasurementMaint : PXGraph<WOMeasurementMaint>
     {
-        [PXViewName(Messages.ViewMeasurements)]
+        public PXCancel<WOMeasurement> Cancel;
+        public PXSave<WOMeasurement>   Save;
+            [PXViewName(Messages.ViewMeasurements)]
         public SelectFrom<WOMeasurement>.View Measurements;
     }
 }
