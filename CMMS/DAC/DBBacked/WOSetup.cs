@@ -12,16 +12,25 @@ namespace CMMSlite.WO
     {
         #region WorkOrderNumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
-        [PXDefault("WORKORDID")]
+        [PXDefault(CMMSlite.WO.Messages.CustomWorkSequence)]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
         [PXUIField(DisplayName = Messages.FieldNumberingID)]
         public virtual string WONumberingID { get; set; }
         public abstract class woNumberingID : PX.Data.BQL.BqlString.Field<woNumberingID> { }
         #endregion
 
+        #region TemplateWorkOrderNumberingID
+        [PXDBString(10, IsUnicode = true, InputMask = "")]
+        [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
+        [PXDefault(CMMSlite.WO.Messages.TemplateCustomWorkSequence)]
+        [PXUIField(DisplayName = Messages.TemplateFieldNumberingID)]
+        public virtual string TemplateWorkOrderNumberingID { get; set; }
+        public abstract class templateWorkOrderNumberingID : PX.Data.BQL.BqlString.Field<templateWorkOrderNumberingID> { }
+        #endregion
+
         #region EquipNumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
-        [PXDefault("WOEQUIPID")]
+        [PXDefault(CMMSlite.WO.Messages.EquipmentNumberingID)]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
         [PXUIField(DisplayName = Messages.FieldEquipNumberingID)]
         public virtual string EquipNumberingID { get; set; }
