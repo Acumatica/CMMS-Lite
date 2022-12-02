@@ -31,4 +31,8 @@ msiexec /a "C:\Users\user_profile\Downloads\AcumaticaERPInstall.msi" TARGETDIR="
 5. Commit changes
 6. Create pull request between your current branch and the development branch for code review
 7. As reviewers make comments resolve issues on your current branch and push the changes, the open PR will reflect the changes automatically
-	
+
+## Functional Spec Documentation
+[CMMS.Lite.Functional.Specification.docx](https://github.com/Acumatica/CMMS-Lite/files/10138464/CMMS.Lite.Functional.Specification.docx)
+
+[Computerized.Maintenance.Management.Software.CMMS.docx](https://github.com/Acumatica/CMMS-Lite/files/10138466/Computerized.Maintenance.Management.Software.CMMS.docx)
