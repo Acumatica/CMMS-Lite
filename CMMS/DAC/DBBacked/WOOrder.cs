@@ -38,6 +38,17 @@ namespace CMMSlite.WO
         }
         #endregion
 
+        #region Selected
+        /// <summary>
+        /// Indicates whether the record is selected for processing.
+        /// </summary>
+        [PXBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Selected")]
+        public abstract class selected : PX.Data.BQL.BqlBool.Field<selected> { }
+        public bool? Selected { get; set; }
+        #endregion
+
         #region WorkOrderType
         [PXDBString(1, IsKey = true, IsFixed = true, InputMask = "")]
         [WorkOrderTypes.List]
