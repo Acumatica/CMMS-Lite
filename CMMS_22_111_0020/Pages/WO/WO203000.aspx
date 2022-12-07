@@ -22,11 +22,6 @@
 				</Columns>
 			</px:PXGridLevel>
 		</Levels>
-		<Mode/>
-		<ActionBar>
-			<CustomItems>
-			</CustomItems>
-		</ActionBar>
 		<AutoSize Container="Window" Enabled="True" MinHeight="200" ></AutoSize>
 	</px:PXGrid>
 </asp:Content>
