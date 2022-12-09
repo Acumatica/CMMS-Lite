@@ -67,7 +67,7 @@ namespace CMMSlite.WO
         #region WorkOrderCD
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = "")]
         [PXDefault]
-        [AutoNumber(typeof(WOSetup.woNumberingID), typeof(AccessInfo.businessDate))]
+        [AutoNumber(typeof(WOOrder.workOrderType), typeof(AccessInfo.businessDate), new string[]{ WorkOrderTypes.Standard, WorkOrderTypes.Template }, new Type[] { typeof(WOSetup.woNumberingID), typeof(WOSetup.templateWorkOrderNumberingID) })]
         [PXSelector(
             typeof(Search<WOOrder.workOrderCD, Where<WOOrder.workOrderType, Equal<workOrderType.FromCurrent>>>),
             typeof(WOOrder.workOrderCD),

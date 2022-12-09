@@ -47,10 +47,10 @@ namespace CMMS
 				"SM204505", //PXContext.GetScreenID() returns null
 				new PXDataFieldAssign<NumberingSequence.numberingID>(numberingID),
 				new PXDataFieldAssign<NumberingSequence.startDate>(new DateTime(1900, 1, 1)),
-				new PXDataFieldAssign<NumberingSequence.startNbr>("000"),
-				new PXDataFieldAssign<NumberingSequence.endNbr>("999"),
-				new PXDataFieldAssign<NumberingSequence.lastNbr>("000"),
-				new PXDataFieldAssign<NumberingSequence.warnNbr>("989"),
+				new PXDataFieldAssign<NumberingSequence.startNbr>("WO000000"),
+				new PXDataFieldAssign<NumberingSequence.endNbr>("WO999999"),
+				new PXDataFieldAssign<NumberingSequence.lastNbr>("WO000000"),
+				new PXDataFieldAssign<NumberingSequence.warnNbr>("WO999899"),
 				new PXDataFieldAssign<NumberingSequence.nbrStep>(1)
 			);
 		}
