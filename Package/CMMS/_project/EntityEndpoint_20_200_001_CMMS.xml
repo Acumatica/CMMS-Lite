@@ -1,0 +1,283 @@
+﻿<EntityEndpoint>
+    <Endpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CMMS" version="20.200.001" systemContractVersion="4" xmlns="http://www.acumatica.com/entity/maintenance/5.31">
+        <TopLevelEntity name="WorkOrder" screen="WO301000">
+            <Fields>
+                <Field name="Class" type="StringValue" />
+                <Field name="Description" type="StringValue" />
+                <Field name="EquipmentID" type="StringValue" />
+                <Field name="FailureModes" type="FailureMode[]" />
+                <Field name="Labor" type="LaborItem[]" />
+                <Field name="Material" type="MaterialItem[]" />
+                <Field name="Measurements" type="MeasurementItem[]" />
+                <Field name="OrderApprovals" type="Approval[]" />
+                <Field name="OrigWorkOrderID" type="IntValue" />
+                <Field name="Owner" type="IntValue" />
+                <Field name="OwnerContact" type="StringValue" />
+                <Field name="Priority" type="StringValue" />
+                <Field name="Requested" type="DateTimeValue" />
+                <Field name="Scheduled" type="DateTimeValue" />
+                <Field name="Status" type="StringValue" />
+                <Field name="Tools" type="ToolItem[]" />
+                <Field name="Transactions" type="Transaction[]" />
+                <Field name="WorkGroup" type="StringValue" />
+                <Field name="WorkOrderID" type="StringValue" />
+                <Field name="WorkOrderType" type="StringValue" />
+            </Fields>
+            <Mappings>
+                <Mapping field="Description">
+                    <To object="Document" field="Descr" />
+                </Mapping>
+                <Mapping field="OrigWorkOrderID">
+                    <To object="CurrentDocument" field="OrigWorkOrderID" />
+                </Mapping>
+                <Mapping field="Owner">
+                    <To object="CurrentDocument: 1" field="OwnerID" />
+                </Mapping>
+                <Mapping field="OwnerContact">
+                    <To object="CurrentDocument: 1" field="OwnerID_description" />
+                </Mapping>
+                <Mapping field="WorkGroup">
+                    <To object="CurrentDocument: 1" field="WorkgroupID" />
+                </Mapping>
+                <Mapping field="Transactions">
+                    <Mapping field="Instruction">
+                        <To object="Transactions" field="Descr" />
+                    </Mapping>
+                    <Mapping field="EquipmentID">
+                        <To object="Transactions" field="EquipmentID" />
+                    </Mapping>
+                    <Mapping field="LineNbr">
+                        <To object="Transactions" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="Description">
+                        <To object="Transactions" field="WOEquipment__Descr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="Transactions" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="Labor">
+                    <Mapping field="Hours">
+                        <To object="LineLabor" field="LaborHours" />
+                    </Mapping>
+                    <Mapping field="LaborType">
+                        <To object="LineLabor" field="LaborType" />
+                    </Mapping>
+                    <Mapping field="LineNbr">
+                        <To object="LineLabor" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="WOLineNbr">
+                        <To object="LineLabor" field="WOLineNbr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="LineLabor" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="Material">
+                    <Mapping field="InventoryID">
+                        <To object="LineItems" field="InventoryID" />
+                    </Mapping>
+                    <Mapping field="Description">
+                        <To object="LineItems" field="InventoryID_description" />
+                    </Mapping>
+                    <Mapping field="BaseUnit">
+                        <To object="LineItems" field="InventoryItem__BaseUnit" />
+                    </Mapping>
+                    <Mapping field="LineNbr">
+                        <To object="LineItems" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="Qty">
+                        <To object="LineItems" field="Quantity" />
+                    </Mapping>
+                    <Mapping field="WOLineNbr">
+                        <To object="LineItems" field="WOLineNbr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="LineItems" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="Tools">
+                    <Mapping field="BaseUnit">
+                        <To object="LineTools" field="BaseUnit" />
+                    </Mapping>
+                    <Mapping field="InventoryID">
+                        <To object="LineTools" field="InventoryID" />
+                    </Mapping>
+                    <Mapping field="Description">
+                        <To object="LineTools" field="InventoryID_description" />
+                    </Mapping>
+                    <Mapping field="LineNbr">
+                        <To object="LineTools" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="Qty">
+                        <To object="LineTools" field="Quantity" />
+                    </Mapping>
+                    <Mapping field="WOLineNbr">
+                        <To object="LineTools" field="WOLineNbr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="LineTools" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="Measurements">
+                    <Mapping field="LineNbr">
+                        <To object="LineMeasurements" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="Measurement">
+                        <To object="LineMeasurements" field="MeasurementID" />
+                    </Mapping>
+                    <Mapping field="Value">
+                        <To object="LineMeasurements" field="Value" />
+                    </Mapping>
+                    <Mapping field="WOLineNbr">
+                        <To object="LineMeasurements" field="WOLineNbr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="LineMeasurements" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="FailureModes">
+                    <Mapping field="Comment">
+                        <To object="LineFailureModes" field="Comment" />
+                    </Mapping>
+                    <Mapping field="FailureMode">
+                        <To object="LineFailureModes" field="FailureModeID" />
+                    </Mapping>
+                    <Mapping field="LineNbr">
+                        <To object="LineFailureModes" field="LineNbr" />
+                    </Mapping>
+                    <Mapping field="WOLineNbr">
+                        <To object="LineFailureModes" field="WOLineNbr" />
+                    </Mapping>
+                    <Mapping field="WorkOrderID">
+                        <To object="LineFailureModes" field="WorkOrderID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="EquipmentID">
+                    <To object="Document" field="EquipmentID" />
+                </Mapping>
+                <Mapping field="OrderApprovals">
+                    <Mapping field="ApprovalID">
+                        <To object="Approval" field="ApprovalID" />
+                    </Mapping>
+                    <Mapping field="ApprovalDate">
+                        <To object="Approval" field="ApproveDate" />
+                    </Mapping>
+                    <Mapping field="ApprovedbyID">
+                        <To object="Approval" field="ApprovedByEmployee__AcctCD" />
+                    </Mapping>
+                    <Mapping field="ApprovedBy">
+                        <To object="Approval" field="ApprovedByEmployee__AcctName" />
+                    </Mapping>
+                    <Mapping field="AssigneeID">
+                        <To object="Approval" field="ApproverEmployee__AcctCD" />
+                    </Mapping>
+                    <Mapping field="AssignedTo">
+                        <To object="Approval" field="ApproverEmployee__AcctName" />
+                    </Mapping>
+                    <Mapping field="Reason">
+                        <To object="Approval" field="Reason" />
+                    </Mapping>
+                    <Mapping field="Status">
+                        <To object="Approval" field="Status" />
+                    </Mapping>
+                    <Mapping field="Workgroup">
+                        <To object="Approval" field="WorkgroupID" />
+                    </Mapping>
+                </Mapping>
+                <Mapping field="Priority">
+                    <To object="Document" field="Priority" />
+                </Mapping>
+                <Mapping field="Requested">
+                    <To object="Document" field="RequestDate" />
+                </Mapping>
+                <Mapping field="Scheduled">
+                    <To object="Document" field="ScheduleDate" />
+                </Mapping>
+                <Mapping field="Status">
+                    <To object="Document" field="Status" />
+                </Mapping>
+                <Mapping field="Class">
+                    <To object="Document" field="WOClassID" />
+                </Mapping>
+                <Mapping field="WorkOrderID">
+                    <To object="Document" field="WorkOrderCD" />
+                </Mapping>
+                <Mapping field="WorkOrderType">
+                    <To object="Document" field="WorkOrderType" />
+                </Mapping>
+            </Mappings>
+        </TopLevelEntity>
+        <Detail name="Transaction">
+            <Fields>
+                <Field name="Description" type="StringValue" />
+                <Field name="EquipmentID" type="StringValue" />
+                <Field name="Instruction" type="StringValue" />
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="LaborItem">
+            <Fields>
+                <Field name="Hours" type="DecimalValue" />
+                <Field name="LaborType" type="StringValue" />
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="WOLineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="MaterialItem">
+            <Fields>
+                <Field name="BaseUnit" type="StringValue" />
+                <Field name="Description" type="StringValue" />
+                <Field name="InventoryID" type="StringValue" />
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="Qty" type="DecimalValue" />
+                <Field name="WOLineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="ToolItem">
+            <Fields>
+                <Field name="BaseUnit" type="StringValue" />
+                <Field name="Description" type="StringValue" />
+                <Field name="InventoryID" type="StringValue" />
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="Qty" type="DecimalValue" />
+                <Field name="WOLineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="MeasurementItem">
+            <Fields>
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="Measurement" type="StringValue" />
+                <Field name="Value" type="DecimalValue" />
+                <Field name="WOLineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="FailureMode">
+            <Fields>
+                <Field name="Comment" type="StringValue" />
+                <Field name="FailureMode" type="StringValue" />
+                <Field name="LineNbr" type="IntValue" />
+                <Field name="WOLineNbr" type="IntValue" />
+                <Field name="WorkOrderID" type="IntValue" />
+            </Fields>
+        </Detail>
+        <Detail name="Approval">
+            <Fields>
+                <Field name="ApprovalDate" type="DateTimeValue" />
+                <Field name="ApprovalID" type="IntValue" />
+                <Field name="ApprovedBy" type="StringValue" />
+                <Field name="ApprovedbyID" type="StringValue" />
+                <Field name="AssignedTo" type="StringValue" />
+                <Field name="AssigneeID" type="StringValue" />
+                <Field name="Reason" type="StringValue" />
+                <Field name="Status" type="StringValue" />
+                <Field name="Workgroup" type="StringValue" />
+            </Fields>
+        </Detail>
+    </Endpoint>
+</EntityEndpoint>
