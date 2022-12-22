@@ -1,6 +1,5 @@
 ﻿<Sql TableName="WOEquipmentFM" TableSchemaXml="#CDATA">
-  <CDATA name="TableSchemaXml">
-    <![CDATA[<table name="WOEquipmentFM">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOEquipmentFM">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="EquipmentID" type="Int" />
   <col name="FailureModeID" type="Int" />
@@ -24,6 +23,5 @@
     <col name="EquipmentID" />
     <col name="FailureModeID" />
   </index>
-</table>]]>
-  </CDATA>
+</table>]]></CDATA>
 </Sql>

@@ -25,19 +25,10 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="21518" Title="Work Order Class" Url="~/Pages/WO/WO201000.aspx" ScreenID="WO201000" NodeID="c54260ae-b9f4-4af5-ac3c-17dc14501818" ParentID="00000000-0000-0000-0000-000000000000">
-                    <MUIScreen IsPortal="0" WorkspaceID="930dc0c1-c7bc-460e-ba09-da7c7a112f2a" Order="10" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" />
+                <row Title="Work Order Class" Url="~/GenericInquiry/GenericInquiry.aspx?id=b644e950-aeff-475d-8ca2-1e4e80518c2e" ScreenID="WO2010PL" NodeID="8298b6a0-9e14-4a24-8925-a01070eeca00" ParentID="00000000-0000-0000-0000-000000000000">
+                    <MUIScreen IsPortal="0" WorkspaceID="00000000-0000-0000-0000-000000000000" Order="642272" SubcategoryID="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" />
                 </row>
             </SiteMap>
-            <MUIWorkspace>
-                <row IsPortal="0" WorkspaceID="930dc0c1-c7bc-460e-ba09-da7c7a112f2a" Order="38" Title="CMMS" Icon="build" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" IsSystem="0" />
-            </MUIWorkspace>
-            <MUISubcategory>
-                <row IsPortal="0" SubcategoryID="6d40b0b6-18f4-4139-adac-8ec8cb2a17ea" Order="128" Name="Profiles" Icon="" IsSystem="0" />
-            </MUISubcategory>
-            <MUIArea>
-                <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
-            </MUIArea>
         </data>
     </data-set>
 </SiteMapNode>
