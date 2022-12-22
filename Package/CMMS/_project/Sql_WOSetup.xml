@@ -1,6 +1,5 @@
 ﻿<Sql TableName="WOSetup" TableSchemaXml="#CDATA">
-    <CDATA name="TableSchemaXml">
-    <![CDATA[<table name="WOSetup">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOSetup">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="WONumberingID" type="NVarChar(10)"  />
   <col name="EquipNumberingID" type="NVarChar(10)"  nullable="true" />
