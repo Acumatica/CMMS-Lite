@@ -1,7 +1,10 @@
 ﻿using System;
 using PX.Data;
 using PX.Objects.CS;
+using PX.Objects.EP;
+using PX.Objects.GL;
 using PX.Objects.IN;
+using PX.Objects.RQ;
 
 namespace CMMSlite.WO
 {
@@ -65,7 +68,7 @@ namespace CMMSlite.WO
         #endregion
 
         #region BranchID
-        [PXDBInt()]
+        [Branch]
         [PXDefault(typeof(AccessInfo.branchID))]
         [PXUIField(DisplayName = Messages.FieldBranchID)]
         public virtual int? BranchID { get; set; }
@@ -73,6 +76,8 @@ namespace CMMSlite.WO
         #endregion
 
         #region DepartmentID
+        [PXDefault(typeof(Search<PX.Objects.EP.EPEmployee.departmentID, Where<PX.Objects.EP.EPEmployee.bAccountID, Equal<Current<RQRequest.employeeID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXSelector(typeof(EPDepartment.departmentID), DescriptionField = typeof(EPDepartment.description))]
         [PXDBString(10, IsUnicode = true, InputMask = "")]
         [PXUIField(DisplayName = Messages.FieldDepartment)]
         public virtual string DepartmentID { get; set; }

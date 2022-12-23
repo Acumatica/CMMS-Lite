@@ -10,18 +10,20 @@
     <px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="Document" Width="100%">
         <Template>
             <px:PXLayoutRule runat="server" StartRow="True" />
-            <px:PXDropDown runat="server" ID="CstPXDropDown22" DataField="WorkOrderType" CommitChanges="true" />
-            <px:PXSelector runat="server" ID="CstPXSelector7" DataField="WorkOrderCD" />
-            <px:PXDropDown runat="server" ID="CstPXDropDown5" DataField="Status" />
+            <px:PXDropDown runat="server" ID="ddWorkOrdertype" DataField="WorkOrderType" CommitChanges="true" />
+            <px:PXSelector runat="server" ID="slWorkOrderCD" DataField="WorkOrderCD" />
+            <px:PXDropDown runat="server" ID="ddStatus" DataField="Status" />
             <px:PXLabel runat="server" />
-            <px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit27" DataField="RequestDate" CommitChanges="true" />
-            <px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit28" DataField="ScheduleDate" CommitChanges="true" />
-            <px:PXLayoutRule runat="server" ID="CstLayoutRule12" ColumnSpan="2" />
-            <px:PXTextEdit runat="server" ID="CstPXTextEdit1" DataField="Descr" />
+            <px:PXDateTimeEdit runat="server" ID="dtRequestDate" DataField="RequestDate" CommitChanges="true" />
+            <px:PXDateTimeEdit runat="server" ID="dtScheduleDate" DataField="ScheduleDate" CommitChanges="true" />
+            <px:PXLayoutRule runat="server" ColumnSpan="2" />
+            <px:PXTextEdit runat="server" ID="txtDescr" DataField="Descr" />
+
             <px:PXLayoutRule runat="server" ControlSize="XM" LabelsWidth="S" StartColumn="True" />
-            <px:PXSelector runat="server" ID="CstPXSelector21" DataField="EquipmentID" />
-            <px:PXSelector runat="server" CommitChanges="True" ID="CstPXSelector8" DataField="WOClassID" />
-            <px:PXDropDown runat="server" ID="CstPXDropDown4" DataField="Priority" />
+            <px:PXSelector runat="server" ID="slEquipmentID" DataField="EquipmentID" />
+
+            <px:PXSelector runat="server" CommitChanges="True" ID="slWOClassID" DataField="WOClassID" />
+            <px:PXDropDown runat="server" ID="ddPriority" DataField="Priority" />
         </Template>
     </px:PXFormView>
 </asp:Content>
@@ -33,7 +35,8 @@
                     <px:PXFormView ID="form2" runat="server" Style="z-index: 100" Width="100%" DataMember="CurrentDocument" CaptionVisible="False" SkinID="Transparent" DataSourceID="ds" MarkRequired="Dynamic">
                         <Template>
                             <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
-                            <px:PXSelector runat="server" ID="CstPXSelector29" DataField="OrigWorkOrderID"></px:PXSelector>
+                            <px:PXSelector runat="server" ID="slOrigWorkOrderID" DataField="OrigWorkOrderID"/>
+
                             <px:PXLayoutRule runat="server" ControlSize="M" GroupCaption="Assigned To" LabelsWidth="SM" StartGroup="True" />
                             <px:PXSelector ID="edWorkgroupID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="WorkgroupID" DataSourceID="ds" />
                             <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
@@ -166,34 +169,35 @@
 						<Levels>
 							<px:PXGridLevel DataMember="Approval" >
 								<Columns>
-									<px:PXGridColumn DataField="ApproverEmployee__AcctName" Width="160" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="ApproverEmployee__AcctCD" Width="160" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="ApprovedByEmployee__AcctName" Width="100" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="ApprovedByEmployee__AcctCD" Width="160" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="ApproveDate" Width="90" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Status" Width="90" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="Reason" Width="280" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="WorkgroupID" Width="150" ></px:PXGridColumn></Columns>
+                                    <px:PXGridColumn DataField="ApproverEmployee__AcctName" Width="160"/>
+                                    <px:PXGridColumn DataField="ApproverEmployee__AcctCD" Width="160"/>
+                                    <px:PXGridColumn DataField="ApprovedByEmployee__AcctName" Width="100"/>
+                                    <px:PXGridColumn DataField="ApprovedByEmployee__AcctCD" Width="160"/>
+                                    <px:PXGridColumn DataField="ApproveDate" Width="90"/>
+                                    <px:PXGridColumn DataField="Status" Width="90"/>
+                                    <px:PXGridColumn DataField="Reason" Width="280"/>
+                                    <px:PXGridColumn DataField="WorkgroupID" Width="150"/>
+                                </Columns>
 								<RowTemplate>
-									<px:PXDateTimeEdit runat="server" ID="PXDateTimeEdit1" DataField="ApproveDate" ></px:PXDateTimeEdit>
-									<px:PXTextEdit runat="server" ID="PXTextEdit1" DataField="ApprovedByEmployee__AcctCD" ></px:PXTextEdit>
-									<px:PXTextEdit runat="server" ID="PXTextEdit2" DataField="ApprovedByEmployee__AcctName" ></px:PXTextEdit>
-									<px:PXTextEdit runat="server" ID="PXTextEdit3" DataField="ApproverEmployee__AcctCD" ></px:PXTextEdit>
-									<px:PXTextEdit runat="server" ID="PXTextEdit4" DataField="ApproverEmployee__AcctName" ></px:PXTextEdit>
-									<px:PXDropDown runat="server" ID="PXDropDown1" DataField="Status" ></px:PXDropDown>
-									<px:PXSelector runat="server" ID="PXSelector1" DataField="WorkgroupID" ></px:PXSelector>
-									<px:PXTextEdit runat="server" ID="PXTextEdit5" DataField="Reason" ></px:PXTextEdit></RowTemplate>
+                                    <px:PXDateTimeEdit runat="server" ID="dtApproveDate" DataField="ApproveDate"/>
+                                    <px:PXTextEdit runat="server" ID="txtApprovedByEmployeeAcctCD" DataField="ApprovedByEmployee__AcctCD"/>
+                                    <px:PXTextEdit runat="server" ID="txtApprovedByEmployeeAcctName" DataField="ApprovedByEmployee__AcctName"/>
+                                    <px:PXTextEdit runat="server" ID="txtApproverEmployeeAcct" DataField="ApproverEmployee__AcctCD"/>
+                                    <px:PXTextEdit runat="server" ID="txtApproverEmployeeAcctName" DataField="ApproverEmployee__AcctName"/>
+                                    <px:PXDropDown runat="server" ID="ddStatus" DataField="Status"/>
+                                    <px:PXSelector runat="server" ID="slWorkGroupID" DataField="WorkgroupID"/>
+                                    <px:PXTextEdit runat="server" ID="txtReason" DataField="Reason"/>
+                                </RowTemplate>
 							</px:PXGridLevel>
 						</Levels>
-						<AutoSize Container="Window" MinHeight="150" Enabled="True" ></AutoSize>
-					
-						<Mode AllowAddNew="False" ></Mode>
-						<Mode AllowDelete="False" ></Mode>
-						<Mode AllowUpdate="False" ></Mode></px:PXGrid>
+                        <AutoSize Container="Window" MinHeight="150" Enabled="True"/>
+                        <Mode AllowAddNew="False" AllowDelete="False" AllowDelete="False" AllowUpdate="False" />
+                    </px:PXGrid>
 				</Template>
-			</px:PXTabItem></Items>
-		<AutoSize Container="Window" Enabled="True" MinHeight="200" ></AutoSize>
-	</px:PXTab>
+			</px:PXTabItem>
+        </Items>
+        <AutoSize Container="Window" Enabled="True" MinHeight="200"/>
+    </px:PXTab>
     <px:PXSmartPanel ID="panelReason" runat="server" Caption="Enter Reason" CaptionVisible="true" LoadOnDemand="true" Key="ReasonApproveRejectParams"
 	    AutoCallBack-Enabled="true" AutoCallBack-Command="Refresh" CallBackMode-CommitChanges="True" Width="600px"
 	    CallBackMode-PostData="Page" AcceptButtonID="btnReasonOk" CancelButtonID="btnReasonCancel" AllowResize="False">
