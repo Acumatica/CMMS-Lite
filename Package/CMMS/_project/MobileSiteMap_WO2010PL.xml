@@ -1,0 +1,1 @@
+﻿<MobileSiteMap ScreenID="WO2010PL" Script="add screen WO2010PL {&#xD;&#xA;  add container &quot;Result&quot; {&#xD;&#xA;    add field &quot;WorkOrderClass&quot;&#xD;&#xA;    add field &quot;Description&quot;&#xD;&#xA;  }&#xD;&#xA;}" Type="add" />
