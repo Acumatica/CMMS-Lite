@@ -34,11 +34,18 @@ namespace CMMSlite.WO
         public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<lineNbr> { }
         #endregion
 
-        #region InventoryID
-        [PX.Objects.IN.AnyInventory(Filterable = true)]
-        [PXUIField(DisplayName = Messages.FieldInventoryID)]
-        public virtual int? InventoryID { get; set; }
-        public abstract class inventoryID : PX.Data.BQL.BqlInt.Field<inventoryID> { }
+        #region EquipmentID
+        [PXDBInt()]
+        [PXSelector(
+            typeof(Search<WOEquipment.equipmentID, Where<WOEquipment.equipmentType, Equal<EquipmentTypes.tool>>>),
+            typeof(WOEquipment.equipmentCD),
+            typeof(WOEquipment.descr),
+            SubstituteKey = typeof(WOEquipment.equipmentCD),
+            DescriptionField = typeof(WOEquipment.descr)
+            )]
+        [PXUIField(DisplayName = Messages.FieldEquipmentID)]
+        public virtual int? EquipmentID { get; set; }
+        public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }
         #endregion
 
         #region Quantity
