@@ -46,7 +46,7 @@ namespace CMMSlite.WO
         [PXViewName(Messages.ViewWOLineTools)]
         [PXImport]
         public SelectFrom<WOLineTool>
-            .InnerJoin<InventoryItem>.On<InventoryItem.inventoryID.IsEqual<WOLineTool.inventoryID>>
+            .InnerJoin<WOEquipment>.On<WOEquipment.equipmentID.IsEqual<WOLineTool.equipmentID>>
             .Where<WOLineTool.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineTool.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineTools;
