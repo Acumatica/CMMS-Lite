@@ -1,0 +1,389 @@
+﻿<Report Name="wo601003.rpx">
+    <Report version="20211215" Name="report1">
+        <Filters>
+            <FilterExp>
+                <DataField>WOSchedule.EquipmentID</DataField>
+                <Value>@EquipmentID</Value>
+            </FilterExp>
+        </Filters>
+        <Parameters>
+            <ReportParameter>
+                <Name>EquipmentID</Name>
+            </ReportParameter>
+        </Parameters>
+        <Relations>
+            <ReportRelation>
+                <ChildName>WOOrder</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>WorkOrderID</ChildField>
+                        <ParentField>WorkOrderID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>WOSchedule</ParentName>
+            </ReportRelation>
+        </Relations>
+        <SchemaUrl>http://localhost/CMMS</SchemaUrl>
+        <Tables>
+            <ReportTable Name="WOSchedule">
+                <Fields>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="EquipmentID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="FrequencyDays">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LastWODate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastWODate_Day">
+                    </ReportField>
+                    <ReportField Name="LastWODate_Hour">
+                    </ReportField>
+                    <ReportField Name="LastWODate_Month">
+                    </ReportField>
+                    <ReportField Name="LastWODate_Quarter">
+                    </ReportField>
+                    <ReportField Name="LeadTimeDays">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="NextWODate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="NextWODate_Day">
+                    </ReportField>
+                    <ReportField Name="NextWODate_Hour">
+                    </ReportField>
+                    <ReportField Name="NextWODate_Month">
+                    </ReportField>
+                    <ReportField Name="NextWODate_Quarter">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="Tstamp">
+                    </ReportField>
+                    <ReportField Name="WorkOrderID">
+                    </ReportField>
+                </Fields>
+                <FullName>CMMSlite.WO.WOSchedule</FullName>
+            </ReportTable>
+            <ReportTable Name="WOOrder">
+                <Fields>
+                    <ReportField Name="AMBATCOLOR_Attributes">
+                    </ReportField>
+                    <ReportField Name="AMBATLEN_Attributes">
+                    </ReportField>
+                    <ReportField Name="AMBATPT_Attributes">
+                    </ReportField>
+                    <ReportField Name="AMBATWGT_Attributes">
+                    </ReportField>
+                    <ReportField Name="Approved">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="BranchID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="ClassID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="EquipmentID">
+                    </ReportField>
+                    <ReportField Name="EquipmentID_description">
+                    </ReportField>
+                    <ReportField Name="EquipmentID_WOEquipment_descr">
+                    </ReportField>
+                    <ReportField Name="FSRESOL_Attributes">
+                    </ReportField>
+                    <ReportField Name="HANDS_Attributes">
+                    </ReportField>
+                    <ReportField Name="Hold">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OrigWorkOrderID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OwnerID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OwnerID_description">
+                    </ReportField>
+                    <ReportField Name="OwnerID_Owner_displayName">
+                    </ReportField>
+                    <ReportField Name="Priority">
+                    </ReportField>
+                    <ReportField Name="Rejected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RequestApproval">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RequestDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="RequestDate_Day">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Hour">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Month">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ScheduleDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ScheduleDate_Day">
+                    </ReportField>
+                    <ReportField Name="ScheduleDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ScheduleDate_Month">
+                    </ReportField>
+                    <ReportField Name="ScheduleDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Status">
+                    </ReportField>
+                    <ReportField Name="Tstamp">
+                    </ReportField>
+                    <ReportField Name="WOClassID">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID">
+                    </ReportField>
+                    <ReportField Name="WorkOrderCD">
+                    </ReportField>
+                    <ReportField Name="WorkOrderID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="WorkOrderType">
+                    </ReportField>
+                </Fields>
+                <FullName>CMMSlite.WO.WOOrder</FullName>
+            </ReportTable>
+        </Tables>
+        <Version>20211215</Version>
+        <Sections>
+            <PageHeader Name="pageHeaderSection1">
+                <Height>1.26984cm</Height>
+                <Items>
+                    <TextBox Name="textBox10">
+                        <Location>128px, 24px</Location>
+                        <Size>192px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description</Value>
+                    </TextBox>
+                    <TextBox Name="textBox11">
+                        <Location>0px, 24px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Work Order ID</Value>
+                    </TextBox>
+                    <TextBox Name="textBox12">
+                        <Location>480px, 24px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Last Date</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <Location>568px, 24px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Next Date</Value>
+                    </TextBox>
+                    <TextBox Name="textBox7">
+                        <Location>328px, 24px</Location>
+                        <Size>72px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Lead Time</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>408px, 24px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Frequency</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Location>0px, 0px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Schedules</Value>
+                    </TextBox>
+                </Items>
+            </PageHeader>
+            <Detail Name="detailSection1">
+                <Height>0.84656cm</Height>
+                <Items>
+                    <TextBox Name="textBox1">
+                        <Location>0px, 0px</Location>
+                        <Size>120px, 24px</Size>
+                        <Value>=[WOOrder.WorkOrderCD]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>128px, 0px</Location>
+                        <Size>192px, 24px</Size>
+                        <Value>=[WOOrder.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>408px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Value>=[WOSchedule.FrequencyDays]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Location>328px, 0px</Location>
+                        <Size>72px, 24px</Size>
+                        <Value>=[WOSchedule.LeadTimeDays]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Location>480px, 0px</Location>
+                        <Size>80px, 24px</Size>
+                        <Value>=[WOSchedule.LastWODate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox6">
+                        <Location>568px, 0px</Location>
+                        <Size>88px, 24px</Size>
+                        <Value>=[WOSchedule.NextWODate]</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <PageFooter Name="pageFooterSection1">
+                <Height>0.21164cm</Height>
+            </PageFooter>
+        </Sections>
+    </Report>
+</Report>
