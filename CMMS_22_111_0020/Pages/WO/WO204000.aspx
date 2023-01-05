@@ -27,7 +27,6 @@
                 <Template>
                     <px:PXLayoutRule runat="server" StartRow="True" />
                     <px:PXSelector runat="server" ID="nbrBranchID" DataField="BranchID" />
-                    <px:PXSegmentMask runat="server" ID="slInventoryID" DataField="InventoryID" />
                     <px:PXTextEdit runat="server" ID="txtSerialNbr" DataField="SerialNbr" />
                     <px:PXTextEdit runat="server" ID="txtAssetID" DataField="AssetID" />
                     <px:PXSelector runat="server" ID="txtDepartmentID" DataField="DepartmentID" />
@@ -35,6 +34,7 @@
                     <px:PXDateTimeEdit runat="server" ID="dtDateInstalled" DataField="DateInstalled" />
                     <px:PXSelector runat="server" ID="slSMEquipmentID" DataField="SMEquipmentID" />
                     <px:PXSelector runat="server" ID="slAMMachID" DataField="AMMachID" />
+                    <px:PXSegmentMask runat="server" ID="slInventoryID" DataField="InventoryID" />
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="BOM">

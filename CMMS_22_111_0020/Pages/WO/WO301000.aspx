@@ -113,8 +113,8 @@
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineTools">
                                                 <Columns>
-                                                    <px:PXGridColumn DataField="InventoryID" CommitChanges="True" Width="70" />
-                                                    <px:PXGridColumn DataField="InventoryID_description" Width="280" />
+                                                    <px:PXGridColumn DataField="EquipmentID" CommitChanges="True" Width="70" />
+                                                    <px:PXGridColumn DataField="Equipment_description" Width="280" />
                                                     <px:PXGridColumn DataField="Quantity" Width="100" />
                                                     <px:PXGridColumn DataField="BaseUnit" Width="96" />
                                                 </Columns>
@@ -191,7 +191,7 @@
 							</px:PXGridLevel>
 						</Levels>
                         <AutoSize Container="Window" MinHeight="150" Enabled="True"/>
-                        <Mode AllowAddNew="False" AllowDelete="False" AllowDelete="False" AllowUpdate="False" />
+                        <Mode AllowAddNew="False" AllowDelete="False" AllowUpdate="False" />
                     </px:PXGrid>
 				</Template>
 			</px:PXTabItem>

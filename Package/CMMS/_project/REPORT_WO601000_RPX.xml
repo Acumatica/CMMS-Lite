@@ -1,0 +1,548 @@
+﻿<Report Name="wo601000.rpx">
+    <Report version="20211215" Name="report1">
+        <LayoutUnit>Inch</LayoutUnit>
+        <PageSettings>
+            <Margins>
+            </Margins>
+            <PaperKind>Letter</PaperKind>
+        </PageSettings>
+        <SchemaUrl>http://localhost/CMMS</SchemaUrl>
+        <Tables>
+            <ReportTable Name="WOEquipment">
+                <Fields>
+                    <ReportField Name="AMMachID">
+                    </ReportField>
+                    <ReportField Name="AMMachID_AMMach_descr">
+                    </ReportField>
+                    <ReportField Name="AMMachID_description">
+                    </ReportField>
+                    <ReportField Name="AssetID">
+                    </ReportField>
+                    <ReportField Name="BranchID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Criticality">
+                    </ReportField>
+                    <ReportField Name="DateInstalled">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="DateInstalled_Day">
+                    </ReportField>
+                    <ReportField Name="DateInstalled_Hour">
+                    </ReportField>
+                    <ReportField Name="DateInstalled_Month">
+                    </ReportField>
+                    <ReportField Name="DateInstalled_Quarter">
+                    </ReportField>
+                    <ReportField Name="DepartmentID">
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="EquipmentCD">
+                    </ReportField>
+                    <ReportField Name="EquipmentID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="EquipmentType">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="PhysicalLocation">
+                    </ReportField>
+                    <ReportField Name="SerialNbr">
+                    </ReportField>
+                    <ReportField Name="SMEquipmentID">
+                    </ReportField>
+                    <ReportField Name="SMEquipmentID_description">
+                    </ReportField>
+                    <ReportField Name="SMEquipmentID_FSEquipment_descr">
+                    </ReportField>
+                    <ReportField Name="Status">
+                    </ReportField>
+                    <ReportField Name="Tstamp">
+                    </ReportField>
+                </Fields>
+                <FullName>CMMSlite.WO.WOEquipment</FullName>
+            </ReportTable>
+        </Tables>
+        <Version>20211215</Version>
+        <Sections>
+            <PageHeader Name="pageHeaderSection1">
+                <Height>0.58333in</Height>
+                <Items>
+                    <TextBox Name="textBox33">
+                        <Location>48px, 24px</Location>
+                        <Size>176px, 24px</Size>
+                        <Value>=Report.GetDefUI('AccessInfo.DisplayName')</Value>
+                        <WrapText>False</WrapText>
+                    </TextBox>
+                    <TextBox Name="textBox35">
+                        <Location>0px, 24px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>User:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox37">
+                        <Location>640px, 24px</Location>
+                        <Size>80px, 24px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>=[@Today]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox38">
+                        <Location>568px, 24px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Date:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox39">
+                        <Location>568px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Page:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox40">
+                        <Location>640px, 0px</Location>
+                        <Size>80px, 24px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>=[PageOf]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox41">
+                        <Location>0px, 0px</Location>
+                        <Size>184px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>CMMS EQUIPMENT</Value>
+                    </TextBox>
+                </Items>
+            </PageHeader>
+            <Detail Name="detailSection1">
+                <Height>3.58333in</Height>
+                <Items>
+                    <Panel Name="panel1">
+                        <Location>0px, 8px</Location>
+                        <Size>720px, 24px</Size>
+                        <Style>
+                            <BackColor>AliceBlue</BackColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Top>Solid</Top>
+                            </BorderStyle>
+                        </Style>
+                        <Items>
+                            <TextBox Name="textBox10">
+                                <Location>144px, 0px</Location>
+                                <Size>304px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                </Style>
+                                <Value>Description</Value>
+                            </TextBox>
+                            <TextBox Name="textBox11">
+                                <Location>456px, 0px</Location>
+                                <Size>120px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                </Style>
+                                <Value>Status</Value>
+                            </TextBox>
+                            <TextBox Name="textBox12">
+                                <Location>600px, 0px</Location>
+                                <Size>88px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                </Style>
+                                <Value>Criticality</Value>
+                            </TextBox>
+                            <TextBox Name="textBox9">
+                                <Location>16px, 0px</Location>
+                                <Size>120px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                </Style>
+                                <Value>Equipment ID</Value>
+                            </TextBox>
+                        </Items>
+                    </Panel>
+                    <SubReport Name="subReport1">
+                        <Location>32px, 136px</Location>
+                        <Parameters>
+                            <ExternalParameter>
+                                <Name>EquipmentID</Name>
+                                <ValueExpr>=[WOEquipment.EquipmentID]</ValueExpr>
+                            </ExternalParameter>
+                        </Parameters>
+                        <ReportName>wo601001.rpx</ReportName>
+                        <Size>656px, 24px</Size>
+                    </SubReport>
+                    <SubReport Name="subReport2">
+                        <Location>32px, 224px</Location>
+                        <Parameters>
+                            <ExternalParameter>
+                                <Name>EquipmentID</Name>
+                                <ValueExpr>=[WOEquipment.EquipmentID]</ValueExpr>
+                            </ExternalParameter>
+                        </Parameters>
+                        <ReportName>wo601002.rpx</ReportName>
+                        <Size>656px, 24px</Size>
+                    </SubReport>
+                    <SubReport Name="subReport3">
+                        <Location>32px, 312px</Location>
+                        <Parameters>
+                            <ExternalParameter>
+                                <Name>EquipmentID</Name>
+                                <ValueExpr>=[WOEquipment.EquipmentID]</ValueExpr>
+                            </ExternalParameter>
+                        </Parameters>
+                        <ReportName>wo601003.rpx</ReportName>
+                        <Size>656px, 24px</Size>
+                    </SubReport>
+                    <TextBox Name="textBox1">
+                        <Location>16px, 32px</Location>
+                        <Size>120px, 24px</Size>
+                        <Value>=[WOEquipment.EquipmentCD]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <Location>304px, 56px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>Type:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox14">
+                        <Location>432px, 56px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>Dept:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox15">
+                        <Location>64px, 56px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>S/N:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox16">
+                        <Location>552px, 56px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>Loc:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>352px, 56px</Location>
+                        <Size>72px, 24px</Size>
+                        <Value>=[WOEquipment.EquipmentType]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox20">
+                        <Location>32px, 88px</Location>
+                        <Size>632px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold, Underline</Style>
+                            </Font>
+                        </Style>
+                        <Value>Bill of Material</Value>
+                    </TextBox>
+                    <TextBox Name="textBox21">
+                        <Location>32px, 176px</Location>
+                        <Size>632px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold, Underline</Style>
+                            </Font>
+                        </Style>
+                        <Value>Failure Modes</Value>
+                    </TextBox>
+                    <TextBox Name="textBox22">
+                        <Location>440px, 288px</Location>
+                        <Size>72px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Frequency</Value>
+                    </TextBox>
+                    <TextBox Name="textBox23">
+                        <Location>32px, 264px</Location>
+                        <Size>624px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Style>Bold, Underline</Style>
+                            </Font>
+                        </Style>
+                        <Value>Schedules</Value>
+                    </TextBox>
+                    <TextBox Name="textBox24">
+                        <Location>360px, 288px</Location>
+                        <Size>80px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Lead Time</Value>
+                    </TextBox>
+                    <TextBox Name="textBox25">
+                        <Location>584px, 288px</Location>
+                        <Size>72px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Next Date</Value>
+                    </TextBox>
+                    <TextBox Name="textBox26">
+                        <Location>512px, 288px</Location>
+                        <Size>72px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Last Date</Value>
+                    </TextBox>
+                    <TextBox Name="textBox27">
+                        <Location>32px, 288px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Work Order ID</Value>
+                    </TextBox>
+                    <TextBox Name="textBox28">
+                        <Location>160px, 288px</Location>
+                        <Size>192px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description</Value>
+                    </TextBox>
+                    <TextBox Name="textBox29">
+                        <Location>32px, 200px</Location>
+                        <Size>104px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Failure Mode</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>144px, 32px</Location>
+                        <Size>304px, 24px</Size>
+                        <Value>=[WOEquipment.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox30">
+                        <Location>160px, 200px</Location>
+                        <Size>208px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description</Value>
+                    </TextBox>
+                    <TextBox Name="textBox31">
+                        <Location>160px, 112px</Location>
+                        <Size>208px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description</Value>
+                    </TextBox>
+                    <TextBox Name="textBox32">
+                        <Location>32px, 112px</Location>
+                        <Size>104px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Inventory ID</Value>
+                    </TextBox>
+                    <TextBox Name="textBox34">
+                        <Location>432px, 112px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Quantity</Value>
+                    </TextBox>
+                    <TextBox Name="textBox36">
+                        <Location>600px, 112px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10pt</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Criticality</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Location>480px, 56px</Location>
+                        <Size>64px, 24px</Size>
+                        <Value>=[WOEquipment.DepartmentID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Location>112px, 56px</Location>
+                        <Size>184px, 24px</Size>
+                        <Value>=[WOEquipment.SerialNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox6">
+                        <Location>456px, 32px</Location>
+                        <Size>120px, 24px</Size>
+                        <Value>=[WOEquipment.Status]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox7">
+                        <Location>600px, 32px</Location>
+                        <Size>88px, 24px</Size>
+                        <Value>=[WOEquipment.Criticality]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>600px, 56px</Location>
+                        <Size>88px, 24px</Size>
+                        <Value>=[WOEquipment.PhysicalLocation]</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <PageFooter Name="pageFooterSection1">
+                <Height>0.25in</Height>
+                <Items>
+                    <TextBox Name="textBox19">
+                        <Location>288px, 0px</Location>
+                        <Size>120px, 16px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <Value>=[@Today]</Value>
+                    </TextBox>
+                </Items>
+            </PageFooter>
+        </Sections>
+    </Report>
+</Report>

@@ -4,8 +4,7 @@
   <col name="WorkOrderID" type="Int" />
   <col name="WOLineNbr" type="Int" />
   <col name="LineNbr" type="Int" />
-  <col name="InventoryID" type="Int" nullable="true" />
-  <col name="SubItemID" type="Int" nullable="true" />
+  <col name="EquipmentID" type="Int" nullable="true" />
   <col name="Quantity" type="Decimal(25,6)" nullable="true" />
   <col name="BaseUnit" type="NVarChar(8)" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
