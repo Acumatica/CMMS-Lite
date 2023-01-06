@@ -266,7 +266,7 @@
                     <ReportField Name="WorkOrderType">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOOrder</FullName>
+                <FullName>CMMS.WOOrder</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

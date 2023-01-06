@@ -268,7 +268,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLine</FullName>
+                <FullName>CMMS.WOLine</FullName>
             </ReportTable>
             <ReportTable Name="WOClass">
                 <Fields>
@@ -332,7 +332,7 @@
                     <ReportField Name="WOClassID">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOClass</FullName>
+                <FullName>CMMS.WOClass</FullName>
             </ReportTable>
             <ReportTable Name="WOEquipment">
                 <Fields>
@@ -456,7 +456,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOEquipment</FullName>
+                <FullName>CMMS.WOEquipment</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

@@ -170,7 +170,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WOFailureMode</FullName>
+                <FullName>CMMS.WOFailureMode</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>
