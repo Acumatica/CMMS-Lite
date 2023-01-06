@@ -52,16 +52,21 @@
                         SkinID="DetailsInTab" SyncPosition="True" SyncPositionWithGraph="True" MatrixMode="True">
                         <Mode InitNewRow="True" AllowFormEdit="False" AllowUpload="True" AllowDragRows="true" />
                         <AutoSize Container="Window" Enabled="True" MinHeight="150" />
-                        <AutoCallBack Target="tab2" Command="Refresh" />
-                        <Levels>
-                            <px:PXGridLevel DataMember="Transactions">
-                                <Columns>
-                                    <px:PXGridColumn DataField="EquipmentID" CommitChanges="True" Width="70" />
-                                    <px:PXGridColumn DataField="WOEquipment__Descr" Width="280" />
-                                    <px:PXGridColumn DataField="Descr" Width="400" />
-                                </Columns>
-                            </px:PXGridLevel>
-                        </Levels>
+						<AutoCallBack ActiveBehavior="True" Target="tab2" Command="Refresh" >
+							<Behavior RepaintControlsIDs="tab2,gridLabor,gridMaterials,gridTools,gridMeasurements,gridFailure" />
+						</AutoCallBack>
+						<Levels>
+							<px:PXGridLevel DataMember="Transactions">
+								<Columns>
+									<px:PXGridColumn DataField="Descr" Width="400"/>
+									<px:PXGridColumn CommitChanges="True" DataField="EquipmentID" Width="70"/>
+									<px:PXGridColumn DataField="WOEquipment__Descr" Width="280"/>
+								</Columns>
+								<RowTemplate>
+									<px:PXSelector runat="server" ID="CstPXSelector23" DataField="EquipmentID" AllowEdit="True"/>
+								</RowTemplate>
+							</px:PXGridLevel>
+						</Levels>
                     </px:PXGrid>
 
                     <px:PXTab ID="tab2" runat="server" Style="z-index: 100;" Width="100%" DataMember="CurrentDocument" SyncPosition="True">
@@ -162,6 +167,30 @@
                         </Items>
                     </px:PXTab>
                 </Template>
+            </px:PXTabItem>
+            <px:PXTabItem Text="Attributes">
+              <Template>
+                <px:PXGrid runat="server" ID="PXGridAnswers" Height="200px" SkinID="Inquire" 
+                            Width="100%" MatrixMode="True" DataSourceID="ds">
+                    <AutoSize Enabled="True" MinHeight="200" ></AutoSize>
+                    <ActionBar>
+                        <Actions>
+                            <Search Enabled="False" ></Search>
+                        </Actions>
+                    </ActionBar>
+                    <Mode AllowAddNew="False" AllowDelete="False" AllowColMoving="False" ></Mode>
+                    <Levels>
+                        <px:PXGridLevel DataMember="Answers">                        
+                            <Columns>
+                                <px:PXGridColumn TextAlign="Left" DataField="AttributeID" TextField="AttributeID_description" 
+                                                    Width="250px" AllowShowHide="False" ></px:PXGridColumn>
+                                <px:PXGridColumn Type="CheckBox" TextAlign="Center" DataField="isRequired" Width="80px" ></px:PXGridColumn>
+                                <px:PXGridColumn DataField="Value" Width="300px" AllowSort="False" AllowShowHide="False" ></px:PXGridColumn>
+                            </Columns>
+                        </px:PXGridLevel>
+                    </Levels>
+                </px:PXGrid>
+              </Template>
             </px:PXTabItem>
 			<px:PXTabItem Text="Approvals">
 				<Template>
