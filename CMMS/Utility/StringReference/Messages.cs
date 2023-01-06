@@ -1,9 +1,8 @@
 ﻿using System;
 using PX.Common;
 using PX.Data;
-using static CMMSlite.WO.LaborTypes;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXLocalizable(Messages.Prefix)]
     public static class Messages

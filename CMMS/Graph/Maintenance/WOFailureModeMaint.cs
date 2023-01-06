@@ -1,7 +1,7 @@
 ﻿using PX.Data;
 using PX.Data.BQL.Fluent;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     public class WOFailureModeMaint : PXGraph<WOFailureModeMaint>
     {

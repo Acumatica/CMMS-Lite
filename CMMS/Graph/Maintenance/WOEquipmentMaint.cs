@@ -2,7 +2,7 @@
 using PX.Data.BQL.Fluent;
 using PX.Objects.IN;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     public class WOEquipmentMaint : PXGraph<WOEquipmentMaint, WOEquipment>
     {
@@ -48,6 +48,16 @@ namespace CMMSlite.WO
         public WOEquipmentMaint()
         {
             WOSetup setup = Setup.Current;
+        }
+        #endregion
+
+        #region CacheAttached
+        [PXDBInt(IsKey = true)]
+        [PXParent(typeof(SelectFrom<WOEquipment>.Where<WOEquipment.equipmentID.IsEqual<WOSchedule.equipmentID.FromCurrent>>))]
+        [PXDBDefault(typeof(WOEquipment.equipmentID))]
+        [PXUIField(DisplayName = Messages.FieldEquipmentID)]
+        protected virtual void __(Events.CacheAttached<WOSchedule.equipmentID> e)
+        {
         }
         #endregion
     }

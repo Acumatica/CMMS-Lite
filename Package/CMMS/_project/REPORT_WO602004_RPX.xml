@@ -100,7 +100,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLineTool</FullName>
+                <FullName>CMMS.WOLineTool</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

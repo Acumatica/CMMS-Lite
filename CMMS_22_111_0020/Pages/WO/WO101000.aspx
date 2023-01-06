@@ -3,7 +3,7 @@
 <%@ MasterType VirtualPath="~/MasterPages/FormView.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" runat="Server">
-    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="CMMSlite.WO.WOSetupMaint" PrimaryView="Setup" Height="36px" />
+    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="CMMS.WOSetupMaint" PrimaryView="Setup" Height="36px" />
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" runat="Server">
     <px:PXTab ID="tab" runat="server" DataSourceID="ds" Height="150px" Style="z-index: 100" Width="100%" DataMember="Setup" SyncPosition="True">

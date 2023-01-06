@@ -3,7 +3,7 @@ using PX.Objects.CS;
 using PX.Objects.EP;
 using System;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOSetupMaint))]
     [PXCacheName(Messages.DACWOSetup)]
@@ -12,7 +12,7 @@ namespace CMMSlite.WO
     {
         #region WorkOrderNumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
-        [PXDefault(CMMSlite.WO.Messages.CustomWorkSequence)]
+        [PXDefault(Messages.CustomWorkSequence)]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
         [PXUIField(DisplayName = Messages.FieldNumberingID)]
         public virtual string WONumberingID { get; set; }
@@ -22,7 +22,7 @@ namespace CMMSlite.WO
         #region TemplateWorkOrderNumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
-        [PXDefault(CMMSlite.WO.Messages.TemplateCustomWorkSequence)]
+        [PXDefault(Messages.TemplateCustomWorkSequence)]
         [PXUIField(DisplayName = Messages.TemplateFieldNumberingID)]
         public virtual string TemplateWorkOrderNumberingID { get; set; }
         public abstract class templateWorkOrderNumberingID : PX.Data.BQL.BqlString.Field<templateWorkOrderNumberingID> { }
@@ -30,7 +30,7 @@ namespace CMMSlite.WO
 
         #region EquipNumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
-        [PXDefault(CMMSlite.WO.Messages.EquipmentNumberingID)]
+        [PXDefault(Messages.EquipmentNumberingID)]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
         [PXUIField(DisplayName = Messages.FieldEquipNumberingID)]
         public virtual string EquipNumberingID { get; set; }

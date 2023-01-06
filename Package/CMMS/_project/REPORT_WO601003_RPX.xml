@@ -116,7 +116,7 @@
                     <ReportField Name="WorkOrderID">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOSchedule</FullName>
+                <FullName>CMMS.WOSchedule</FullName>
             </ReportTable>
             <ReportTable Name="WOOrder">
                 <Fields>

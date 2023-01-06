@@ -103,7 +103,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLineFailure</FullName>
+                <FullName>CMMS.WOLineFailure</FullName>
             </ReportTable>
             <ReportTable Name="WOFailureMode">
                 <Fields>

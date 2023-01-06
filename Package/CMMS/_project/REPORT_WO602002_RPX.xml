@@ -92,7 +92,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLineLabor</FullName>
+                <FullName>CMMS.WOLineLabor</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

@@ -121,7 +121,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOEquipment</FullName>
+                <FullName>CMMS.WOEquipment</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

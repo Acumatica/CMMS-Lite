@@ -3,7 +3,7 @@
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource EnableAttributes="True" ID="ds" runat="server" Visible="True" Width="100%"
-        TypeName="CMMSlite.WO.WOClassMaint"
+        TypeName="CMMS.WOClassMaint"
         PrimaryView="Classes"
         >
 		<CallbackCommands>

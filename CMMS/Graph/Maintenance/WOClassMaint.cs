@@ -4,7 +4,7 @@ using PX.Data.Descriptor;
 using PX.Objects.CR;
 using CS = PX.Objects.CS;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     public class WOClassMaint : PXGraph<WOClassMaint, WOClass>
     {

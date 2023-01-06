@@ -95,7 +95,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOEquipmentBOM</FullName>
+                <FullName>CMMS.WOEquipmentBOM</FullName>
             </ReportTable>
             <ReportTable Name="InventoryItem">
                 <Fields>

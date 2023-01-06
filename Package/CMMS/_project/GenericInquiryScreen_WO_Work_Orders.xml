@@ -143,7 +143,7 @@
                         <GINavigationParameter LineNbr="1" FieldName="WorkOrderType" ParameterName="WOOrder.WorkOrderType" IsExpression="0" />
                     </GINavigationScreen>
                     <GISort LineNbr="1" IsActive="1" DataFieldName="WOOrder.createdDateTime" SortOrder="D" />
-                    <GITable Alias="WOOrder" Name="CMMSlite.WO.WOOrder">
+                    <GITable Alias="WOOrder" Name="CMMS.WOOrder">
                         <GIResult LineNbr="8" SortOrder="8" IsActive="1" Field="wOClassID" SchemaField="WOOrder.WOClassID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="fef877a7-c2e8-4da8-8e32-3e3170015f8f" />
                         <GIResult LineNbr="7" SortOrder="7" IsActive="1" Field="equipmentID_description" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="7719dba7-ad2f-4f8a-80cf-6214b7b7ce48" />
                         <GIResult LineNbr="6" SortOrder="6" IsActive="1" Field="equipmentID" SchemaField="WOOrder.EquipmentID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="4fe1ec0d-4120-4e60-9f50-410a4f7e1d7f" />

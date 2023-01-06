@@ -6,7 +6,7 @@ using PX.Objects.GL;
 using PX.Objects.IN;
 using PX.Objects.RQ;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]

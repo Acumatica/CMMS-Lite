@@ -142,7 +142,7 @@
                         <GINavigationParameter LineNbr="1" FieldName="EquipmentCD" ParameterName="WOEuipment.EquipmentCD" IsExpression="0" />
                     </GINavigationScreen>
                     <GISort LineNbr="1" IsActive="1" DataFieldName="WOEuipment.equipmentID" SortOrder="A" />
-                    <GITable Alias="WOEuipment" Name="CMMSlite.WO.WOEquipment">
+                    <GITable Alias="WOEuipment" Name="CMMS.WOEquipment">
                         <GIResult LineNbr="10" SortOrder="9" IsActive="1" Field="aMMachID" SchemaField="WOEuipment.AMMachID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="bf9ca71d-82bc-44af-8d04-6feb703a5cb5" />
                         <GIResult LineNbr="9" SortOrder="8" IsActive="1" Field="sMEquipmentID" SchemaField="WOEuipment.SMEquipmentID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="29c6e13f-14e9-4814-b602-18328aa73a47" />
                         <GIResult LineNbr="8" SortOrder="7" IsActive="1" Field="inventoryID" SchemaField="WOEuipment.InventoryID" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="1986ef57-70bf-4432-9043-63a8c0b5638b" />

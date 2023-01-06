@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EP = PX.Objects.EP;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     public class EPApprovalMapMaint_Extension : PXGraphExtension<EP.EPApprovalMapMaint>
     {

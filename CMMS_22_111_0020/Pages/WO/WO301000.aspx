@@ -3,7 +3,7 @@
 <%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" runat="Server">
-    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="CMMSlite.WO.WOOrderEntry" PrimaryView="Document">
+    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="CMMS.WOOrderEntry" PrimaryView="Document">
     </px:PXDataSource>
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" runat="Server">
@@ -36,7 +36,7 @@
                         <Template>
                             <px:PXLayoutRule ControlSize="M" LabelsWidth="SM" ID="PXLayoutRule1" runat="server" StartRow="True" />
                             <px:PXSelector runat="server" ID="slOrigWorkOrderID" DataField="OrigWorkOrderID"/>
-
+                            <px:PXSelector runat="server" ID="TemplateID" DataField="TemplateID"/>
                             <px:PXLayoutRule runat="server" ControlSize="M" GroupCaption="Assigned To" LabelsWidth="SM" StartGroup="True" />
                             <px:PXSelector ID="edWorkgroupID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="WorkgroupID" DataSourceID="ds" />
                             <px:PXSelector ID="edOwnerID" CommitChanges="true" runat="server" AutoRefresh="True" DataField="OwnerID" DataSourceID="ds" />
@@ -62,9 +62,6 @@
 									<px:PXGridColumn CommitChanges="True" DataField="EquipmentID" Width="70"/>
 									<px:PXGridColumn DataField="WOEquipment__Descr" Width="280"/>
 								</Columns>
-								<RowTemplate>
-									<px:PXSelector runat="server" ID="CstPXSelector23" DataField="EquipmentID" AllowEdit="True"/>
-								</RowTemplate>
 							</px:PXGridLevel>
 						</Levels>
                     </px:PXGrid>

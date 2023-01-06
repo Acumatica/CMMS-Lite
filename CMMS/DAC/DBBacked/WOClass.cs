@@ -3,7 +3,7 @@ using PX.Data.EP;
 using PX.Data.ReferentialIntegrity.Attributes;
 using System;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOClassMaint))]
     [PXCacheName(Messages.DACWOClass)]

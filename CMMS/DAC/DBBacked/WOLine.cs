@@ -1,8 +1,7 @@
 ﻿using PX.Data;
-using PX.Objects.AM;
 using System;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]
@@ -72,9 +71,10 @@ namespace CMMSlite.WO
             typeof(WOEquipment.inventoryID),
             typeof(WOEquipment.sMEquipmentID),
             typeof(WOEquipment.aMMachID),
-            SubstituteKey = typeof(WOEquipment.equipmentCD)
+            SubstituteKey = typeof(WOEquipment.equipmentCD),
+            DescriptionField = typeof(WOEquipment.descr)
             )]
-        [PXUIField(DisplayName = Messages.FieldEquipmentID)]
+        [PXUIField(DisplayName = Messages.FieldEquipmentID, Visibility = PXUIVisibility.Visible)]
         public virtual int? EquipmentID { get; set; }
         public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }
         #endregion

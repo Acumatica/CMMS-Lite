@@ -2,17 +2,38 @@
 using PX.Data.BQL.Fluent;
 using System;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOSchedule)]
     public class WOSchedule : IBqlTable
     {
+        #region Selected
+        /// <summary>
+        /// Indicates whether the record is selected for mass processing.
+        /// </summary>
+        public abstract class selected : PX.Data.BQL.BqlBool.Field<selected>
+        {
+        }
+        [PXBool]
+        [PXDefault(false, PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Selected")]
+        public bool? Selected { get; set; }
+        #endregion
+
         #region EquipmentID
         [PXDBInt(IsKey = true)]
-        [PXParent(typeof(SelectFrom<WOEquipment>.Where<WOEquipment.equipmentID.IsEqual<equipmentID.FromCurrent>>))]
-        [PXDBDefault(typeof(WOEquipment.equipmentID))]
+        [PXSelector(
+            typeof(WOEquipment.equipmentID),
+            typeof(WOEquipment.equipmentCD),
+            typeof(WOEquipment.descr),
+            typeof(WOEquipment.inventoryID),
+            typeof(WOEquipment.sMEquipmentID),
+            typeof(WOEquipment.aMMachID),
+            SubstituteKey = typeof(WOEquipment.equipmentCD),
+            DescriptionField = typeof(WOEquipment.descr)
+            )]
         [PXUIField(DisplayName = Messages.FieldEquipmentID)]
         public virtual int? EquipmentID { get; set; }
         public abstract class equipmentID : PX.Data.BQL.BqlInt.Field<equipmentID> { }

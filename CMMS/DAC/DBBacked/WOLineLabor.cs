@@ -2,7 +2,7 @@
 using System;
 using static PX.Objects.FS.ListField_ReasonType;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]

@@ -142,7 +142,7 @@
                         <GINavigationParameter LineNbr="1" FieldName="WOClassID" ParameterName="WOClass.WOClassID" IsExpression="0" />
                     </GINavigationScreen>
                     <GISort LineNbr="1" IsActive="1" DataFieldName="WOClass.wOClassID" SortOrder="A" />
-                    <GITable Alias="WOClass" Name="CMMSlite.WO.WOClass">
+                    <GITable Alias="WOClass" Name="CMMS.WOClass">
                         <GIResult LineNbr="2" SortOrder="2" IsActive="1" Field="descr" IsVisible="1" DefaultNav="0" QuickFilter="0" FastFilter="0" RowID="d3f1fb0f-c846-4cd7-80ee-f8420a3b1f2a" />
                         <GIResult LineNbr="1" SortOrder="1" IsActive="1" Field="wOClassID" IsVisible="1" DefaultNav="0" NavigationNbr="1" QuickFilter="0" FastFilter="0" RowID="a2c77040-9b21-40f5-80fb-633e266c1bd7" />
                     </GITable>

@@ -88,7 +88,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOEquipmentFM</FullName>
+                <FullName>CMMS.WOEquipmentFM</FullName>
             </ReportTable>
             <ReportTable Name="WOFailureMode">
                 <Fields>
@@ -155,7 +155,7 @@
                     <ReportField Name="Tstamp">
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WOFailureMode</FullName>
+                <FullName>CMMS.WOFailureMode</FullName>
             </ReportTable>
         </Tables>
         <Version>20211215</Version>

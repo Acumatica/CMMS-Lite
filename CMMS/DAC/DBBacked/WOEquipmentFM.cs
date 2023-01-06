@@ -4,7 +4,7 @@ using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
 using PX.Objects.IN;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]

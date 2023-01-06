@@ -1,11 +1,8 @@
 ﻿using PX.Data;
 using PX.Data.WorkflowAPI;
-using PX.Objects.Common;
 using PX.Objects.CS;
-using System;
-using System.Runtime.Serialization;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     using static PX.Data.WorkflowAPI.BoundedTo<WOOrderEntry, WOOrder>;
     using static WOOrder;

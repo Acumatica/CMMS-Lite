@@ -3,7 +3,7 @@ using PX.Data.WorkflowAPI;
 using PX.Objects.Common;
 using PX.Objects.CS;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     using static BoundedTo<WOOrderEntry, WOOrder>;
     using static WOOrder;

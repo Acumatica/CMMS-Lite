@@ -2,7 +2,7 @@
 using PX.Objects.EP;
 using System;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOSetupMaint))]
     [PXCacheName(Messages.DACWOSetupApproval)]

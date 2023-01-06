@@ -1,8 +1,7 @@
 using System;
-using CMMSlite.WO;
 using PX.Data;
 
-namespace CMMSlite
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOFailureModeMaint))]
     [Serializable]

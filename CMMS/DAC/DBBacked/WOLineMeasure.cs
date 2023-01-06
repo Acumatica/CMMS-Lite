@@ -1,7 +1,7 @@
 using System;
 using PX.Data;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]

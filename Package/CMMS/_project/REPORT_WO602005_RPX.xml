@@ -104,7 +104,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLineMeasure</FullName>
+                <FullName>CMMS.WOLineMeasure</FullName>
             </ReportTable>
             <ReportTable Name="WOMeasurement">
                 <Fields>

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     #region WOOrder
     /// <summary>
@@ -131,14 +131,28 @@ namespace CMMSlite.WO
         #region OrigWorkOrderID
         [PXDBInt()]
         [PXSelector(
-            typeof(WOOrder.workOrderCD),
-            typeof(WOOrder.workOrderCD),
-            typeof(WOOrder.descr),
-            typeof(WOOrder.createdDateTime)
+            typeof(Search<WOOrder3.workOrderID, Where<WOOrder3.workOrderType, Equal<WorkOrderTypes.standard>, And<WOOrder3.workOrderID,NotEqual<Current<workOrderID>>>>>),
+            typeof(WOOrder3.workOrderCD),
+            typeof(WOOrder3.descr),
+            typeof(WOOrder3.createdDateTime),
+            SubstituteKey = typeof(WOOrder3.workOrderCD)
             )]
         [PXUIField(DisplayName = Messages.FieldOrigWorkOrderID)]
         public virtual int? OrigWorkOrderID { get; set; }
         public abstract class origWorkOrderID : PX.Data.BQL.BqlInt.Field<origWorkOrderID> { }
+        #endregion
+
+        #region TemplateID
+        [PXDBInt()]
+        [PXSelector(typeof(Search<WOOrder2.workOrderID, Where<WOOrder2.workOrderType,Equal<WorkOrderTypes.template>>>),
+            typeof(WOOrder2.workOrderCD),
+            typeof(WOOrder2.descr),
+            typeof(WOOrder2.createdDateTime),
+            SubstituteKey = typeof(WOOrder2.workOrderCD)
+            )]
+        [PXUIField(DisplayName = "Template ID", Enabled = false)]
+        public virtual int? TemplateID { get; set; }
+        public abstract class templateID : PX.Data.BQL.BqlInt.Field<templateID> { }
         #endregion
 
         #region LastLineNbr

@@ -1,11 +1,13 @@
 ﻿<Sql TableName="WOOrder" TableSchemaXml="#CDATA">
-    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOOrder">
+    <CDATA name="TableSchemaXml">
+    <![CDATA[<table name="WOOrder">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="WorkOrderID" type="Int" identity="true" />
   <col name="WorkOrderType" type="Char(1)" />
   <col name="WorkOrderCD" type="NVarChar(30)" />
   <col name="WOClassID" type="NVarChar(15)" />
   <col name="OrigWorkOrderID" type="Int" nullable="true" />
+  <col name="TemplateID" type="Int" nullable="true" />
   <col name="Status" type="Char(1)" nullable="true" />
   <col name="BranchID" type="Int" />
   <col name="Priority" type="Char(1)" nullable="true" />

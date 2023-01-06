@@ -16,13 +16,13 @@ namespace CMMS
 		{
 			plugin.WriteLog($"Work Order Numbering Handler running on Company \"{PXDatabase.Provider.GetCompanyDisplayName()}\"");
 
-			Numbering numbering = PXDatabase.SelectRecords<Numbering>(new PXDataFieldValue<Numbering.numberingID>(CMMSlite.WO.Messages.CustomWorkSequence, PXComp.EQ)).FirstOrDefault();
+			Numbering numbering = PXDatabase.SelectRecords<Numbering>(new PXDataFieldValue<Numbering.numberingID>(Messages.CustomWorkSequence, PXComp.EQ)).FirstOrDefault();
 
 			if (numbering == null)
 			{
-				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.CustomWorkSequence, CMMSlite.WO.Messages.CustomTypeDescr);
-				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.TemplateCustomWorkSequence, CMMSlite.WO.Messages.TemplateCustomTypeDescr);
-				InsertNumberingAndSequence(plugin, CMMSlite.WO.Messages.EquipmentNumberingID, CMMSlite.WO.Messages.EquipmentNumberingDescr);
+				InsertNumberingAndSequence(plugin, Messages.CustomWorkSequence, Messages.CustomTypeDescr);
+				InsertNumberingAndSequence(plugin, Messages.TemplateCustomWorkSequence, Messages.TemplateCustomTypeDescr);
+				InsertNumberingAndSequence(plugin, Messages.EquipmentNumberingID, Messages.EquipmentNumberingDescr);
 
 			}
 		}

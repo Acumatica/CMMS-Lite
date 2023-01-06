@@ -1,6 +1,5 @@
 ﻿using Customization;
 
-
 namespace CMMS
 {
     public class WOCustomizationPlugin : CustomizationPlugin

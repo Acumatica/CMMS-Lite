@@ -8,7 +8,7 @@ using PX.Objects.IN;
 using System.Collections;
 using static PX.Objects.AM.ProductionBomCopyBase;
 
-namespace CMMSlite.WO
+namespace CMMS
 {
     public class WOOrderEntry : PXGraph<WOOrderEntry, WOOrder>
     {
@@ -65,6 +65,9 @@ namespace CMMSlite.WO
                 .And<WOLineFailure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineFailureModes;
 
+        [PXViewName("Schedule")]
+        public PXSelect<WOSchedule, Where<WOSchedule.workOrderID, Equal<Current<WOOrder.templateID>>, And<WOSchedule.equipmentID, Equal<Current<WOOrder.equipmentID>>>>> CurrentSchedule;
+
         public PXSetup<WOSetup> Setup;
         public SelectFrom<WOSetupApproval>.View SetupApproval;
 
@@ -84,12 +87,6 @@ namespace CMMSlite.WO
         {
         }
 
-        //[PXDBInt()]
-        //[PXDefault(typeof(SSINItemPlan.customerID), PersistingCheck = PXPersistingCheck.Nothing)]
-        //protected virtual void EPApproval_BAccountID_CacheAttached(PXCache sender)
-        //{
-        //}
-
         [PXDBInt()]
         [PXDefault(typeof(WOOrder.ownerID), PersistingCheck = PXPersistingCheck.Nothing)]
         protected virtual void EPApproval_DocumentOwnerID_CacheAttached(PXCache sender)
@@ -101,24 +98,6 @@ namespace CMMSlite.WO
         protected virtual void EPApproval_Descr_CacheAttached(PXCache sender)
         {
         }
-
-        //[PXDBLong()]
-        //[CurrencyInfo(typeof(WOOrder.curyInfoID))]
-        //protected virtual void EPApproval_CuryInfoID_CacheAttached(PXCache sender)
-        //{
-        //}
-
-        //[PXDBDecimal(4)]
-        //[PXDefault(typeof(WOOrder.curyExtCost), PersistingCheck = PXPersistingCheck.Nothing)]
-        //protected virtual void EPApproval_CuryTotalAmount_CacheAttached(PXCache sender)
-        //{
-        //}
-
-        //[PXDBDecimal(4)]
-        //[PXDefault(typeof(WOOrder.extCost), PersistingCheck = PXPersistingCheck.Nothing)]
-        //protected virtual void EPApproval_TotalAmount_CacheAttached(PXCache sender)
-        //{
-        //}
         #endregion
 
         #region Constructor

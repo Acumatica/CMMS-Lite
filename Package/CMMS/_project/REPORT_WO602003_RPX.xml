@@ -112,7 +112,7 @@
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>CMMSlite.WO.WOLineItem</FullName>
+                <FullName>CMMS.WOLineItem</FullName>
             </ReportTable>
             <ReportTable Name="InventoryItem">
                 <Fields>
