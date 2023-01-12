@@ -78,7 +78,8 @@ namespace CMMS
         public const string FieldWOClass = "Class";
         public const string FieldBranchID = "Branch";
         public const string FieldPriority = "Priority";
-        public const string FieldOrigWorkOrderID = "Orig Work Order ID";
+        public const string FieldOrigWorkOrderID = "Related Work Order ID";
+        public const string FieldTemplateID = "Template ID";
         public const string FieldEquipmentID = "Equipment ID";
         public const string FieldMachineID = "Machine ID";
         public const string FieldRequestDate = "Requested";
