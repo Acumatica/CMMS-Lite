@@ -150,7 +150,7 @@ namespace CMMS
             typeof(WOOrder2.createdDateTime),
             SubstituteKey = typeof(WOOrder2.workOrderCD)
             )]
-        [PXUIField(DisplayName = "Template ID", Enabled = false)]
+        [PXUIField(DisplayName = Messages.FieldTemplateID, Enabled = false)]
         public virtual int? TemplateID { get; set; }
         public abstract class templateID : PX.Data.BQL.BqlInt.Field<templateID> { }
         #endregion

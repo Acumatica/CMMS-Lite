@@ -1,12 +1,12 @@
 ﻿using PX.Data;
 using PX.Data.BQL.Fluent;
 using PX.Data.WorkflowAPI;
-using PX.Objects.AM;
 using PX.Objects.CR;
 using PX.Objects.EP;
 using PX.Objects.IN;
 using System.Collections;
-using static PX.Objects.AM.ProductionBomCopyBase;
+using System.Linq;
+
 
 namespace CMMS
 {
@@ -25,7 +25,7 @@ namespace CMMS
         [PXImport]
         public SelectFrom<WOLine>
             .LeftJoin<WOEquipment>.On<WOEquipment.equipmentID.IsEqual<WOLine.equipmentID>>
-            .Where<WOLine.workOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>
+            .Where<WOLine.workOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>.OrderBy<WOLine.orderNbr.Asc>
             .View Transactions;
 
         [PXViewName(Messages.ViewWOLineItems)]
@@ -64,6 +64,11 @@ namespace CMMS
             .Where<WOLineFailure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineFailure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineFailureModes;
+
+        [PXViewName("Related Work Orders")]
+        public SelectFrom<WOOrder4>
+            .Where<WOOrder4.origWorkOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>
+            .View RelatedWorkOrders;
 
         [PXViewName("Schedule")]
         public PXSelect<WOSchedule, Where<WOSchedule.workOrderID, Equal<Current<WOOrder.templateID>>, And<WOSchedule.equipmentID, Equal<Current<WOOrder.equipmentID>>>>> CurrentSchedule;
@@ -149,14 +154,72 @@ namespace CMMS
 
         #region Complete Action
         public PXAction<WOOrder> complete;
-        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Complete", MapEnableRights = PXCacheRights.Select)]
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Complete", MapEnableRights = PXCacheRights.Select, Visible = true)]
         protected virtual IEnumerable Complete(PXAdapter adapter) => adapter.Get<WOOrder>();
+        #endregion
+
+        #region RowUp
+        public PXAction<WOOrder> rowUp;
+        [PXButton(ImageKey = "ArrowUp", Tooltip = "Move Row Up")]
+        [PXUIField(DisplayName = " ", MapEnableRights = PXCacheRights.Update)]
+        protected IEnumerable RowUp(PXAdapter adapter)
+        {
+
+            SwapRows(Transactions.Current, true);
+
+            return adapter.Get();
+        }
+        #endregion
+
+        #region RowDown
+        public PXAction<WOOrder> rowDown;
+        [PXButton(ImageKey = "ArrowDown", Tooltip = "Move Row Down")]
+        [PXUIField(DisplayName = " ", MapEnableRights = PXCacheRights.Update)]
+        protected IEnumerable RowDown(PXAdapter adapter)
+        {
+            SwapRows(Transactions.Current, false);
+
+            return adapter.Get();
+        }
         #endregion
 
         #endregion
 
         #region Events
+        protected virtual void __(Events.FieldDefaulting<WOLine.orderNbr> e)
+        {
+            if(e.Row is WOLine row)
+            {
+                //This is a terrible way to do it but it works for summit
+                int highCount = 0;
+                foreach(WOLine line in Transactions.Cache.Cached)
+                {
+                    if (line.Equals(row)) continue;
+                    highCount = (line.OrderNbr ?? 0) >= highCount ? (line.OrderNbr ?? 0) : highCount;
+                }
+                e.NewValue = ++highCount;
+            }
+        }
+
         #endregion
 
+        #region Methods
+        private void SwapRows(WOLine line1, bool up)
+        {
+            WOLine toSwap = Transactions.Select().FirstOrDefault(x => x.Record.OrderNbr == (up == true ? line1.OrderNbr - 1 : line1.OrderNbr + 1));
+            if(toSwap != null)
+            {
+                int? newLine1 = toSwap.OrderNbr;
+                int? newToSwap = line1.OrderNbr;
+
+                toSwap.OrderNbr = newToSwap;
+                Transactions.Update(toSwap);
+
+                line1.OrderNbr = newLine1;
+                Transactions.Update(line1);
+            }
+        }
+
+        #endregion
     }
 }

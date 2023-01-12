@@ -27,6 +27,13 @@ namespace CMMS
         public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<lineNbr> { }
         #endregion
 
+        #region OrderNbr
+        [PXDBInt()]
+        [PXDefault()]
+        public virtual int? OrderNbr { get; set; }
+        public abstract class orderNbr : PX.Data.BQL.BqlInt.Field<orderNbr> { }
+        #endregion
+
         #region LastLaborLineNbr
         [PXDBInt()]
         [PXDefault(0)]

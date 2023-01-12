@@ -97,6 +97,7 @@
     <Compile Include="DAC\DBBacked\WOSetupApproval.cs" />
     <Compile Include="DAC\DerivedClasses\WOOrder2.cs" />
     <Compile Include="DAC\DerivedClasses\WOOrder3.cs" />
+    <Compile Include="DAC\DerivedClasses\WOOrder4.cs" />
     <Compile Include="Extension\Graph\EPApprovalMapMaint.cs" />
     <Compile Include="Graph\Entry\WOOrderEntry.cs" />
     <Compile Include="Graph\Entry\Workflow\WOOrderEntry_ApprovalWorkflow.cs" />
