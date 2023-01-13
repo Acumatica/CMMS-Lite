@@ -1,8 +1,114 @@
 ﻿<Report Name="wo602000.rpx">
     <Report version="20211215" Name="report1">
+        <Filters>
+            <FilterExp>
+                <DataField>WOOrder.WorkOrderCD</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@WorkOrderID</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@WorkOrderID</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>WOOrder.Status</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@Status</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@Status</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>WOOrder.WorkOrderType</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@Type</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@Type</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>GreaterOrEqual</Condition>
+                <DataField>WOOrder.ScheduleDate</DataField>
+                <OpenBraces>2</OpenBraces>
+                <Value>@ScheduledFrom</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNotNull</Condition>
+                <DataField>WOOrder.ScheduleDate</DataField>
+                <Operator>Or</Operator>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@ScheduledFrom</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>LessOrEqual</Condition>
+                <DataField>WOOrder.ScheduleDate</DataField>
+                <OpenBraces>2</OpenBraces>
+                <Value>@ScheduledTo</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNotNull</Condition>
+                <DataField>WOOrder.ScheduleDate</DataField>
+                <Operator>Or</Operator>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@ScheduledTo</DataField>
+            </FilterExp>
+        </Filters>
         <PageSettings>
             <PaperKind>Letter</PaperKind>
         </PageSettings>
+        <Parameters>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>WorkOrderID</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Work Order ID</Prompt>
+                <ViewName>=[WOOrder.WorkOrderCD]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>Status</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Status</Prompt>
+                <ViewName>=[WOOrder.Status]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>Type</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Type</Prompt>
+                <ViewName>=[WOOrder.WorkOrderType]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ScheduledFrom</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Scheduled From</Prompt>
+                <Type>DateTime</Type>
+                <ViewName>=[WOOrder.ScheduleDate]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ScheduledTo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Scheduled To</Prompt>
+                <Type>DateTime</Type>
+                <ViewName>=[WOOrder.ScheduleDate]</ViewName>
+            </ReportParameter>
+        </Parameters>
         <Relations>
             <ReportRelation>
                 <ChildName>WOClass</ChildName>
@@ -481,9 +587,31 @@
                             </BorderStyle>
                         </Style>
                         <Items>
+                            <TextBox Name="textBox10">
+                                <Location>336px, 0px</Location>
+                                <Size>80px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>Scheduled</Value>
+                            </TextBox>
+                            <TextBox Name="textBox13">
+                                <Location>208px, 0px</Location>
+                                <Size>120px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>Status</Value>
+                            </TextBox>
                             <TextBox Name="textBox3">
                                 <Location>0px, 0px</Location>
-                                <Size>120px, 24px</Size>
+                                <Size>96px, 24px</Size>
                                 <Style>
                                     <Font>
                                         <Style>Bold</Style>
@@ -493,15 +621,15 @@
                                 <Value>Type</Value>
                             </TextBox>
                             <TextBox Name="textBox4">
-                                <Location>128px, 0px</Location>
-                                <Size>120px, 24px</Size>
+                                <Location>104px, 0px</Location>
+                                <Size>96px, 24px</Size>
                                 <Style>
                                     <Font>
                                         <Style>Bold</Style>
                                     </Font>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>Work Order ID</Value>
+                                <Value>Work Ord ID</Value>
                             </TextBox>
                             <TextBox Name="textBox5">
                                 <Location>424px, 0px</Location>
@@ -611,13 +739,23 @@
                         <Size>696px, 24px</Size>
                     </SubReport>
                     <TextBox Name="textBox1">
-                        <Location>128px, 0px</Location>
-                        <Size>120px, 24px</Size>
+                        <Location>104px, 0px</Location>
+                        <Size>96px, 24px</Size>
                         <Value>=[WOOrder.WorkOrderCD]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox11">
+                        <Location>336px, 0px</Location>
+                        <Size>80px, 24px</Size>
+                        <Value>=[WOOrder.ScheduleDate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox12">
+                        <Location>208px, 0px</Location>
+                        <Size>120px, 24px</Size>
+                        <Value>=[WOOrder.Status]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <Location>0px, 0px</Location>
-                        <Size>120px, 24px</Size>
+                        <Size>96px, 24px</Size>
                         <Value>=[WOOrder.WorkOrderType]</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
