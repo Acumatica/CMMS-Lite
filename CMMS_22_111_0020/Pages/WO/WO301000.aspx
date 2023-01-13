@@ -262,6 +262,22 @@
         </Items>
         <AutoSize Container="Window" Enabled="True" MinHeight="200" />
     </px:PXTab>
+    <px:PXSmartPanel ID="panelScheduleDate" runat="server" Caption="Schedule" CaptionVisible="true" LoadOnDemand="true" Key="schedulefilter"
+        AutoCallBack-Enabled="true" AutoCallBack-Target="formScheduleDate" AutoCallBack-Command="Refresh" CallBackMode-CommitChanges="True"
+        CallBackMode-PostData="Page" AutoReload="True">
+        <div style="padding: 5px">
+            <px:PXFormView ID="formScheduleDate" runat="server" DataSourceID="ds" CaptionVisible="False" DataMember="schedulefilter">
+                <ContentStyle BackColor="Transparent" BorderStyle="None" />
+                <Template>
+                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="S" ControlSize="SM" />
+                    <px:PXDateTimeEdit CommitChanges="True" ID="edScheduleDate" runat="server" DataField="ScheduleDate" />
+                </Template>
+            </px:PXFormView>
+        </div>
+        <px:PXPanel ID="panelScheduleButtons" runat="server" SkinID="Buttons">
+            <px:PXButton ID="btnScheduleOk" runat="server" DialogResult="OK" Text="OK" CommandName="checkSchedule" CommandSourceID="ds" />
+        </px:PXPanel>
+    </px:PXSmartPanel>
     <px:PXSmartPanel ID="panelReason" runat="server" Caption="Enter Reason" CaptionVisible="true" LoadOnDemand="true" Key="ReasonApproveRejectParams"
         AutoCallBack-Enabled="true" AutoCallBack-Command="Refresh" CallBackMode-CommitChanges="True" Width="600px"
         CallBackMode-PostData="Page" AcceptButtonID="btnReasonOk" CancelButtonID="btnReasonCancel" AllowResize="False">
