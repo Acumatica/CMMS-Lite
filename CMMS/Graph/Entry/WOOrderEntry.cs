@@ -4,6 +4,7 @@ using PX.Data.WorkflowAPI;
 using PX.Objects.CR;
 using PX.Objects.EP;
 using PX.Objects.IN;
+using System;
 using System.Collections;
 using System.Linq;
 
@@ -129,21 +130,85 @@ namespace CMMS
         protected virtual IEnumerable RemoveHold(PXAdapter adapter) => adapter.Get<WOOrder>();
         #endregion
 
+        #region Schedule
         #region Schedule Action
         public PXAction<WOOrder> schedule;
-        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Schedule")]
+        [PXButton(CommitChanges = true), PXUIField(DisplayName = "Schedule", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
         protected virtual IEnumerable Schedule(PXAdapter adapter)
         {
-            WOOrder wo = Document.Current;
-            if (wo?.ScheduleDate == null)
+            WebDialogResult dialogResult = schedulefilter.AskExt(setScheduleStateFilter, true);
+
+            if ((dialogResult == WebDialogResult.OK) &&
+                schedulefilter.Current?.ScheduleDate != null)
             {
-                wo.ScheduleDate = Accessinfo.BusinessDate;
+                WOOrder wo = Document.Current;
+                wo.ScheduleDate = schedulefilter.Current?.ScheduleDate;
                 Document.Update(wo);
                 Save.Press();
             }
 
             return adapter.Get<WOOrder>();
         }
+        #endregion
+
+        #region WOScheduleDate_RowSelected
+        protected virtual void _(Events.RowSelected<WOScheduleDate> e)
+        {
+            if (e.Row == null) return;
+            WOScheduleDate row = e.Row as WOScheduleDate;
+
+            checkSchedule.SetEnabled(schedulefilter.Current.ScheduleDate != null);
+
+            e.Cache.IsDirty = false;
+        }
+        #endregion
+
+        #region WOScheduleDate_ScheduleDate_FieldDefaulting
+        protected virtual void _(Events.FieldDefaulting<WOScheduleDate.scheduleDate> e)
+        {
+            WOOrder row = Document.Current;
+            if (row != null) { e.NewValue = row.ScheduleDate; }
+            if (e.NewValue == null) { e.NewValue = Accessinfo.BusinessDate; }
+        }
+        #endregion
+
+        #region setScheduleStateFilter
+        private void setScheduleStateFilter(PXGraph aGraph, string ViewName)
+        {
+            schedulefilter.Cache.SetDefaultExt<WOScheduleDate.scheduleDate>(schedulefilter.Current);
+
+            checkSchedule.SetEnabled(schedulefilter.Current.ScheduleDate != null);
+        }
+        #endregion
+
+        #region checkSchedule Action
+        public PXAction<WOOrder> checkSchedule;
+        [PXUIField(DisplayName = "OK", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
+        [PXButton]
+        public virtual IEnumerable CheckSchedule(PXAdapter adapter)
+        {
+            return adapter.Get();
+        }
+        #endregion
+
+        #region WOScheduleDate
+        [Serializable]
+        [PXHidden]
+        public class WOScheduleDate : IBqlTable
+        {
+            #region ScheduleDate
+            [PXDate]
+            [PXDefault()]
+            [PXUIField(DisplayName = Messages.FieldScheduleDate, Required = true)]
+            public virtual DateTime? ScheduleDate { get; set; }
+            public abstract class scheduleDate : PX.Data.BQL.BqlDateTime.Field<scheduleDate> { }
+            #endregion
+
+        }
+        #endregion
+
+        public PXFilter<WOScheduleDate> schedulefilter;
+
         #endregion
 
         #region Open Action
@@ -188,11 +253,11 @@ namespace CMMS
         #region Events
         protected virtual void __(Events.FieldDefaulting<WOLine.orderNbr> e)
         {
-            if(e.Row is WOLine row)
+            if (e.Row is WOLine row)
             {
                 //This is a terrible way to do it but it works for summit
                 int highCount = 0;
-                foreach(WOLine line in Transactions.Cache.Cached)
+                foreach (WOLine line in Transactions.Cache.Cached)
                 {
                     if (line.Equals(row)) continue;
                     highCount = (line.OrderNbr ?? 0) >= highCount ? (line.OrderNbr ?? 0) : highCount;
@@ -207,7 +272,7 @@ namespace CMMS
         private void SwapRows(WOLine line1, bool up)
         {
             WOLine toSwap = Transactions.Select().FirstOrDefault(x => x.Record.OrderNbr == (up == true ? line1.OrderNbr - 1 : line1.OrderNbr + 1));
-            if(toSwap != null)
+            if (toSwap != null)
             {
                 int? newLine1 = toSwap.OrderNbr;
                 int? newToSwap = line1.OrderNbr;

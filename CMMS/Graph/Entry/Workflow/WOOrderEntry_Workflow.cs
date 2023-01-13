@@ -116,6 +116,7 @@ namespace CMMS
                                     .WithFieldStates(fields =>
                                     {
                                         fields.AddAllFields<WOOrder>();
+                                        fields.AddField<WOOrder.scheduleDate>(c => c.IsDisabled());
                                     })); 
                             
                             // Pending Schedule State

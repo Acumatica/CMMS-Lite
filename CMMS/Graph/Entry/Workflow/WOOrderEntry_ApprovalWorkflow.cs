@@ -14,10 +14,10 @@ namespace CMMS
         public static bool IsActive() => true;
 
         #region Approval Settings
-        private class AUGApprovalSettings : IPrefetchable
+        private class WOApprovalSettings : IPrefetchable
         {
-            private static AUGApprovalSettings Current =>
-                PXDatabase.GetSlot<AUGApprovalSettings>(nameof(AUGApprovalSettings), typeof(WOSetup), typeof(WOSetupApproval));
+            private static WOApprovalSettings Current =>
+                PXDatabase.GetSlot<WOApprovalSettings>(nameof(WOApprovalSettings), typeof(WOSetup), typeof(WOSetupApproval));
 
             public static bool IsActive => Current.requestApproval;
             private bool requestApproval;
@@ -47,7 +47,7 @@ namespace CMMS
         public const string ApproveActionName = "Approve";
         public const string RejectActionName = "Reject";
 
-        private static bool ApprovalIsActive => PXAccess.FeatureInstalled<PX.Objects.CS.FeaturesSet.approvalWorkflow>() && AUGApprovalSettings.IsActive;
+        private static bool ApprovalIsActive => PXAccess.FeatureInstalled<PX.Objects.CS.FeaturesSet.approvalWorkflow>() && WOApprovalSettings.IsActive;
 
         #region Override Configure - Show or Hide Approval Workflow
         [PXWorkflowDependsOnType(typeof(WOSetup), typeof(WOSetupApproval))]
@@ -206,17 +206,6 @@ namespace CMMS
                                         fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                     }));
                         })
-                        #region AutoAction - Add the action to the state and then Updated it like this example
-                        //.WithFlowStates(states =>
-                        //{
-                        //    states
-                        //        .Update<State.approved>(flowState => flowState
-                        //            .WithActions(actions =>
-                        //            {
-                        //                actions.Update(g => g.myAutoAction, a => a.IsAutoAction());
-                        //            }));
-                        //})
-                        #endregion
                         .WithTransitions(transitions =>
                         {
                             transitions
@@ -241,6 +230,11 @@ namespace CMMS
 
                             transitions.UpdateGroupFrom<State.hold>(ts =>
                             {
+                                //ts.Add(t => t
+                                //    .To<State.pendingSchedule>()
+                                //    .IsTriggeredOn(g => g.removeHold)
+                                //    .When(!conditions.IsOnHold && conditions.IsApproved)
+                                //    .PlaceBefore(tr => tr.To<State.open>()));
                                 ts.Add(t => t
                                     .To<State.pendingApproval>()
                                     .IsTriggeredOn(g => g.removeHold)
@@ -253,7 +247,7 @@ namespace CMMS
                                 .AddGroupFrom<State.pendingApproval>(ts =>
                                 {
                                     ts.Add(t => t
-                                        .To<State.pendingSchedule>()
+                                         .To<State.pendingSchedule>()
                                         .IsTriggeredOn(approve)
                                         .When(conditions.IsApproved)
                                         );
@@ -301,6 +295,10 @@ namespace CMMS
                     {
                         actions.Add(approve);
                         actions.Add(reject);
+                        //actions.Update(g => g.complete, c => c
+                        //    .IsDisabledWhen(!conditions.IsApproved)
+                        //    .IsHiddenWhen(!conditions.IsApproved)
+                        //    );
                     });
                 return screen;
             });
