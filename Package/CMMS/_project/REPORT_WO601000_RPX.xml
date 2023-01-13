@@ -1,11 +1,69 @@
 ﻿<Report Name="wo601000.rpx">
     <Report version="20211215" Name="report1">
+        <Filters>
+            <FilterExp>
+                <DataField>WOEquipment.EquipmentCD</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@EquipmentID</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@EquipmentID</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>WOEquipment.Status</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@Status</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@Status</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>WOEquipment.EquipmentType</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@Type</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@Type</DataField>
+            </FilterExp>
+        </Filters>
         <LayoutUnit>Inch</LayoutUnit>
         <PageSettings>
             <Margins>
             </Margins>
             <PaperKind>Letter</PaperKind>
         </PageSettings>
+        <Parameters>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>EquipmentID</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Equipment ID</Prompt>
+                <ViewName>=[WOEquipment.EquipmentCD]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>Status</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Status</Prompt>
+                <ViewName>=[WOEquipment.Status]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>Type</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Type</Prompt>
+                <ViewName>=[WOEquipment.EquipmentType]</ViewName>
+            </ReportParameter>
+        </Parameters>
         <SchemaUrl>http://localhost/CMMS</SchemaUrl>
         <Tables>
             <ReportTable Name="WOEquipment">
