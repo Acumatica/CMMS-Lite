@@ -133,7 +133,7 @@
                                             <px:PXGridLevel DataMember="LineTools">
                                                 <Columns>
                                                     <px:PXGridColumn DataField="EquipmentID" CommitChanges="True" Width="70" />
-                                                    <px:PXGridColumn DataField="Equipment_description" Width="280" />
+                                                    <px:PXGridColumn DataField="WOEquipment__Descr" Width="280" />
                                                     <px:PXGridColumn DataField="Quantity" Width="100" />
                                                     <px:PXGridColumn DataField="BaseUnit" Width="96" />
                                                 </Columns>

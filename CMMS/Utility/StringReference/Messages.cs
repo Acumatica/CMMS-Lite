@@ -10,7 +10,6 @@ namespace CMMS
         public const string Prefix = "WO Error";
 
         #region Setup
-
         public const string CustomWorkSequence         = "WORKORDID";
         public const string TemplateCustomWorkSequence = "TMWRKORDID";
         public const string EquipmentNumberingID       = "WOEQUIPID";
@@ -104,7 +103,8 @@ namespace CMMS
         public const string FieldDateInstalled = "Date Installed";
         public const string FieldCriticality = "Criticality";
         public const string FieldSMEquipmentID = "FS Equipment ID";
-        public const string FieldAMMachID = "AM Machine ID";
+        public const string FieldAMMachID = "Mfg Machine ID";
+        public const string FieldEPEquipmentID = "Proj Equipment ID";
 
         public const string FieldFrequencyDays = "Frequency (Days)";
         public const string FieldLeadTimeDays = "Lead Time (Days)";
