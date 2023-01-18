@@ -16,6 +16,7 @@
   <col name="InventoryID" type="int" nullable="true" />
   <col name="SMEquipmentID" type="int" nullable="true" />
   <col name="AMMachID" type="NVarChar(30)" nullable="true"/>
+  <col name="EPEquipmentID" type="int" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />
   <col name="CreatedDateTime" type="DateTime" />

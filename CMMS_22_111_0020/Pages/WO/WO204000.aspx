@@ -34,6 +34,7 @@
                     <px:PXDateTimeEdit runat="server" ID="dtDateInstalled" DataField="DateInstalled" />
                     <px:PXSelector runat="server" ID="slSMEquipmentID" DataField="SMEquipmentID" />
                     <px:PXSelector runat="server" ID="slAMMachID" DataField="AMMachID" />
+                    <px:PXSelector runat="server" ID="slEPEquipmentID" DataField="EPEquipmentID" />
                     <px:PXSegmentMask runat="server" ID="slInventoryID" DataField="InventoryID" />
                 </Template>
             </px:PXTabItem>

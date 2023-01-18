@@ -28,7 +28,8 @@ namespace CMMS
             typeof(WOEquipment.descr),
             typeof(WOEquipment.inventoryID),
             typeof(WOEquipment.sMEquipmentID),
-            typeof(WOEquipment.aMMachID)
+            typeof(WOEquipment.aMMachID),
+            typeof(WOEquipment.ePEquipmentID)
             )]
         [PXUIField(DisplayName = Messages.FieldEquipmentID)]
         public virtual string EquipmentCD { get; set; }
@@ -147,6 +148,20 @@ namespace CMMS
         [PXUIField(DisplayName = Messages.FieldAMMachID)]
         public virtual string AMMachID { get; set; }
         public abstract class aMMachID : PX.Data.BQL.BqlString.Field<aMMachID> { }
+        #endregion
+
+        #region EPEquipmentID
+        [PXDBInt()]
+        [PXSelector(
+            typeof(PX.Objects.EP.EPEquipment.equipmentID),
+            typeof(PX.Objects.EP.EPEquipment.equipmentCD),
+            typeof(PX.Objects.EP.EPEquipment.description),
+            SubstituteKey = typeof(PX.Objects.EP.EPEquipment.equipmentCD),
+            DescriptionField = typeof(PX.Objects.EP.EPEquipment.description)
+            )]
+        [PXUIField(DisplayName = Messages.FieldEPEquipmentID)]
+        public virtual int? EPEquipmentID { get; set; }
+        public abstract class ePEquipmentID : PX.Data.BQL.BqlInt.Field<ePEquipmentID> { }
         #endregion
 
         #region CreatedByID
