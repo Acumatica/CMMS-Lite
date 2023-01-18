@@ -71,7 +71,7 @@
                                     <px:PXGridColumn CommitChanges="True" DataField="LeadTimeDays" Width="70" />
                                     <px:PXGridColumn CommitChanges="True" DataField="FrequencyDays" Width="70" />
                                     <px:PXGridColumn CommitChanges="True" DataField="LastWODate" Width="90" />
-                                    <px:PXGridColumn CommitChanges="True" DataField="NextWODate" Width="90" />
+                                    <px:PXGridColumn DataField="NextWODate" Width="90" />
                                 </Columns>
                                 <RowTemplate>
                                     <px:PXSelector runat="server" ID="slWorkOrderID" DataField="WorkOrderID" AllowEdit="True" />
@@ -79,7 +79,7 @@
                                     <px:PXNumberEdit runat="server" ID="nbrLeadTimeDays" DataField="LeadTimeDays" />
                                     <px:PXNumberEdit runat="server" ID="nbrFrequencyDays" DataField="FrequencyDays" />
                                     <px:PXDateTimeEdit runat="server" ID="dtLastWODate" DataField="LastWODate" />
-                                    <px:PXDateTimeEdit runat="server" ID="PXDatetimeEdit1" DataField="NextWODate" />
+                                    <px:PXDateTimeEdit runat="server" ID="PXDatetimeEdit1" DataField="NextWODate" Enabled="False" />
                                 </RowTemplate>
                             </px:PXGridLevel>
                         </Levels>
