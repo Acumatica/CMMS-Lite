@@ -23,13 +23,15 @@ namespace CMMS
         [PXDBString(30, IsKey = true, IsUnicode = true, InputMask = "")]
         [PXDefault]
         [AutoNumber(typeof(WOSetup.equipNumberingID), typeof(AccessInfo.businessDate))]
-        [PXSelector(typeof(WOEquipment.equipmentCD),
+        [PXSelector(
+            typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),
-            typeof(WOEquipment.inventoryID),
             typeof(WOEquipment.sMEquipmentID),
             typeof(WOEquipment.aMMachID),
-            typeof(WOEquipment.ePEquipmentID)
+            typeof(WOEquipment.ePEquipmentID),
+            typeof(WOEquipment.inventoryID),
+            DescriptionField = typeof(WOEquipment.descr)
             )]
         [PXUIField(DisplayName = Messages.FieldEquipmentID)]
         public virtual string EquipmentCD { get; set; }

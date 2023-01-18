@@ -75,9 +75,10 @@ namespace CMMS
             typeof(WOEquipment.equipmentID),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),
-            typeof(WOEquipment.inventoryID),
             typeof(WOEquipment.sMEquipmentID),
             typeof(WOEquipment.aMMachID),
+            typeof(WOEquipment.ePEquipmentID),
+            typeof(WOEquipment.inventoryID),
             SubstituteKey = typeof(WOEquipment.equipmentCD),
             DescriptionField = typeof(WOEquipment.descr)
             )]

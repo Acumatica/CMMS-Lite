@@ -40,6 +40,10 @@ namespace CMMS
             typeof(Search<WOEquipment.equipmentID, Where<WOEquipment.equipmentType, Equal<EquipmentTypes.tool>>>),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),
+            typeof(WOEquipment.sMEquipmentID),
+            typeof(WOEquipment.aMMachID),
+            typeof(WOEquipment.ePEquipmentID),
+            typeof(WOEquipment.inventoryID),
             SubstituteKey = typeof(WOEquipment.equipmentCD),
             DescriptionField = typeof(WOEquipment.descr)
             )]
