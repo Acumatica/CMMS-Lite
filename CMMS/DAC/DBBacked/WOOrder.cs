@@ -72,7 +72,9 @@ namespace CMMS
             typeof(Search<WOOrder.workOrderCD, Where<WOOrder.workOrderType, Equal<workOrderType.FromCurrent>>>),
             typeof(WOOrder.workOrderCD),
             typeof(WOOrder.descr),
-            typeof(WOOrder.createdDateTime)
+            typeof(WOOrder.requestDate),
+            typeof(WOOrder.scheduleDate),
+            DescriptionField = typeof(WOOrder.descr)
             )]
         [PXUIField(DisplayName = Messages.FieldWorkOrderID)]
         public virtual string WorkOrderCD { get; set; }
@@ -168,9 +170,10 @@ namespace CMMS
             typeof(WOEquipment.equipmentID),
             typeof(WOEquipment.equipmentCD),
             typeof(WOEquipment.descr),
-            typeof(WOEquipment.inventoryID),
             typeof(WOEquipment.sMEquipmentID),
             typeof(WOEquipment.aMMachID),
+            typeof(WOEquipment.ePEquipmentID),
+            typeof(WOEquipment.inventoryID),
             SubstituteKey = typeof(WOEquipment.equipmentCD),
             DescriptionField = typeof(WOEquipment.descr)
             )]

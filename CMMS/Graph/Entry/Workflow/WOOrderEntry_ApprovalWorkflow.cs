@@ -144,6 +144,7 @@ namespace CMMS
                         {
                             states
                                 .Add<State.pendingApproval>(flowState => flowState
+                                    //.PlaceBefore(State.PendingSchedule)
                                     .WithActions(actions =>
                                     {
                                         actions.Add(g => g.putOnHold);
@@ -186,25 +187,25 @@ namespace CMMS
                                         fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
                                         fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
                                     }));
-                            states
-                                .Add<State.approved>(flowState => flowState
-                                    .WithActions(actions =>
-                                    {
-                                        actions.Add(g => g.putOnHold);
-                                        actions.Add(g => g.complete, c => c.IsDuplicatedInToolbar());
-                                    })
-                                    .WithFieldStates(fields =>
-                                    {
-                                        fields.AddAllFields<WOOrder>(c => c.IsDisabled());
-                                        fields.AddField<workOrderCD>();
-                                        fields.AddAllFields<WOLine>(c => c.IsDisabled());
-                                        fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
-                                        fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
-                                        fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
-                                        fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
-                                        fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
-                                        fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
-                                    }));
+                            //states
+                            //    .Add<State.approved>(flowState => flowState
+                            //        .WithActions(actions =>
+                            //        {
+                            //            actions.Add(g => g.putOnHold);
+                            //            actions.Add(g => g.complete, c => c.IsDuplicatedInToolbar());
+                            //        })
+                            //        .WithFieldStates(fields =>
+                            //        {
+                            //            fields.AddAllFields<WOOrder>(c => c.IsDisabled());
+                            //            fields.AddField<workOrderCD>();
+                            //            fields.AddAllFields<WOLine>(c => c.IsDisabled());
+                            //            fields.AddAllFields<WOLineItem>(c => c.IsDisabled());
+                            //            fields.AddAllFields<WOLineLabor>(c => c.IsDisabled());
+                            //            fields.AddAllFields<WOLineTool>(c => c.IsDisabled());
+                            //            fields.AddAllFields<WOLineMeasure>(c => c.IsDisabled());
+                            //            fields.AddAllFields<WOLineFailure>(c => c.IsDisabled());
+                            //            fields.AddAllFields<CSAnswers>(c => c.IsDisabled());
+                            //        }));
                         })
                         .WithTransitions(transitions =>
                         {
@@ -216,16 +217,16 @@ namespace CMMS
                                         .IsTriggeredOn(g => g.initializeState)
                                         .When(conditions.IsRejected)
                                         .PlaceAfter(tr => tr.To<State.hold>()));
-                                    ts.Add(t => t
-                                        .To<State.approved>()
-                                        .IsTriggeredOn(g => g.initializeState)
-                                        .When(conditions.IsApproved)
-                                        .PlaceAfter(tr => tr.To<State.rejected>()));
+                                    //ts.Add(t => t
+                                    //    .To<State.pendingSchedule>()
+                                    //    .IsTriggeredOn(g => g.initializeState)
+                                    //    .When(conditions.IsApproved)
+                                    //    .PlaceAfter(tr => tr.To<State.rejected>()));
                                     ts.Add(t => t
                                         .To<State.pendingApproval>()
                                         .IsTriggeredOn(g => g.initializeState)
                                         .When(!conditions.IsApproved)
-                                        .PlaceAfter(tr => tr.To<State.approved>()));
+                                        .PlaceAfter(tr => tr.To<State.rejected>()));
                                 });
 
                             transitions.UpdateGroupFrom<State.hold>(ts =>
@@ -275,18 +276,18 @@ namespace CMMS
                                         );
                                 });
 
-                            transitions
-                                .AddGroupFrom<State.approved>(ts =>
-                                {
-                                    ts.Add(t => t
-                                        .To<State.hold>()
-                                        .IsTriggeredOn(g => g.putOnHold)
-                                        .When(conditions.IsOnHold)
-                                        );
-                                    ts.Add(t => t
-                                        .To<State.complete>()
-                                        .IsTriggeredOn(g => g.complete));
-                                });
+                            //transitions
+                            //    .AddGroupFrom<State.approved>(ts =>
+                            //    {
+                            //        ts.Add(t => t
+                            //            .To<State.hold>()
+                            //            .IsTriggeredOn(g => g.putOnHold)
+                            //            .When(conditions.IsOnHold)
+                            //            );
+                            //        ts.Add(t => t
+                            //            .To<State.complete>()
+                            //            .IsTriggeredOn(g => g.complete));
+                            //    });
                         })
                         );
 

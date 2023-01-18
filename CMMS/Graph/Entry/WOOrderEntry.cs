@@ -251,6 +251,7 @@ namespace CMMS
         #endregion
 
         #region Events
+        #region WOLine_OrderNbr_FieldDefaulting
         protected virtual void __(Events.FieldDefaulting<WOLine.orderNbr> e)
         {
             if (e.Row is WOLine row)
@@ -265,6 +266,18 @@ namespace CMMS
                 e.NewValue = ++highCount;
             }
         }
+        #endregion
+
+        #region WOOrder_RowSelected
+        protected virtual void _(Events.RowSelected<WOOrder> e)
+        {
+            WOOrder row = e.Row;
+            if(row != null)
+            {
+                PXUIFieldAttribute.SetEnabled<WOOrder.scheduleDate>(e.Cache, row, false);
+            }
+        }
+        #endregion
 
         #endregion
 
