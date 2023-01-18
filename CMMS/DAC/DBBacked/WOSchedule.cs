@@ -79,7 +79,12 @@ namespace CMMS
 
         #region NextWODate
         [PXDBDate()]
-        [PXUIField(DisplayName = Messages.FieldNextWODate)]
+        [PXUIField(DisplayName = Messages.FieldNextWODate, Enabled = false)]
+        [PXFormula(typeof(Switch<
+            Case<Where<lastWODate, IsNotNull, And<frequencyDays, IsNotNull, And<Where<leadTimeDays, IsNull, Or<leadTimeDays, IsNotNull>>>>>,
+                Sub<Add<lastWODate, frequencyDays>, leadTimeDays>>,
+                Current<AccessInfo.businessDate>
+            >))]
         public virtual DateTime? NextWODate { get; set; }
         public abstract class nextWODate : PX.Data.BQL.BqlDateTime.Field<nextWODate> { }
         #endregion

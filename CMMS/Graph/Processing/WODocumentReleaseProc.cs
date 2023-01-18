@@ -1,4 +1,5 @@
 ﻿using PX.Data;
+using PX.Data.Maintenance.SM.DAC;
 using System.Collections.Generic;
 
 namespace CMMS
@@ -13,15 +14,23 @@ namespace CMMS
         public PXCancel<WOSchedule> Cancel;
 
         [PXFilterable]
-        public PXProcessingJoin<WOSchedule, InnerJoin<WOOrder, On<WOOrder.workOrderID, Equal<WOSchedule.workOrderID>>>,
-            Where<WOSchedule.nextWODate, LessEqual<Current<AccessInfo.businessDate>>,
-                And<
+        public PXProcessingJoin<WOSchedule, 
+            InnerJoin<WOOrder, On<WOOrder.workOrderType, Equal<WorkOrderTypes.template>, And<WOOrder.workOrderID, Equal<WOSchedule.workOrderID>>>>,
+            // Need to pick up schedules that do not show a next WO Date in addition to those with a date now due
+            Where2<
+                Where2<
+                    Where<WOSchedule.lastWODate, IsNull, 
+                        And<WOSchedule.frequencyDays, IsNotNull, 
+                            And<WOSchedule.frequencyDays, Greater<Zero>>>>, 
+                    Or<Where<WOSchedule.nextWODate, LessEqual<Current<AccessInfo.businessDate>>>>>,
+                And<Where<
                     NotExists<Select<
                         WOOrder,
                             Where<WOOrder.workOrderType, Equal<WorkOrderTypes.standard>,
+                            And<WOOrder.equipmentID, Equal<WOSchedule.equipmentID>,
                             And<WOOrder.templateID, Equal<WOSchedule.workOrderID>,
-                            And<WOOrder.status, NotIn3<WOOrder.Statuses.rejected, WOOrder.Statuses.complete>>>>>>>>>
-            Records;
+                            And<WOOrder.status, NotIn3<WOOrder.Statuses.rejected, WOOrder.Statuses.complete>>>>>>>>>>>
+            Records; // WOSchedule records should be for Type: Template work orders already
 
         #endregion
 
@@ -58,8 +67,8 @@ namespace CMMS
                     {
                         newOrder = graph.Document.Insert();
 
-                        newOrder.EquipmentID = template.EquipmentID;
-                        newOrder.TemplateID = template.WorkOrderID;
+                        newOrder.EquipmentID = record.EquipmentID;  // The equipment holding the schedule
+                        newOrder.TemplateID = template.WorkOrderID; // The PM work order that is attached to the equipment
                         newOrder.WOClassID = template.WOClassID;
 
                         newOrder = graph.Document.Update(newOrder);
@@ -70,7 +79,7 @@ namespace CMMS
                         WOLineItem newLineItem;
                         WOLineTool newLineTool;
                         WOLineMeasure newLineMeasure;
-                        WOLineFailure newLineFailure;
+                        //WOLineFailure newLineFailure;
 
                         foreach (WOLine line in PXSelectReadonly<WOLine, Where<WOLine.workOrderID, Equal<Required<WOLine.workOrderID>>>>.Select(graph, record.WorkOrderID))
                         {
@@ -128,23 +137,28 @@ namespace CMMS
                                         new WOLineMeasure()
                                         {
                                             MeasurementID = lineMeasure.MeasurementID,
-                                            Value = lineMeasure.Value
+                                            // Do not copy the measurement value - At the Work Order level, these are identified at the time of work by the maintenance technician
+                                            //Value = lineMeasure.Value
+                                            Value = null
                                         }
                                     );
                             }
 
-                            foreach (WOLineFailure lineFailure in PXSelectReadonly<WOLineFailure, Where<WOLineFailure.workOrderID, Equal<Required<WOLineFailure.workOrderID>>, And<WOLineFailure.wOLineNbr, Equal<Required<WOLineFailure.wOLineNbr>>>>>.Select(graph, line.WorkOrderID, line.LineNbr))
-                            {
-                                newLineFailure = graph.LineFailureModes.Insert
-                                    (
-                                        new WOLineFailure()
-                                        {
-                                            FailureModeID = lineFailure.FailureModeID,
-                                            Comment = lineFailure.Comment
-                                        }
-                                    );
-                            }
+                            // Do not copy Failure Modes - At the Work Order level, these are identified at the time of work by the maintenance technician
+                            //foreach (WOLineFailure lineFailure in PXSelectReadonly<WOLineFailure, Where<WOLineFailure.workOrderID, Equal<Required<WOLineFailure.workOrderID>>, And<WOLineFailure.wOLineNbr, Equal<Required<WOLineFailure.wOLineNbr>>>>>.Select(graph, line.WorkOrderID, line.LineNbr))
+                            //{
+                            //    newLineFailure = graph.LineFailureModes.Insert
+                            //        (
+                            //            new WOLineFailure()
+                            //            {
+                            //                FailureModeID = lineFailure.FailureModeID,
+                            //                Comment = lineFailure.Comment
+                            //            }
+                            //        );
+                            //}
                         }
+
+                        graph.removeHold.Press();
 
                         graph.Actions.PressSave();
                     }
@@ -162,7 +176,7 @@ namespace CMMS
             {
                 PXProcessing<WOSchedule>.SetCurrentItem(null);
 
-                throw new PXException("Some records where processed with errors");
+                throw new PXException(Messages.ErrorProcessedWithErrors);
             }
         }
         #endregion

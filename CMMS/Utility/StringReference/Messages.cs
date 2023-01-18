@@ -187,8 +187,12 @@ namespace CMMS
         public const  string CompCritC               = "C";
         public const  string CompCritD               = "D";
         public const  string CompCritE               = "E";
-        
 
+
+        #endregion
+
+        #region Errors
+        public const string ErrorProcessedWithErrors = "Some records where processed with errors";
         #endregion
 
         #region GetLocal

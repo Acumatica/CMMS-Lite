@@ -220,7 +220,26 @@ namespace CMMS
         #region Complete Action
         public PXAction<WOOrder> complete;
         [PXButton(CommitChanges = true), PXUIField(DisplayName = "Complete", MapEnableRights = PXCacheRights.Select, Visible = true)]
-        protected virtual IEnumerable Complete(PXAdapter adapter) => adapter.Get<WOOrder>();
+        protected virtual IEnumerable Complete(PXAdapter adapter)
+        {
+            WOOrder order = Document.Current;
+
+            if(order.TemplateID != null)
+            {
+                WOEquipmentMaint graph = PXGraph.CreateInstance<WOEquipmentMaint>();
+                graph.Equipment.Current = graph.Equipment.Search<WOEquipment.equipmentID>(order.EquipmentID);
+                graph.Schedules.Current = graph.Schedules.Search<WOSchedule.equipmentID, WOSchedule.workOrderID>(order.EquipmentID, order.TemplateID);
+                WOSchedule schedule = graph.Schedules.Current;
+                if (schedule != null)
+                {
+                    schedule.LastWODate = Accessinfo.BusinessDate;
+                    graph.Schedules.Update(schedule);
+                    graph.Save.Press();
+                }
+            }
+
+            return adapter.Get<WOOrder>();
+        }
         #endregion
 
         #region RowUp
