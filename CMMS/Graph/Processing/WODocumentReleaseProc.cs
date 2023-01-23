@@ -15,7 +15,8 @@ namespace CMMS
 
         [PXFilterable]
         public PXProcessingJoin<WOSchedule, 
-            InnerJoin<WOOrder, On<WOOrder.workOrderType, Equal<WorkOrderTypes.template>, And<WOOrder.workOrderID, Equal<WOSchedule.workOrderID>>>>,
+            InnerJoin<WOEquipment, On<WOEquipment.equipmentID, Equal<WOSchedule.equipmentID>>,
+            InnerJoin<WOOrder, On<WOOrder.workOrderType, Equal<WorkOrderTypes.template>, And<WOOrder.workOrderID, Equal<WOSchedule.workOrderID>>>>>,
             // Need to pick up schedules that do not show a next WO Date in addition to those with a date now due
             Where2<
                 Where2<
@@ -70,6 +71,7 @@ namespace CMMS
                         newOrder.EquipmentID = record.EquipmentID;  // The equipment holding the schedule
                         newOrder.TemplateID = template.WorkOrderID; // The PM work order that is attached to the equipment
                         newOrder.WOClassID = template.WOClassID;
+                        newOrder.Descr = template.Descr;
 
                         newOrder = graph.Document.Update(newOrder);
 

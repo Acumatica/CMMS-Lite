@@ -11,7 +11,9 @@
 				<Columns>
 					<px:PXGridColumn runat="server" DataField="Selected" Type="CheckBox" TextAlign="Center" AllowCheckAll="True" CommitChanges="True"/>
 					<px:PXGridColumn DataField="EquipmentID" />
+					<px:PXGridColumn DataField="WOEquipment__Descr" />
 					<px:PXGridColumn DataField="WorkOrderID" />
+					<px:PXGridColumn DataField="WOOrder__Descr" />
 					<px:PXGridColumn DataField="LastWODate" />
 					<px:PXGridColumn DataField="NextWODate" />
 				</Columns>
