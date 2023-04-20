@@ -6,7 +6,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION ENABLEEXTENSIONS
 SET PackageDir=
 
 REM This will find the greatest package number
-FOR /D %%D IN ("C:\Users\Public\CMMS[22.111.0020]*") DO (
+FOR /D %%D IN ("C:\Users\Public\CMMS[23.101.0071]*") DO (
 	SET PackageDir=%%D
 )
 
