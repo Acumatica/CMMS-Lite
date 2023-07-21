@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\CMMS_23_101_0071\Bin\</OutputPath>
+    <OutputPath>..\CMMS_23_106_0050\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,39 +37,39 @@
     </Reference>
     <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Common.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Common.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common.Std, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Common.Std.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Data.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data.BQL.Fluent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL" >
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.DbServices.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.DbServices.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Objects.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects.AM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Objects.AM.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Objects.AM.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Objects.FS.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Objects.FS.dll</HintPath>
     </Reference>
     <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CMMS_23_101_0071\Bin\PX.Web.Customization.dll</HintPath>
+      <HintPath>..\CMMS_23_106_0050\Bin\PX.Web.Customization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
