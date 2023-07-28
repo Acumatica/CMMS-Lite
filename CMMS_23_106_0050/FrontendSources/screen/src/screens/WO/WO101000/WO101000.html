@@ -1,8 +1,9 @@
 <template>
-	<qp-grid style="height: 100%" view.bind="Measurements">
+	<qp-grid style="height: 100%" view.bind="SetupApproval">
 		<columns>
-			<column field="MeasurementCD"></column>
-			<column field="Descr"></column>
+			<column field="IsActive"></column>
+			<column field="AssignmentMapID"></column>
+			<column field="AssignmentNotificationID"></column>
 		</columns>
 	</qp-grid>
 </template>

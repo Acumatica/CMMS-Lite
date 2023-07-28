@@ -1,22 +1,30 @@
 import { autoinject } from 'aurelia-framework';
 import {
-	ScreenBaseViewModel, createCollection, graphInfo, commitChanges, BaseViewModel,
+	ScreenBaseViewModel, createInstance, createCollection, graphInfo, BaseViewModel,
 	PXFieldState
 } from 'client-controls';
 
-@graphInfo({ graphType: 'CMMS.WOMeasurementMaint', primaryView: 'Measurements' })
+@graphInfo({ graphType: 'CMMS.WOSetupMaint', primaryView: 'Setup' })
 @autoinject
-export class WO202000 extends ScreenBaseViewModel {
-	Measurements = createCollection(WOMeasurement, {
+export class WO101000 extends ScreenBaseViewModel {
+	Setup = createInstance(WOSetup);
+
+	SetupApproval = createCollection(WOSetupApproval, {
 		adjustPageSize: true, initNewRow: true, syncPosition: true,
-		quickFilterFields: ['MeasurementCD'], mergeToolbarWith: "ScreenToolbar"
-		// columnsSettings: [ { field: 'Active', allowCheckAll: true }, { field: 'CuryID', textAlign: TextAlign.Right } ]
-		// columnsSettings: [ { field: 'Type', captionImage: 'control@LocalMenu' }]
+		mergeToolbarWith: "ScreenToolbar"
 	});
 }
 
-export class WOMeasurement extends BaseViewModel {
-	@commitChanges MeasurementCD: PXFieldState;
-	Descr: PXFieldState;
+export class WOSetup extends BaseViewModel {
+	WorkOrderNumberingID: PXFieldState;
+	TemplateWorkOrderNumberingID: PXFieldState;
+	EquipNumberingID: PXFieldState;
+	WORequestApproval: PXFieldState;
+}
+
+export class WOSetupApproval extends BaseViewModel {
+	AssignmentMapID: PXFieldState;
+	AssignmentNotificationID: PXFieldState;
+	IsActive: PXFieldState;
 }
 
