@@ -1,17 +1,23 @@
-import { autoinject } from 'aurelia-framework';
 import {
 	ScreenBaseViewModel, createInstance, createCollection, graphInfo, BaseViewModel,
-	PXFieldState
+	PXFieldState, localizable
 } from 'client-controls';
 
+@localizable
+class TabHeaders {
+	static Details = "Details";
+	static ApprovalMaps = "Approval";
+}
+
 @graphInfo({ graphType: 'CMMS.WOSetupMaint', primaryView: 'Setup' })
-@autoinject
 export class WO101000 extends ScreenBaseViewModel {
+	TabHeaders = TabHeaders;
+
 	Setup = createInstance(WOSetup);
 
 	SetupApproval = createCollection(WOSetupApproval, {
-		adjustPageSize: true, initNewRow: true, syncPosition: true,
-		mergeToolbarWith: "ScreenToolbar"
+		initNewRow: true,
+		syncPosition: true
 	});
 }
 
