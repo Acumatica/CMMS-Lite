@@ -1,6 +1,11 @@
 import {
-	ScreenBaseViewModel, createInstance, createCollection, graphInfo, BaseViewModel,
-	PXFieldState, localizable
+	ScreenBaseViewModel,
+	createInstance,
+	createCollection,
+	graphInfo,
+	BaseViewModel,
+	PXFieldState,
+	localizable
 } from 'client-controls';
 
 @localizable
