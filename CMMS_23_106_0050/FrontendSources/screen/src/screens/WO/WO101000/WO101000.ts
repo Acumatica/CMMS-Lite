@@ -27,7 +27,7 @@ export class WO101000 extends ScreenBaseViewModel {
 }
 
 export class WOSetup extends BaseViewModel {
-	WorkOrderNumberingID: PXFieldState;
+	WONumberingID: PXFieldState;
 	TemplateWorkOrderNumberingID: PXFieldState;
 	EquipNumberingID: PXFieldState;
 	WORequestApproval: PXFieldState;

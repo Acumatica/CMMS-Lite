@@ -29,7 +29,7 @@ namespace CMMS
             .Where<WOSchedule.equipmentID.IsEqual<WOEquipment.equipmentID.FromCurrent>>
             .View Schedules;
 
-        [PXViewName(Messages.ViewSWorkOrders)]
+        [PXViewName(Messages.ViewWorkOrders)]
         public SelectFrom<WOOrder>
             .Where<WOOrder.equipmentID.IsEqual<WOEquipment.equipmentID.FromCurrent>
                 .And<WOOrder.workOrderType.IsNotEqual<WorkOrderTypes.template>>>.OrderBy<Desc<WOOrder.scheduleDate>>
