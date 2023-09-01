@@ -38,7 +38,7 @@ namespace CMMS
         public const string ViewEquipment = "Equipment";
         public const string ViewCurrentEquipment = "CurrentEquipment";
         public const string ViewSchedules = "Schedules";
-        public const string ViewSWorkOrders = "Work Orders";
+        public const string ViewWorkOrders = "Work Orders";
         public const string ViewBOM = "EQuipment Components";
         #endregion
 

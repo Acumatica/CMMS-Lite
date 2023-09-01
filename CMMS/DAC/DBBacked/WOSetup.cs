@@ -10,7 +10,7 @@ namespace CMMS
     [Serializable]
     public class WOSetup : IBqlTable
     {
-        #region WorkOrderNumberingID
+        #region WONumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]
         [PXDefault(Messages.CustomWorkSequence)]
         [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
