@@ -1,5 +1,6 @@
 ﻿import {
 	ScreenBaseViewModel,
+	ActionState,
 	createInstance,
 	createCollection,
 	graphInfo,
@@ -11,8 +12,7 @@ import {
 	WOEquipmentBOM,
 	WOEquipmentFM,
 	WOOrder,
-	WOSchedule,
-	WOSetup
+	WOSchedule
 } from './views';
 
 @localizable
@@ -30,28 +30,20 @@ export class WO204000 extends ScreenBaseViewModel {
 
 	Equipment = createInstance(WOEquipment);
 	CurrentEquipment = createInstance(WOEquipment);
-	Setup = createInstance(WOSetup);
 
 	FailureModes = createCollection(WOEquipmentFM, {
 		initNewRow: true,
 		syncPosition: true
 	});
 
-	Schedules = createCollection(WOOrder, {
+	Schedules = createCollection(WOSchedule, {
 		initNewRow: true,
 		syncPosition: true
 	});
 
-	WorkOrders = createCollection(WOSchedule, {
+	WorkOrders = createCollection(WOOrder, {
 		initNewRow: true,
-		syncPosition: true,
-		columnsSettings: [
-			{
-				field: "WorkOrderCD",
-				linkCommand: "WorkOrders"
-			}
-		]
-
+		syncPosition: true
 	});
 
 	BOM = createCollection(WOEquipmentBOM, {

@@ -4,7 +4,6 @@ BaseViewModel, PXFieldState, commitChanges, headerDescription
 
 
 export class WOEquipment extends BaseViewModel {
-    EquipmentID: PXFieldState;
     @commitChanges EquipmentCD: PXFieldState;
     EquipmentType : PXFieldState;
     @commitChanges @headerDescription Descr: PXFieldState;
@@ -23,7 +22,6 @@ export class WOEquipment extends BaseViewModel {
 }
 
 export class WOEquipmentBOM extends BaseViewModel {
-    EquipmentID: PXFieldState;
     @commitChanges InventoryID: PXFieldState;
     InventoryItem__Descr: PXFieldState;
     @commitChanges Quantity: PXFieldState;
@@ -31,9 +29,8 @@ export class WOEquipmentBOM extends BaseViewModel {
 }
 
 export class WOSchedule extends BaseViewModel {
-    EquipmentID: PXFieldState;
     @commitChanges WorkOrderID: PXFieldState;
-    @commitChanges WOOrder__Descr: PXFieldState;
+    WOOrder__Descr: PXFieldState;
     @commitChanges FrequencyDays: PXFieldState;
     @commitChanges LeadTimeDays: PXFieldState;
     @commitChanges LastWODate: PXFieldState;
@@ -41,46 +38,18 @@ export class WOSchedule extends BaseViewModel {
 }
 
 export class WOOrder extends BaseViewModel {
-    WorkOrderID: PXFieldState;
+    ScheduleDate: PXFieldState;
     WorkOrderType: PXFieldState;
     WorkOrderCD: PXFieldState;
     WOClassID: PXFieldState;
-    OrigWorkOrderID: PXFieldState;
-    TemplateID: PXFieldState;
-    Status: PXFieldState;
-    BranchID: PXFieldState;
-    Priority: PXFieldState;
-    LastLineNbr: PXFieldState;
-    EquipmentID: PXFieldState;
     Descr: PXFieldState;
-    OwnerID: PXFieldState;
-    WorkGroupID: PXFieldState;
-    Hold: PXFieldState;
-    RequestDate: PXFieldState;
-    ScheduleDate: PXFieldState;
-    RequestApproval: PXFieldState;
-    Approved: PXFieldState;
+    Status: PXFieldState;
+    Priority: PXFieldState;
 }
 
 export class WOEquipmentFM extends BaseViewModel {
-    EquipmentID: PXFieldState;
     @commitChanges FailureModeID: PXFieldState;
     WOFailureMode__Descr: PXFieldState;
     IsMitigated: PXFieldState;
     MitigationDescription: PXFieldState;
-}
-
-export class WOSetup extends BaseViewModel {
-    WONumberingID: PXFieldState;
-    EquipNumberingID: PXFieldState;
-    TemplateWorkOrderNumberingID: PXFieldState;
-    WORequestApproval: PXFieldState;
-    CreatedByID: PXFieldState;
-    CreatedByScreenID: PXFieldState;
-    CreatedDateTime: PXFieldState;
-    LastModifiedByID: PXFieldState;
-    LastModifiedByScreenID: PXFieldState;
-    LastModifiedDateTime: PXFieldState;
-    tstamp: PXFieldState;
-    NoteID: PXFieldState;
 }
