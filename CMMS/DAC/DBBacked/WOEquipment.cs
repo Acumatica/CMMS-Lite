@@ -1,5 +1,6 @@
 ﻿using System;
 using PX.Data;
+using PX.Data.ReferentialIntegrity.Attributes;
 using PX.Objects.CS;
 using PX.Objects.EP;
 using PX.Objects.GL;
@@ -13,6 +14,13 @@ namespace CMMS
     [PXCacheName(Messages.DACWOEquipment)]
     public class WOEquipment : IBqlTable
     {
+        #region Keys
+        public class PK : PrimaryKeyOf<WOEquipment>.By<equipmentCD>
+        {
+            public static WOEquipment Find(PXGraph graph, string equipmentCD) => FindBy(graph, equipmentCD);
+        }
+        #endregion
+
         #region EquipmentID
         [PXDBIdentity]
         public virtual int? EquipmentID { get; set; }

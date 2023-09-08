@@ -3,12 +3,12 @@
     <qp-shinking-panel id="filterForm">
         <div id="Equipment_header" wg-container class="h-stack">
             <div class="h-stack gray-pane col-sm-12 col-md-7 col-lg-9">
-                <qp-fieldset id="first" view.bind="Equipment" class="col-sm-12 col-md-6 col-lg-4">
+                <qp-fieldset id="first" view.bind="Equipment" class="col-sm-12 col-md-12 col-lg-5">
                     <field name="EquipmentCD"></field>
                     <field name="Status"></field>
                     <field name="Descr" config-type.bind="1" config-rows.bind="3"></field>
                 </qp-fieldset>
-                <qp-fieldset id="second" view.bind="Equipment" class="col-lg-4 col-sm-12 col-md-6">
+                <qp-fieldset id="second" view.bind="Equipment" class="col-sm-12 col-md-12 col-lg-5">
                     <field name="EquipmentType" config-allow-edit.bind="true"></field>
                     <field name="PhysicalLocation" config-allow-edit.bind="true"></field>
                 </qp-fieldset>
@@ -37,10 +37,6 @@
         <qp-tab id="tabBOM" header.bind="TabHeaders.BOM" class="stretch">
             <qp-grid style="height: 100%" view.bind="BOM">
                 <columns>
-                    <column field="InventoryID"></column>
-                    <column field="InventoryItem__Descr"></column>
-                    <column field="Quantity"></column>
-                    <column field="Criticality"></column>
                 </columns>
             </qp-grid>
         </qp-tab>
@@ -48,11 +44,6 @@
         <qp-tab id="tabSchedules" header.bind="TabHeaders.Schedules" class="stretch">
             <qp-grid style="height: 100%" view.bind="Schedules">
                 <columns>
-                    <column field="WorkOrderID"></column>
-                    <column field="WOOrder__Descr"></column>
-                    <column field="LeadTimeDays"></column>
-                    <column field="LastWODate"></column>
-                    <column field="NextWODate"></column>
                 </columns>
             </qp-grid>
         </qp-tab>
@@ -60,12 +51,6 @@
         <qp-tab id="tabWOHistory" header.bind="TabHeaders.WOHistory" class="stretch">
             <qp-grid style="height: 100%" view.bind="WorkOrders">
                 <columns>
-                    <column field="ScheduleDate"></column>
-                    <column field="WorkOrderCD"></column>
-                    <column field="WOClassID"></column>
-                    <column field="Descr"></column>
-                    <column field="Status"></column>
-                    <column field="Priority"></column>
                 </columns>
             </qp-grid>
         </qp-tab>
@@ -73,10 +58,6 @@
         <qp-tab id="tabFailureModes" header.bind="TabHeaders.FailureModes" class="stretch">
             <qp-grid style="height: 100%" view.bind="FailureModes">
                 <columns>
-                    <column field="FailureModeID"></column>
-                    <column field="WOFailureMode__Descr"></column>
-                    <column field="IsMitigated"></column>
-                    <column field="MitigationDescription"></column>
                 </columns>
             </qp-grid>
         </qp-tab>

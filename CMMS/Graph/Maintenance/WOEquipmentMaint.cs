@@ -1,9 +1,12 @@
 ﻿using PX.Data;
 using PX.Data.BQL.Fluent;
 using PX.Objects.IN;
+using PX.Web.UI;
+using System;
 
 namespace CMMS
 {
+    [Serializable]
     public class WOEquipmentMaint : PXGraph<WOEquipmentMaint, WOEquipment>
     {
         #region Views
