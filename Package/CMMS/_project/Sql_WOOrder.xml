@@ -1,6 +1,5 @@
 ﻿<Sql TableName="WOOrder" TableSchemaXml="#CDATA">
-    <CDATA name="TableSchemaXml">
-    <![CDATA[<table name="WOOrder">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOOrder">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="WorkOrderID" type="Int" identity="true" />
   <col name="WorkOrderType" type="Char(1)" />
