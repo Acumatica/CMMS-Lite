@@ -1,0 +1,19 @@
+<template>
+
+    <qp-shinking-panel id="filterForm">
+        <div id="WOOrder_header" wg-container class="h-stack">
+            <div class="h-stack gray-pane col-sm-12 col-md-7 col-lg-9">
+                <qp-fieldset id="first" view.bind="Document" class="col-sm-12 col-md-12 col-lg-5">
+                    <field name="WorkOrderType"></field>
+                    <field name="WorkOrderCD"></field>
+                </qp-fieldset>
+                <qp-fieldset id="second" view.bind="Document" class="col-sm-12 col-md-12 col-lg-5">
+                    <field name="EquipmentID"></field>
+                    <field name="WOClassID"></field>
+                </qp-fieldset>
+            </div>
+        </div>
+    </qp-shinking-panel>
+
+
+</template>
