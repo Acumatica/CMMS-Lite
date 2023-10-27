@@ -15,5 +15,89 @@
         </div>
     </qp-shinking-panel>
 
+    <qp-tabbar class="stretch" id="TabMain" active-tab-id="tabDetails">
+
+        <qp-tab id="tabDetails" header.bind="TabHeaders.Details" class="stretch">
+            <qp-fieldset id="fsCurrentDocument1" view.bind="CurrentDocument"
+                         class="col-md-6 col-lg-4 col-sm-12">
+                <field name="OrigWorkOrderID"></field>
+                <field name="TemplateID"></field>
+            </qp-fieldset>
+            <qp-fieldset id="fsCurrentDocument2" view.bind="CurrentDocument"
+                         class="col-md-6 col-lg-4 col-sm-12">
+                <field name="WorkGroupID"></field>
+                <field name="OwnerID"></field>
+            </qp-fieldset>
+        </qp-tab>
+
+        <qp-tab id="tabOperatins" header.bind="TabHeaders.Operations" class="stretch">
+            <qp-grid style="height: 100%" view.bind="Transactions">
+                <columns>
+                </columns>
+            </qp-grid>
+
+            <qp-tabbar class="stretch" active-tab-id="tabOperDetails" id="tabLabor">
+                <qp-tab id="tabLabor" header.bind="TabHeaders.Labor" class="stretch">
+                    <qp-grid style="height: 100%" view.bind="LineLabor">
+                        <columns>
+                        </columns>
+                    </qp-grid>
+                </qp-tab>
+
+                <qp-tab id="tabMaterials" header.bind="TabHeaders.Materials" class="stretch">
+                    <qp-grid style="height: 100%" view.bind="LineItems">
+                        <columns>
+                        </columns>
+                    </qp-grid>
+                </qp-tab>
+
+                <qp-tab id="tabTools" header.bind="TabHeaders.Tools" class="stretch">
+                    <qp-grid style="height: 100%" view.bind="LineTools">
+                        <columns>
+                        </columns>
+                    </qp-grid>
+                </qp-tab>
+
+                <qp-tab id="tabMeasurements" header.bind="TabHeaders.Measurements" class="stretch">
+                    <qp-grid style="height: 100%" view.bind="LineMeasurements">
+                        <columns>
+                        </columns>
+                    </qp-grid>
+                </qp-tab>
+
+                <qp-tab id="tabFailureModes" header.bind="TabHeaders.FailureModes" class="stretch">
+                    <qp-grid style="height: 100%" view.bind="LineFailureModes">
+                        <columns>
+                        </columns>
+                    </qp-grid>
+                </qp-tab>
+
+            </qp-tabbar>
+
+        </qp-tab>
+
+        <qp-tab id="tabAttributes" header.bind="TabHeaders.Attributes" class="stretch">
+            <qp-grid style="height: 100%" view.bind="Answers">
+                <columns>
+                </columns>
+            </qp-grid>
+        </qp-tab>
+
+        <qp-tab id="tabApprovals" header.bind="TabHeaders.Approvals" class="stretch">
+            <qp-grid style="height: 100%" view.bind="Approvals">
+                <columns>
+                </columns>
+            </qp-grid>
+        </qp-tab>
+
+        <qp-tab id="tabRelatedWO" header.bind="TabHeaders.RelatedWO" class="stretch">
+            <qp-grid style="height: 100%" view.bind="RelatedWorkOrders">
+                <columns>
+                </columns>
+            </qp-grid>
+        </qp-tab>
+
+    </qp-tabbar>
+
 
 </template>
