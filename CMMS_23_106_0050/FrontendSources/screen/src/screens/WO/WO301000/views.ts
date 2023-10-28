@@ -3,9 +3,9 @@ import {
 } from "client-controls";
 
 export class WOOrder extends BaseViewModel {
-    WorkOrderType: PXFieldState;
+    @commitChanges WorkOrderType: PXFieldState;
     @commitChanges WorkOrderCD: PXFieldState;
-    WOClassID: PXFieldState;
+    @commitChanges WOClassID: PXFieldState;
     OrigWorkOrderID: PXFieldState;
     TemplateID: PXFieldState;
     Status: PXFieldState;
@@ -14,21 +14,27 @@ export class WOOrder extends BaseViewModel {
     LastLineNbr: PXFieldState;
     EquipmentID: PXFieldState;
     Descr: PXFieldState;
-    OwnerID: PXFieldState;
-    WorkGroupID: PXFieldState;
+    @commitChanges OwnerID: PXFieldState;
+    @commitChanges WorkGroupID: PXFieldState;
     Hold: PXFieldState;
-    RequestDate: PXFieldState;
-    ScheduleDate: PXFieldState;
+    @commitChanges RequestDate: PXFieldState;
+    @commitChanges ScheduleDate: PXFieldState;
     RequestApproval: PXFieldState;
     Approved: PXFieldState;
 }
 
 export class WOLine extends BaseViewModel {
     Descr: PXFieldState;
+    @commitChanges EquipmentID: PXFieldState;
+    WOEquipment__Descr: PXFieldState;
 }
 
 export class WOLineItem extends BaseViewModel {
-    InventoryID: PXFieldState;
+    @commitChanges InventoryID: PXFieldState;
+    SubItemID: PXFieldState;
+    InventoryItem__Descr: PXFieldState;
+    Quantity: PXFieldState;
+    InventoryItem__BaseUnit: PXFieldState;
 }
 
 export class WOLineLabor extends BaseViewModel {
@@ -37,19 +43,22 @@ export class WOLineLabor extends BaseViewModel {
 }
 
 export class WOLineTool extends BaseViewModel {
-    EquipmentID: PXFieldState;
+    @commitChanges EquipmentID: PXFieldState;
+    WOEquipment__Descr: PXFieldState;
+    Quantity: PXFieldState;
+    BaseUnit: PXFieldState;
 }
 
 export class WOLineMeasure extends BaseViewModel {
-    MeasurementID: PXFieldState;
+    @commitChanges MeasurementID: PXFieldState;
+    WOMeasurement__Descr: PXFieldState;
+    Value: PXFieldState;
 }
 
 export class WOLineFailure extends BaseViewModel {
-    FailureModeID: PXFieldState;
-}
-
-export class WOSchedule extends BaseViewModel {
-    WorkOrderID: PXFieldState;
+    @commitChanges FailureModeID: PXFieldState;
+    WOFailureMode__Descr: PXFieldState;
+    Comment: PXFieldState;
 }
 
 export class CSAnswer extends BaseViewModel {
@@ -59,27 +68,20 @@ export class CSAnswer extends BaseViewModel {
 }
 
 export class WOApproval extends BaseViewModel {
-    ApproverEmployee__AcctCD: PXFieldState;
     ApproverEmployee__AcctName: PXFieldState;
-    WorkgroupID: PXFieldState;
-    ApprovedByEmployee__AcctCD: PXFieldState;
+    ApproverEmployee__AcctCD: PXFieldState;
     ApprovedByEmployee__AcctName: PXFieldState;
-
+    ApprovedByEmployee__AcctCD: PXFieldState;
     ApproveDate: PXFieldState;
     Status: PXFieldState;
     Reason: PXFieldState;
-    //AssignmentMapID: PXFieldState;
-    //RuleID: PXFieldState;
-
-    //StepID: PXFieldState;
-    //CreatedDateTime: PXFieldState;
+    WorkgroupID: PXFieldState;
 }
 
 export class WOOrder4 extends BaseViewModel {
-    @commitChanges WorkOrderID: PXFieldState;
-    WorkOrderType: PXFieldState;
-    WorkOrderCD: PXFieldState;
-    WOClassID: PXFieldState;
+    @commitChanges WorkOrderType: PXFieldState;
+    @commitChanges WorkOrderCD: PXFieldState;
+    @commitChanges WOClassID: PXFieldState;
     OrigWorkOrderID: PXFieldState;
     TemplateID: PXFieldState;
     Status: PXFieldState;
@@ -88,11 +90,11 @@ export class WOOrder4 extends BaseViewModel {
     LastLineNbr: PXFieldState;
     EquipmentID: PXFieldState;
     Descr: PXFieldState;
-    OwnerID: PXFieldState;
-    WorkGroupID: PXFieldState;
+    @commitChanges OwnerID: PXFieldState;
+    @commitChanges WorkGroupID: PXFieldState;
     Hold: PXFieldState;
-    RequestDate: PXFieldState;
-    ScheduleDate: PXFieldState;
+    @commitChanges RequestDate: PXFieldState;
+    @commitChanges ScheduleDate: PXFieldState;
     RequestApproval: PXFieldState;
     Approved: PXFieldState;
 }

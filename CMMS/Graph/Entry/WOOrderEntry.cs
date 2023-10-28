@@ -55,6 +55,7 @@ namespace CMMS
         [PXViewName(Messages.ViewWOLineMeasurements)]
         [PXImport]
         public SelectFrom<WOLineMeasure>
+            .InnerJoin<WOMeasurement>.On<WOMeasurement.measurementID.IsEqual<WOLineMeasure.measurementID>>
             .Where<WOLineMeasure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineMeasure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineMeasurements;
@@ -62,17 +63,15 @@ namespace CMMS
         [PXViewName(Messages.ViewWOLineFailureModes)]
         [PXImport]
         public SelectFrom<WOLineFailure>
+            .InnerJoin<WOFailureMode>.On<WOFailureMode.failureModeID.IsEqual<WOLineFailure.failureModeID>>
             .Where<WOLineFailure.workOrderID.IsEqual<WOLine.workOrderID.FromCurrent>
                 .And<WOLineFailure.wOLineNbr.IsEqual<WOLine.lineNbr.FromCurrent>>>
             .View LineFailureModes;
 
-        [PXViewName("Related Work Orders")]
+        [PXViewName(Messages.ViewWORelatedWO)]
         public SelectFrom<WOOrder4>
             .Where<WOOrder4.origWorkOrderID.IsEqual<WOOrder.workOrderID.FromCurrent>>
             .View RelatedWorkOrders;
-
-        [PXViewName("Schedule")]
-        public PXSelect<WOSchedule, Where<WOSchedule.workOrderID, Equal<Current<WOOrder.templateID>>, And<WOSchedule.equipmentID, Equal<Current<WOOrder.equipmentID>>>>> CurrentSchedule;
 
         public PXSetup<WOSetup> Setup;
         public SelectFrom<WOSetupApproval>.View SetupApproval;

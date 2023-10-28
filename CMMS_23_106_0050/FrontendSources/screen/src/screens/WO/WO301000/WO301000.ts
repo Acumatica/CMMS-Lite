@@ -30,7 +30,7 @@ class TabHeaders {
 	static Measurements = "Measurements";
 	static FailureModes = "Failure Modes";
 	static Attributes = "Attributes";
-	static Approvals = "Approvals";
+	static Approval = "Approvals";
 	static RelatedWO = "Related Work Orders";
 }
 
@@ -38,12 +38,20 @@ class TabHeaders {
 export class WO301000 extends ScreenBaseViewModel {
 	TabHeaders = TabHeaders;
 
+	RowUp: ActionState;
+	RowDown: ActionState;
+	CheckSchedule: ActionState;
+
 	Document = createInstance(WOOrder);
 	CurrentDocument = createInstance(WOOrder);
 
 	Transactions = createCollection(WOLine, {
 		initNewRow: true,
-		syncPosition: true
+		syncPosition: true,
+		topBarItems: {
+			rowUp: { config: { state: () => this.RowUp } },
+			rowDown: { config: { state: () => this.RowDown } },
+		}
 	});
 
 
@@ -90,7 +98,9 @@ export class WO301000 extends ScreenBaseViewModel {
 		}
 	);
 
-	RelatedWO = createCollection(WOOrder4);
+	RelatedWorkOrders = createCollection(WOOrder4, {
+		initNewRow: true,
+		syncPosition: true
+	});
 
 }
-
