@@ -28,6 +28,7 @@ namespace CMMS
         public const string ViewWOLineTools = "WO Line Tools";
         public const string ViewWOLineMeasurements = "WO Line Measurements";
         public const string ViewWOLineFailureModes = "WO Line Failure Modes";
+        public const string ViewWORelatedWO = "Related Work Orders";
         public const string ViewApproval = "Approval";
         public const string ViewMapping = "Mapping";
         public const string ViewPreferences = "Preferences";
@@ -36,10 +37,10 @@ namespace CMMS
         public const string ViewMeasurements = "Measurements";
         public const string ViewFailureModes = "Failure Modes";
         public const string ViewEquipment = "Equipment";
-        public const string ViewCurrentEquipment = "CurrentEquipment";
+        public const string ViewCurrentEquipment = "Current Equipment";
         public const string ViewSchedules = "Schedules";
         public const string ViewWorkOrders = "Work Orders";
-        public const string ViewBOM = "EQuipment Components";
+        public const string ViewBOM = "Equipment Components";
         #endregion
 
         #region DAC Names

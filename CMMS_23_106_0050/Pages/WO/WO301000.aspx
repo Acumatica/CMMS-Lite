@@ -113,7 +113,7 @@
                                             <px:PXGridLevel DataMember="LineItems">
                                                 <Columns>
                                                     <px:PXGridColumn DataField="InventoryID" CommitChanges="True" Width="70" />
-                                                    <px:PXGridColumn DataField="InventoryID_description" Width="280" />
+                                                    <px:PXGridColumn DataField="InventoryItem__Descr" Width="280" />
                                                     <px:PXGridColumn DataField="Quantity" Width="100" />
                                                     <px:PXGridColumn DataField="InventoryItem__BaseUnit" Width="100" />
                                                 </Columns>
@@ -133,7 +133,7 @@
                                             <px:PXGridLevel DataMember="LineTools">
                                                 <Columns>
                                                     <px:PXGridColumn DataField="EquipmentID" CommitChanges="True" Width="70" />
-                                                    <px:PXGridColumn DataField="Equipment_description" Width="280" />
+                                                    <px:PXGridColumn DataField="WOEquipment__Descr" Width="280" />
                                                     <px:PXGridColumn DataField="Quantity" Width="100" />
                                                     <px:PXGridColumn DataField="BaseUnit" Width="96" />
                                                 </Columns>
@@ -152,7 +152,8 @@
                                         <Levels>
                                             <px:PXGridLevel DataMember="LineMeasurements">
                                                 <Columns>
-                                                    <px:PXGridColumn DataField="MeasurementID" Width="140" />
+                                                    <px:PXGridColumn DataField="MeasurementID" CommitChanges="True" Width="140" />
+                                                    <px:PXGridColumn DataField="WOMeasurement__Descr" Width="280" />
                                                     <px:PXGridColumn DataField="Value" Width="100" />
                                                 </Columns>
                                             </px:PXGridLevel>
@@ -171,6 +172,7 @@
                                             <px:PXGridLevel DataMember="LineFailureModes">
                                                 <Columns>
                                                     <px:PXGridColumn DataField="FailureModeID" CommitChanges="True" Width="140" />
+                                                    <px:PXGridColumn DataField="WOFailureMode__Descr" Width="280" />
                                                     <px:PXGridColumn DataField="Comment" Width="280" />
                                                 </Columns>
                                             </px:PXGridLevel>
