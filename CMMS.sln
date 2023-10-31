@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CMMS_23_106_0050", "http://localhost:55011", "{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "23r1", "http://localhost:55011", "{ABDDD93F-4A23-47DA-B688-25E5EB88BA17}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_55011"
-		Debug.AspNetCompiler.PhysicalPath = "CMMS_23_106_0050\"
+		Debug.AspNetCompiler.PhysicalPath = "23r1\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55011\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_55011"
-		Release.AspNetCompiler.PhysicalPath = "CMMS_23_106_0050\"
+		Release.AspNetCompiler.PhysicalPath = "23r1\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55011\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "CMMS_23_106_0050\"
+		SlnRelativePath = "23r1\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMMS", "CMMS\CMMS.csproj", "{330AA83A-2CC9-47B5-AD67-21F974AD9E3A}"
