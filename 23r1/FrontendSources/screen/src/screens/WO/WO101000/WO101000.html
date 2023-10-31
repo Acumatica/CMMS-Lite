@@ -1,0 +1,25 @@
+<template>
+	<qp-tabbar class="stretch" active-tab-id="tabDetails" id="mainTab">
+		<qp-tab id="tabDetails" header.bind="TabHeaders.Details" class="stretch">
+			<qp-fieldset id="setups" view.bind="Setup"
+						 class="col-sm-12 col-md-6 col-lg-4">
+				<field name="WONumberingID"></field>
+				<field name="TemplateWorkOrderNumberingID"></field>
+				<field name="EquipNumberingID"></field>
+			</qp-fieldset>
+		</qp-tab>
+		<qp-tab id="tabApprovalMaps" header.bind="TabHeaders.ApprovalMaps" class="stretch">
+			<qp-fieldset id="setups2" view.bind="Setup"
+						 class="col-sm-12 col-md-6 col-lg-4">
+				<field name="WORequestApproval"></field>
+			</qp-fieldset>
+			<qp-grid style="height: 100%" view.bind="SetupApproval">
+				<columns>
+					<column field="IsActive"></column>
+					<column field="AssignmentMapID"></column>
+					<column field="AssignmentNotificationID"></column>
+				</columns>
+			</qp-grid>
+		</qp-tab>
+	</qp-tabbar>
+</template>
