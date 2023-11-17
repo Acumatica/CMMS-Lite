@@ -16,6 +16,7 @@
                     <px:PXSelector runat="server" ID="slWONumberingID" DataField="WONumberingID" AllowEdit="True"/>
                     <px:PXSelector runat="server" ID="slTemplateWorkOrderNumberingID" DataField="TemplateWorkOrderNumberingID" AllowEdit="True"/>
                     <px:PXSelector AllowEdit="True" runat="server" ID="slEquipNumberingID" DataField="EquipNumberingID"/>
+                    <px:PXSelector AllowEdit="True" runat="server" ID="slMeterNumberingID" DataField="MeterNumberingID"/>
                     <px:PXLayoutRule runat="server" StartRow="True" LabelsWidth="M" />
                 </Template>
             </px:PXTabItem>

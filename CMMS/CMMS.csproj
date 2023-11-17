@@ -51,7 +51,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\23r1\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL" >
+    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\23r1\Bin\PX.DbServices.dll</HintPath>
     </Reference>
@@ -97,6 +97,7 @@
     <Compile Include="DAC\DBBacked\WOLineMeasure.cs" />
     <Compile Include="DAC\DBBacked\WOLineTool.cs" />
     <Compile Include="DAC\DBBacked\WOMeasurement.cs" />
+    <Compile Include="DAC\DBBacked\WOMeter.cs" />
     <Compile Include="DAC\DBBacked\WOOrder.cs" />
     <Compile Include="DAC\DBBacked\WOSchedule.cs" />
     <Compile Include="DAC\DBBacked\WOSetup.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Graph\Maintenance\WOEquipmentMaint.cs" />
     <Compile Include="Graph\Maintenance\WOFailureModeMaint.cs" />
     <Compile Include="Graph\Maintenance\WOMeasurementMaint.cs" />
+    <Compile Include="Graph\Maintenance\WOMeterMaint.cs" />
     <Compile Include="Graph\Processing\WODocumentReleaseProc.cs" />
     <Compile Include="Graph\Setup\WOSetupMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,20 +121,11 @@
     <Compile Include="Utility\StringReference\Messages.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomizationPlugin\" />
-    <Folder Include="DAC\DBBacked\" />
-    <Folder Include="DAC\DerivedClasses\" />
     <Folder Include="DAC\Filters\" />
     <Folder Include="DAC\NonDBBacked\" />
     <Folder Include="DAC\PXProjections\" />
     <Folder Include="Extension\DAC\" />
-    <Folder Include="Extension\Graph\" />
-    <Folder Include="Graph\Entry\" />
     <Folder Include="Graph\Inquiry\" />
-    <Folder Include="Graph\Maintenance\" />
-    <Folder Include="Graph\Processing\" />
-    <Folder Include="Graph\Setup\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,6 +37,15 @@ namespace CMMS
         public abstract class equipNumberingID : PX.Data.BQL.BqlString.Field<equipNumberingID> { }
         #endregion
 
+        #region MeterNumberingID
+        [PXDBString(10, IsUnicode = true, InputMask = "")]
+        [PXDefault(Messages.MeterNumberingID)]
+        [PXSelector(typeof(Numbering.numberingID), DescriptionField = typeof(Numbering.descr))]
+        [PXUIField(DisplayName = Messages.FieldMeterNumberingID)]
+        public virtual string MeterNumberingID { get; set; }
+        public abstract class meterNumberingID : PX.Data.BQL.BqlString.Field<meterNumberingID> { }
+        #endregion
+
         #region WORequestApproval
         [EPRequireApproval]
         [PXDefault(false, PersistingCheck = PXPersistingCheck.Null)]

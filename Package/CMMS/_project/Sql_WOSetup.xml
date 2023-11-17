@@ -4,6 +4,7 @@
   <col name="WONumberingID" type="NVarChar(10)"  />
   <col name="EquipNumberingID" type="NVarChar(10)"  nullable="true" />
   <col name="TemplateWorkOrderNumberingID" type="NVarChar(10)"  nullable="true" />
+  <col name="MeterNumberingID" type="NVarChar(10)"  nullable="true" />
   <col name="WORequestApproval" type="Bit" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />

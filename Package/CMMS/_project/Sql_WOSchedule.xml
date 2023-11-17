@@ -3,6 +3,7 @@
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="EquipmentID" type="Int" />
   <col name="WorkOrderID" type="Int" />
+  <col name="MeterID" type="Int" nullable="true" />
   <col name="FrequencyDays" type="Int" />
   <col name="LeadTimeDays" type="Int" />
   <col name="LastWODate" type="DateTime" nullable="true" />

@@ -1,0 +1,27 @@
+﻿<Sql TableName="WOMeter" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="WOMeter">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="MeterID" type="Int" identity="true" />
+  <col name="MeterCD" type="NVarChar(30)" />
+  <col name="MeterType" type="Char(2)" nullable="true" />
+  <col name="Descr" type="NVarChar(255)" nullable="true" />
+  <col name="FrequencyUnitsInt" type="Int" nullable="true" />
+  <col name="LeadUnitsInt" type="Int" nullable="true" />
+  <col name="LastValueInt" type="Int" nullable="true" />
+  <col name="NextValueInt" type="Int" nullable="true" />
+  <col name="LastValueDate" type="DateTime" nullable="true" />
+  <col name="NextValueDate" type="DateTime" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="WOMeter_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="MeterID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

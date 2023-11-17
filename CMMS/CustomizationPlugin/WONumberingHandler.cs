@@ -23,6 +23,7 @@ namespace CMMS
 				InsertNumberingAndSequence(plugin, Messages.CustomWorkSequence, Messages.CustomTypeDescr);
 				InsertNumberingAndSequence(plugin, Messages.TemplateCustomWorkSequence, Messages.TemplateCustomTypeDescr);
 				InsertNumberingAndSequence(plugin, Messages.EquipmentNumberingID, Messages.EquipmentNumberingDescr);
+				InsertNumberingAndSequence(plugin, Messages.MeterNumberingID, Messages.MeterNumberingDescr);
 
 			}
 		}

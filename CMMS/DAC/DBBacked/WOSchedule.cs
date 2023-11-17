@@ -54,6 +54,20 @@ namespace CMMS
         public abstract class workOrderID : PX.Data.BQL.BqlInt.Field<workOrderID> { }
         #endregion
 
+        #region MeterID
+        [PXDBInt]
+        [PXSelector(
+            typeof(WOMeter.meterID),
+            typeof(WOMeter.meterCD),
+            typeof(WOMeter.descr),
+            typeof(WOMeter.meterType),
+            DescriptionField = typeof(WOMeter.descr)
+            )]
+        [PXUIField(DisplayName = Messages.FieldWOMeterID)]
+        public virtual int? MeterID { get; set; }
+        public abstract class meterID : PX.Data.BQL.BqlInt.Field<meterID> { }
+        #endregion
+
         #region FrequencyDays
         [PXDBInt()]
         [PXDefault(0)]

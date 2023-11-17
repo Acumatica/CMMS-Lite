@@ -13,10 +13,12 @@ namespace CMMS
         public const string CustomWorkSequence         = "WORKORDID";
         public const string TemplateCustomWorkSequence = "TMWRKORDID";
         public const string EquipmentNumberingID       = "WOEQUIPID";
+        public const string MeterNumberingID           = "WOMETERID";
         
         public const string CustomTypeDescr         = "Sequence for Work Orders. **DO NOT ALTER**";
         public const string TemplateCustomTypeDescr = "Sequence for Template Work Orders. **DO NOT ALTER**";
         public const string EquipmentNumberingDescr = "Sequence for Equipment. **DO NOT ALTER**";
+        public const string MeterNumberingDescr     = "Sequence for Meters. **DO NOT ALTER**";
         #endregion
 
         #region View Names
@@ -41,6 +43,8 @@ namespace CMMS
         public const string ViewSchedules = "Schedules";
         public const string ViewWorkOrders = "Work Orders";
         public const string ViewBOM = "Equipment Components";
+        public const string ViewMeter = "Meter";
+        public const string ViewCurrentMeter = "CurrentMeter";
         #endregion
 
         #region DAC Names
@@ -56,6 +60,7 @@ namespace CMMS
         public const string DACWOLineMeasurement = "Work Order Line Measurement";
         public const string DACWOLineTool = "Work Order Line Tool";
         public const string DACWOMeasurement = "Measurement";
+        public const string DACWOMeter = "Meter";
         public const string DACWOOrder = "Work Order";
         public const string DACWOSchedule = "Equipment Schedule";
         public const string DACWOSetup = "Work Order Setup";
@@ -63,14 +68,15 @@ namespace CMMS
         #endregion
 
         #region Field Names
-        public const string FieldNumberingID      = "WO Numbering ID";
-        public const string TemplateFieldNumberingID      = "Template WO Numbering ID";
-        public const string FieldEquipNumberingID = "Equipment Numbering ID";
-        public const string FieldHold             = "Hold";
-        public const string FieldStatus           = "Status";
-        public const string FieldDescr            = "Description";
-        public const string FieldWOLineDescr      = "Instruction";
-        public const string FieldInventoryID      = "Inventory ID";
+        public const string FieldNumberingID         = "WO Numbering ID";
+        public const string TemplateFieldNumberingID = "Template WO Numbering ID";
+        public const string FieldEquipNumberingID    = "Equipment Numbering ID";
+        public const string FieldMeterNumberingID    = "Meter Numbering ID";
+        public const string FieldHold                = "Hold";
+        public const string FieldStatus              = "Status";
+        public const string FieldDescr               = "Description";
+        public const string FieldWOLineDescr         = "Instruction";
+        public const string FieldInventoryID         = "Inventory ID";
 
         public const string FieldWorkOrderID = "Work Order ID";
         public const string FieldWorkOrderType = "Work Order Type";
@@ -125,6 +131,16 @@ namespace CMMS
 
         public const string IsMitigated = "Is Mitigated";
         public const string MitigationDescription = "Mitigation Description";
+        
+        public const string FieldWOMeterID         = "Meter ID";
+        public const string FieldMeterType         = "Meter Type";
+        public const string FieldFrequencyUnitsInt = "Frequency (Int)";
+        public const string FieldLeadUnitsInt      = "Lead (Int)";
+        public const string FieldLastValueInt      = "Last (Int)";
+        public const string FieldNextValueInt      = "Next (Int)";
+
+        public const string FieldLastValueDate = "Last Date";
+        public const string FieldNextValueDate = "Next Date";
         #endregion
 
         #region Work Order Statuses
@@ -172,6 +188,11 @@ namespace CMMS
         public const string LaborTypePlumbing = "Plumbing";
         public const string LaborTypeJanitorial = "Janitorial";
         public const string LaborTypeOther = "Other";
+        #endregion
+
+        #region Meter Types
+        public const string MeterTypeDays = "Days";
+        public const string MeterTypeMiles = "Miles";
         #endregion
 
         #region Equipment Criticality
