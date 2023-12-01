@@ -61,58 +61,11 @@ namespace CMMS
         public abstract class descr : PX.Data.BQL.BqlString.Field<descr> { }
         #endregion
 
-        #region FrequencyUnitsInt
+        #region ValueInt
         [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = Messages.FieldFrequencyUnitsInt)]
-        public virtual int? FrequencyUnitsInt { get; set; }
-        public abstract class frequencyUnitsInt : PX.Data.BQL.BqlInt.Field<frequencyUnitsInt> { }
-        #endregion
-
-        #region LeadUnitsInt
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = Messages.FieldLeadUnitsInt)]
-        public virtual int? LeadUnitsInt { get; set; }
-        public abstract class leadUnitsInt : PX.Data.BQL.BqlInt.Field<leadUnitsInt> { }
-        #endregion
-
-        #region LastValueInt
-        [PXDBInt()]
-        [PXUIField(DisplayName = Messages.FieldLastValueInt)]
-        public virtual int? LastValueInt { get; set; }
-        public abstract class lastValueInt : PX.Data.BQL.BqlInt.Field<lastValueInt> { }
-        #endregion
-
-        #region NextValueInt
-        [PXDBInt()]
-        [PXUIField(DisplayName = Messages.FieldNextValueInt, Enabled = false)]
-        [PXFormula(typeof(Switch<
-            Case<Where<lastValueInt, IsNotNull, And<frequencyUnitsInt, IsNotNull, And<Where<leadUnitsInt, IsNull, Or<leadUnitsInt, IsNotNull>>>>>,
-                Sub<Add<lastValueInt, frequencyUnitsInt>, leadUnitsInt>>,
-                lastValueInt
-            >))]
-        public virtual int? NextValueInt { get; set; }
-        public abstract class nextValueInt : PX.Data.BQL.BqlInt.Field<nextValueInt> { }
-        #endregion
-
-        #region LastValueDate
-        [PXDBDate()]
-        [PXUIField(DisplayName = Messages.FieldLastValueDate)]
-        public virtual DateTime? LastValueDate { get; set; }
-        public abstract class lastValueDate : PX.Data.BQL.BqlDateTime.Field<lastValueDate> { }
-        #endregion
-
-        #region NextValueDate
-        [PXDBDate()]
-        [PXUIField(DisplayName = Messages.FieldNextValueDate, Enabled = false)]
-        [PXFormula(typeof(Switch<
-            Case<Where<lastValueDate, IsNotNull, And<frequencyUnitsInt, IsNotNull, And<Where<leadUnitsInt, IsNull, Or<leadUnitsInt, IsNotNull>>>>>,
-                Sub<Add<lastValueDate, frequencyUnitsInt>, leadUnitsInt>>,
-                Current<AccessInfo.businessDate>
-            >))]
-        public virtual DateTime? NextValueDate { get; set; }
-        public abstract class nextValueDate : PX.Data.BQL.BqlDateTime.Field<nextValueDate> { }
+        [PXUIField(DisplayName = Messages.FieldValueInt)]
+        public virtual int? ValueInt { get; set; }
+        public abstract class valueInt : PX.Data.BQL.BqlInt.Field<valueInt> { }
         #endregion
 
         #region CreatedByID

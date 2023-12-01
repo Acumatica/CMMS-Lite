@@ -37,15 +37,12 @@ namespace CMMS
             if(row != null)
             {
                 bool showInt = false;
-                bool showDate = false;
+                //bool showDate = false;
                 
-                if(row.MeterType == MeterTypes.Days) { showDate = true; }
                 if(row.MeterType == MeterTypes.Miles) { showInt = true; }
+                //if(row.MeterType == MeterTypes.Days) { showDate = true; }
 
-                PXUIFieldAttribute.SetVisible<WOMeter.lastValueInt>(e.Cache, row, showInt);
-                PXUIFieldAttribute.SetVisible<WOMeter.nextValueInt>(e.Cache, row, showInt);
-                PXUIFieldAttribute.SetVisible<WOMeter.lastValueDate>(e.Cache, row, showDate);
-                PXUIFieldAttribute.SetVisible<WOMeter.nextValueDate>(e.Cache, row, showDate);
+                PXUIFieldAttribute.SetVisible<WOMeter.valueInt>(e.Cache, row, showInt);
             }
         }
         #endregion

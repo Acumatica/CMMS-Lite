@@ -138,6 +138,8 @@ namespace CMMS
         public const string FieldLeadUnitsInt      = "Lead (Int)";
         public const string FieldLastValueInt      = "Last (Int)";
         public const string FieldNextValueInt      = "Next (Int)";
+        public const string FieldValueInt          = "Meter Value";
+        public const string FieldMeterJoin         = "Join";
 
         public const string FieldLastValueDate = "Last Date";
         public const string FieldNextValueDate = "Next Date";
@@ -193,6 +195,11 @@ namespace CMMS
         #region Meter Types
         public const string MeterTypeDays = "Days";
         public const string MeterTypeMiles = "Miles";
+        #endregion
+
+        #region Meter Join
+        public const string MeterJoinAnd = "And";
+        public const string MeterJoinOr = "Or";
         #endregion
 
         #region Equipment Criticality

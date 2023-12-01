@@ -54,18 +54,20 @@ namespace CMMS
         public abstract class workOrderID : PX.Data.BQL.BqlInt.Field<workOrderID> { }
         #endregion
 
-        #region MeterID
+        #region MeterID1
         [PXDBInt]
         [PXSelector(
+            //typeof(Search<WOMeter.meterID, Where<WOMeter.meterID, NotEqual<meterID2>>>),
             typeof(WOMeter.meterID),
             typeof(WOMeter.meterCD),
             typeof(WOMeter.descr),
             typeof(WOMeter.meterType),
+            SubstituteKey = typeof(WOMeter.meterCD),
             DescriptionField = typeof(WOMeter.descr)
             )]
         [PXUIField(DisplayName = Messages.FieldWOMeterID)]
-        public virtual int? MeterID { get; set; }
-        public abstract class meterID : PX.Data.BQL.BqlInt.Field<meterID> { }
+        public virtual int? MeterID1 { get; set; }
+        public abstract class meterID1 : PX.Data.BQL.BqlInt.Field<meterID1> { }
         #endregion
 
         #region FrequencyDays
@@ -101,6 +103,152 @@ namespace CMMS
             >))]
         public virtual DateTime? NextWODate { get; set; }
         public abstract class nextWODate : PX.Data.BQL.BqlDateTime.Field<nextWODate> { }
+        #endregion
+
+        #region FrequencyUnitsInt
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldFrequencyUnitsInt)]
+        public virtual int? FrequencyUnitsInt { get; set; }
+        public abstract class frequencyUnitsInt : PX.Data.BQL.BqlInt.Field<frequencyUnitsInt> { }
+        #endregion
+
+        #region LeadUnitsInt
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldLeadUnitsInt)]
+        public virtual int? LeadUnitsInt { get; set; }
+        public abstract class leadUnitsInt : PX.Data.BQL.BqlInt.Field<leadUnitsInt> { }
+        #endregion
+
+        #region LastValueInt
+        [PXDBInt()]
+        [PXUIField(DisplayName = Messages.FieldLastValueInt)]
+        public virtual int? LastValueInt { get; set; }
+        public abstract class lastValueInt : PX.Data.BQL.BqlInt.Field<lastValueInt> { }
+        #endregion
+
+        #region NextValueInt
+        [PXDBInt()]
+        [PXUIField(DisplayName = Messages.FieldNextValueInt, Enabled = false)]
+        [PXFormula(typeof(Switch<
+            Case<Where<lastValueInt, IsNotNull, And<frequencyUnitsInt, IsNotNull, And<Where<leadUnitsInt, IsNull, Or<leadUnitsInt, IsNotNull>>>>>,
+                Sub<Add<lastValueInt, frequencyUnitsInt>, leadUnitsInt>>,
+                lastValueInt
+            >))]
+        public virtual int? NextValueInt { get; set; }
+        public abstract class nextValueInt : PX.Data.BQL.BqlInt.Field<nextValueInt> { }
+        #endregion
+
+        #region Meter1ValueInt
+        [PXInt()]
+        [PXUIField(DisplayName = Messages.FieldValueInt, Enabled = false)]
+        [PXDBScalar(typeof(Search<WOMeter.valueInt, Where<WOMeter.meterID, Equal<meterID1>>>))]
+        public virtual int? Meter1ValueInt { get; set; }
+        public abstract class meter1ValueInt : PX.Data.BQL.BqlInt.Field<meter1ValueInt> { }
+        #endregion
+
+        #region MeterJoin
+        [PXDBString(2, IsFixed = true, InputMask = "")]
+        [PXDefault(MeterJoinOption.MeterOr, PersistingCheck = PXPersistingCheck.Nothing)]
+        [MeterJoinOption.List]
+        [PXUIField(DisplayName = Messages.FieldMeterJoin)]
+        public virtual string MeterJoin { get; set; }
+        public abstract class meterJoin : PX.Data.BQL.BqlString.Field<meterJoin> { }
+        #endregion
+
+        #region MeterID2
+        [PXDBInt]
+        [PXSelector(
+            //typeof(Search<WOMeter.meterID, Where<WOMeter.meterID, NotEqual<meterID1>>>),
+            typeof(WOMeter.meterID),
+            typeof(WOMeter.meterCD),
+            typeof(WOMeter.descr),
+            typeof(WOMeter.meterType),
+            SubstituteKey = typeof(WOMeter.meterCD),
+            DescriptionField = typeof(WOMeter.descr)
+            )]
+        [PXUIField(DisplayName = Messages.FieldWOMeterID)]
+        public virtual int? MeterID2 { get; set; }
+        public abstract class meterID2 : PX.Data.BQL.BqlInt.Field<meterID2> { }
+        #endregion
+
+        #region FrequencyDays2
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldFrequencyDays)]
+        public virtual int? FrequencyDays2 { get; set; }
+        public abstract class frequencyDays2 : PX.Data.BQL.BqlInt.Field<frequencyDays2> { }
+        #endregion
+
+        #region LeadTimeDays2
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldLeadTimeDays)]
+        public virtual int? LeadTimeDays2 { get; set; }
+        public abstract class leadTimeDays2 : PX.Data.BQL.BqlInt.Field<leadTimeDays2> { }
+        #endregion
+
+        #region LastWODate2
+        [PXDBDate()]
+        [PXUIField(DisplayName = Messages.FieldLastWODate)]
+        public virtual DateTime? LastWODate2 { get; set; }
+        public abstract class lastWODate2 : PX.Data.BQL.BqlDateTime.Field<lastWODate2> { }
+        #endregion
+
+        #region NextWODate2
+        [PXDBDate()]
+        [PXUIField(DisplayName = Messages.FieldNextWODate, Enabled = false)]
+        [PXFormula(typeof(Switch<
+            Case<Where<lastWODate2, IsNotNull, And<frequencyDays2, IsNotNull, And<Where<leadTimeDays2, IsNull, Or<leadTimeDays2, IsNotNull>>>>>,
+                Sub<Add<lastWODate2, frequencyDays2>, leadTimeDays2>>,
+                Current<AccessInfo.businessDate>
+            >))]
+        public virtual DateTime? NextWODate2 { get; set; }
+        public abstract class nextWODate2 : PX.Data.BQL.BqlDateTime.Field<nextWODate2> { }
+        #endregion
+
+        #region FrequencyUnitsInt2
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldFrequencyUnitsInt)]
+        public virtual int? FrequencyUnitsInt2 { get; set; }
+        public abstract class frequencyUnitsInt2 : PX.Data.BQL.BqlInt.Field<frequencyUnitsInt2> { }
+        #endregion
+
+        #region LeadUnitsInt2
+        [PXDBInt()]
+        [PXDefault(0)]
+        [PXUIField(DisplayName = Messages.FieldLeadUnitsInt)]
+        public virtual int? LeadUnitsInt2 { get; set; }
+        public abstract class leadUnitsInt2 : PX.Data.BQL.BqlInt.Field<leadUnitsInt2> { }
+        #endregion
+
+        #region LastValueInt2
+        [PXDBInt()]
+        [PXUIField(DisplayName = Messages.FieldLastValueInt)]
+        public virtual int? LastValueInt2 { get; set; }
+        public abstract class lastValueInt2 : PX.Data.BQL.BqlInt.Field<lastValueInt2> { }
+        #endregion
+
+        #region NextValueInt2
+        [PXDBInt()]
+        [PXUIField(DisplayName = Messages.FieldNextValueInt, Enabled = false)]
+        [PXFormula(typeof(Switch<
+            Case<Where<lastValueInt2, IsNotNull, And<frequencyUnitsInt2, IsNotNull, And<Where<leadUnitsInt2, IsNull, Or<leadUnitsInt2, IsNotNull>>>>>,
+                Sub<Add<lastValueInt2, frequencyUnitsInt2>, leadUnitsInt2>>,
+                lastValueInt2
+            >))]
+        public virtual int? NextValueInt2 { get; set; }
+        public abstract class nextValueInt2 : PX.Data.BQL.BqlInt.Field<nextValueInt2> { }
+        #endregion
+
+        #region Meter2ValueInt
+        [PXInt()]
+        [PXUIField(DisplayName = Messages.FieldValueInt, Enabled = false)]
+        [PXDBScalar(typeof(Search<WOMeter.valueInt, Where<WOMeter.meterID, Equal<meterID2>>>))]
+        public virtual int? Meter2ValueInt { get; set; }
+        public abstract class meter2ValueInt : PX.Data.BQL.BqlInt.Field<meter2ValueInt> { }
         #endregion
 
         #region CreatedByID
@@ -151,5 +299,28 @@ namespace CMMS
         public abstract class noteID : PX.Data.BQL.BqlGuid.Field<noteID> { }
         #endregion
     }
+
+    #region Meter Join
+    public static class MeterJoinOption
+    {
+        public class ListAttribute : PXStringListAttribute
+        {
+            public ListAttribute() : base(
+                new[]
+                {
+                    Pair(MeterAnd, Messages.MeterJoinAnd),
+                    Pair(MeterOr, Messages.MeterJoinOr),
+                })
+            { }
+        }
+
+        public const string MeterAnd = "A";
+        public const string MeterOr = "O";
+
+        public class meterAnd : PX.Data.BQL.BqlString.Constant<meterAnd> { public meterAnd() : base(MeterAnd) { } }
+        public class meterOr : PX.Data.BQL.BqlString.Constant<meterOr> { public meterOr() : base(MeterOr) { } }
+
+    }
+    #endregion
 
 }

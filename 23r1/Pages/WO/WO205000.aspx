@@ -14,7 +14,7 @@
             <px:PXLayoutRule runat="server" ColumnSpan="2" />
             <px:PXTextEdit runat="server" ID="txtDescr" DataField="Descr" />
             <px:PXLayoutRule LabelsWidth="S" ControlSize="SM" runat="server" StartColumn="True" />
-            <px:PXDropDown runat="server" ID="ddMeterType" DataField="MeterType" />
+            <px:PXDropDown runat="server" ID="ddMeterType" DataField="MeterType" CommitChanges="True" />
         </Template>
     </px:PXFormView>
 </asp:Content>
@@ -24,12 +24,7 @@
             <px:PXTabItem Text="General">
                 <Template>
                     <px:PXLayoutRule runat="server" StartRow="True" />
-                    <px:PXTextEdit runat="server" ID="txtFrequencyUnitsInt" DataField="FrequencyUnitsInt" CommitChanges="True" />
-                    <px:PXTextEdit runat="server" ID="txtLeadUnitsInt" DataField="LeadUnitsInt" CommitChanges="True" />
-                    <px:PXTextEdit runat="server" ID="txtLastValueInt" DataField="LastValueInt" CommitChanges="True" />
-                    <px:PXTextEdit runat="server" ID="txtNextValueInt" DataField="NextValueInt" />
-                    <px:PXDateTimeEdit runat="server" ID="dtLastValueDate" DataField="LastValueDate" CommitChanges="True" />
-                    <px:PXDateTimeEdit runat="server" ID="dtNextValueDate" DataField="NextValueDate" />
+                    <px:PXTextEdit runat="server" ID="txtValueInt" DataField="ValueInt" CommitChanges="True" />
                 </Template>
             </px:PXTabItem>
         </Items>
