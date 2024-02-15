@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\23r1\Bin\</OutputPath>
+    <OutputPath>..\C24r1\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,45 +31,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\5f0ae0fe\_shadow\fbe9fd1b\11816\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator">
+      <HintPath>..\C24r1\Bin\CommonServiceLocator.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Common.dll</HintPath>
+    <Reference Include="PX.Common">
+      <HintPath>..\C24r1\Bin\PX.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Common.Std, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Common.Std.dll</HintPath>
+    <Reference Include="PX.Common.Std">
+      <HintPath>..\C24r1\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Data.dll</HintPath>
+    <Reference Include="PX.Data">
+      <HintPath>..\C24r1\Bin\PX.Data.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Data.BQL.Fluent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+    <Reference Include="PX.Data.BQL.Fluent">
+      <HintPath>..\C24r1\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL" >
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.DbServices.dll</HintPath>
+    <Reference Include="PX.DbServices">
+      <HintPath>..\C24r1\Bin\PX.DbServices.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Objects.dll</HintPath>
+    <Reference Include="PX.Objects">
+      <HintPath>..\C24r1\Bin\PX.Objects.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Objects.AM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Objects.AM.dll</HintPath>
+    <Reference Include="PX.Objects.AM">
+      <HintPath>..\C24r1\Bin\PX.Objects.AM.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Objects.FS.dll</HintPath>
+    <Reference Include="PX.Objects.FS">
+      <HintPath>..\C24r1\Bin\PX.Objects.FS.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\23r1\Bin\PX.Web.Customization.dll</HintPath>
+    <Reference Include="PX.Web.Customization">
+      <HintPath>..\C24r1\Bin\PX.Web.Customization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -119,20 +109,11 @@
     <Compile Include="Utility\StringReference\Messages.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomizationPlugin\" />
-    <Folder Include="DAC\DBBacked\" />
-    <Folder Include="DAC\DerivedClasses\" />
     <Folder Include="DAC\Filters\" />
     <Folder Include="DAC\NonDBBacked\" />
     <Folder Include="DAC\PXProjections\" />
     <Folder Include="Extension\DAC\" />
-    <Folder Include="Extension\Graph\" />
-    <Folder Include="Graph\Entry\" />
     <Folder Include="Graph\Inquiry\" />
-    <Folder Include="Graph\Maintenance\" />
-    <Folder Include="Graph\Processing\" />
-    <Folder Include="Graph\Setup\" />
-    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

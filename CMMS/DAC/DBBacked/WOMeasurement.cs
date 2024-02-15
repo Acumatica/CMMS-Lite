@@ -6,7 +6,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOMeasurementMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOMeasurement)]
-    public class WOMeasurement : IBqlTable
+    public class WOMeasurement : PXBqlTable, IBqlTable
     {
         #region MeasurementID
         [PXDBIdentity]

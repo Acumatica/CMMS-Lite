@@ -8,7 +8,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOSetupMaint))]
     [PXCacheName(Messages.DACWOSetup)]
     [Serializable]
-    public class WOSetup : IBqlTable
+    public class WOSetup : PXBqlTable, IBqlTable
     {
         #region WONumberingID
         [PXDBString(10, IsUnicode = true, InputMask = "")]

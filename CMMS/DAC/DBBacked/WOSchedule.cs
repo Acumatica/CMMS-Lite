@@ -7,7 +7,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOSchedule)]
-    public class WOSchedule : IBqlTable
+    public class WOSchedule : PXBqlTable, IBqlTable
     {
         #region Selected
         /// <summary>

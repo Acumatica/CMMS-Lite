@@ -24,7 +24,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]
     [PXCacheName(Messages.DACWOOrder)]
-    public class WOOrder : IBqlTable, IAssign
+    public class WOOrder : PXBqlTable, IBqlTable, IAssign
     {
 
         #region Keys

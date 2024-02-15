@@ -8,7 +8,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOClassMaint))]
     [PXCacheName(Messages.DACWOClass)]
     [Serializable]
-    public class WOClass : IBqlTable
+    public class WOClass : PXBqlTable, IBqlTable
     {
         #region Keys
         public class PK : PrimaryKeyOf<WOClass>.By<wOClassID>

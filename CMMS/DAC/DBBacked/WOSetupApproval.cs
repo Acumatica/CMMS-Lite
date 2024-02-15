@@ -7,7 +7,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOSetupMaint))]
     [PXCacheName(Messages.DACWOSetupApproval)]
     [Serializable]
-    public class WOSetupApproval : IBqlTable, IAssignedMap
+    public class WOSetupApproval : PXBqlTable, IBqlTable, IAssignedMap
     {
         #region ApprovalID
         [PXDBIdentity(IsKey = true)]

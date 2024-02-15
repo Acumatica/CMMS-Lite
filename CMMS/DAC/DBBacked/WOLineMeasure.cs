@@ -6,7 +6,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]
     [PXCacheName(Messages.DACWOLineMeasurement)]
-    public class WOLineMeasure : IBqlTable
+    public class WOLineMeasure : PXBqlTable, IBqlTable
     {
         #region WorkOrderID
         [PXDBInt(IsKey = true)]

@@ -193,7 +193,7 @@ namespace CMMS
         #region WOScheduleDate
         [Serializable]
         [PXHidden]
-        public class WOScheduleDate : IBqlTable
+        public class WOScheduleDate : PXBqlTable, IBqlTable
         {
             #region ScheduleDate
             [PXDate]

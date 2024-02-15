@@ -6,7 +6,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOFailureModeMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOFailureMode)]
-    public class WOFailureMode : IBqlTable
+    public class WOFailureMode : PXBqlTable, IBqlTable
     {
         #region FailureModeID
         [PXDBIdentity]

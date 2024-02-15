@@ -12,7 +12,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOEquipment)]
-    public class WOEquipment : IBqlTable
+    public class WOEquipment : PXBqlTable, IBqlTable
     {
         #region Keys
         public class PK : PrimaryKeyOf<WOEquipment>.By<equipmentCD>

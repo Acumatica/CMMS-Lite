@@ -9,7 +9,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOEquipmentMaint))]
     [Serializable]
     [PXCacheName(Messages.DACWOEquipmentBOM)]
-    public class WOEquipmentBOM : IBqlTable
+    public class WOEquipmentBOM : PXBqlTable, IBqlTable
     {
         #region EquipmentID
         [PXDBInt(IsKey = true)]

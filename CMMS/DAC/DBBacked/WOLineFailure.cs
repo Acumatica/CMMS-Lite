@@ -6,7 +6,7 @@ namespace CMMS
     [PXPrimaryGraph(typeof(WOOrderEntry))]
     [Serializable]
     [PXCacheName(Messages.DACWOLineFailureMode)]
-    public class WOLineFailure : IBqlTable
+    public class WOLineFailure : PXBqlTable, IBqlTable
     {
         #region WorkOrderID
         [PXDBInt(IsKey = true)]
